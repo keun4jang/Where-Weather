@@ -16,6 +16,7 @@ import { requestCurrentPosition } from '../location/geolocation';
 import { reverseGeocode } from '../location/geocoding';
 import { getWeatherSnapshot } from '../weather/providers';
 import { AppError, toMessage } from '../lib/errors';
+import { pushWidgetData } from '../lib/widgetBridge';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
 
 const LOCATIONS_KEY = 'savedLocations';
@@ -68,6 +69,8 @@ function AppInner() {
     try {
       const result = await getWeatherSnapshot(location);
       setSnapshots((prev) => ({ ...prev, [key]: result }));
+      // Push to service worker for home screen widget
+      void pushWidgetData(result);
     } catch (err) {
       const msg = err instanceof AppError
         ? err.i18nKey

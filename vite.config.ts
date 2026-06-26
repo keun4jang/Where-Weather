@@ -7,8 +7,11 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'sw.ts',
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icons/icon-192.png', 'icons/icon-512.png'],
+      includeAssets: ['favicon.svg', 'icons/icon-192.png', 'icons/icon-512.png', 'widget-template.html'],
       manifest: {
         name: 'Where Weather',
         short_name: 'WhereWeather',
@@ -28,29 +31,33 @@ export default defineConfig({
             purpose: 'any maskable',
           },
         ],
-      },
-      workbox: {
-        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
-        runtimeCaching: [
+        shortcuts: [
           {
-            urlPattern: /^https:\/\/api\.open-meteo\.com\/.*/i,
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'open-meteo-forecast',
-              expiration: { maxEntries: 32, maxAgeSeconds: 60 * 10 },
-              cacheableResponse: { statuses: [0, 200] },
-            },
-          },
-          {
-            urlPattern: /^https:\/\/air-quality-api\.open-meteo\.com\/.*/i,
-            handler: 'NetworkFirst',
-            options: {
-              cacheName: 'open-meteo-air-quality',
-              expiration: { maxEntries: 32, maxAgeSeconds: 60 * 30 },
-              cacheableResponse: { statuses: [0, 200] },
-            },
+            name: '내 위치 날씨',
+            short_name: '내 위치',
+            description: '현재 위치의 날씨를 확인합니다',
+            url: '/?action=my-location',
+            icons: [{ src: '/icons/icon-192.png', sizes: '192x192' }],
           },
         ],
+        widgets: [
+          {
+            name: 'Where Weather',
+            short_name: '날씨',
+            description: '현재 날씨 한눈에 보기',
+            tag: 'weather-current',
+            template: '/widget-template.html',
+            data: '/widget-data.json',
+            type: 'application/json',
+            screenshots: [],
+            icons: [{ src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' }],
+            auth: false,
+            update: 3600,
+          },
+        ],
+      },
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webmanifest}'],
       },
     }),
   ],

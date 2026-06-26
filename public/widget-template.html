@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .widget {
+      padding: 16px;
+      width: 100%;
+      max-width: 320px;
+    }
+    .location {
+      font-size: 13px;
+      opacity: 0.8;
+      margin-bottom: 4px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .temp-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .temp {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .condition {
+      font-size: 15px;
+      opacity: 0.9;
+    }
+    .feels {
+      font-size: 12px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+    }
+    .verdicts {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .nodata {
+      text-align: center;
+      opacity: 0.7;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+<div class="widget" id="root">
+  <div class="nodata">날씨 데이터를 불러오는 중…</div>
+</div>
+<script>
+  (async () => {
+    const res = await fetch('/widget-data.json').catch(() => null);
+    if (!res || !res.ok) return;
+    const d = await res.json();
+    if (d.noData) return;
+
+    const root = document.getElementById('root');
+    const temp = typeof d.tempC === 'number' ? Math.round(d.tempC) : '--';
+    const feels = typeof d.feelsC === 'number' ? Math.round(d.feelsC) : null;
+    const umbrella = d.umbrella || '';
+    const clothing = d.clothing || '';
+    const condition = d.condition || '';
+    const location = d.location || '';
+
+    root.innerHTML = `
+      <div class="location">${location}</div>
+      <div class="temp-row">
+        <span class="temp">${temp}°</span>
+        <span class="condition">${condition}</span>
+      </div>
+      ${feels !== null ? `<div class="feels">체감 ${feels}°</div>` : ''}
+      <div class="verdicts">
+        ${umbrella ? `<span class="badge">${umbrella}</span>` : ''}
+        ${clothing ? `<span class="badge">${clothing}</span>` : ''}
+      </div>
+    `;
+  })();
+</script>
+</body>
+</html>

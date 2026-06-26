@@ -1,6 +1,6 @@
 {
   "name": "where-weather",
-  "version": "0.1.10",
+  "version": "0.1.11",
   "private": true,
   "type": "module",
   "description": "Free multilingual PWA that fuses multiple free weather sources into a single honest verdict for where you are.",
@@ -47,6 +47,11 @@
     "vite": "^5.3.1",
     "vite-plugin-pwa": "^0.20.0",
     "vitest": "^1.6.0",
+    "workbox-cacheable-response": "^7.4.1",
+    "workbox-expiration": "^7.4.1",
+    "workbox-precaching": "^7.4.1",
+    "workbox-routing": "^7.4.1",
+    "workbox-strategies": "^7.4.1",
     "workbox-window": "^7.1.0"
   }
 }
