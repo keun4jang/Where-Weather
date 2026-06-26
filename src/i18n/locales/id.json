@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "Badai petir dengan hujan es",
     "thunderstormHailHeavy": "Badai petir hebat dengan hujan es",
     "unknown": "Tidak diketahui"
+  },
+  "notifications": {
+    "title": "Peringatan cuaca",
+    "body": "...",
+    "enable": "Aktifkan peringatan",
+    "disable": "Nonaktifkan peringatan",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "Untuk menerima notifikasi di iPhone, tambahkan aplikasi ke layar utama terlebih dahulu.",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

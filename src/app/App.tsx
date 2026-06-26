@@ -17,6 +17,8 @@ import { reverseGeocode } from '../location/geocoding';
 import { getWeatherSnapshot } from '../weather/providers';
 import { AppError, toMessage } from '../lib/errors';
 import { pushWidgetData } from '../lib/widgetBridge';
+import { triggerWeatherAlerts } from '../lib/notifications';
+import NotificationBanner from '../components/NotificationBanner';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
 
 const LOCATIONS_KEY = 'savedLocations';
@@ -71,6 +73,9 @@ function AppInner() {
       setSnapshots((prev) => ({ ...prev, [key]: result }));
       // Push to service worker for home screen widget
       void pushWidgetData(result);
+      // Trigger weather alerts if permission granted
+      const locName = [location.name, location.country].filter(Boolean).join(', ') || '';
+      triggerWeatherAlerts(result, locName, t);
     } catch (err) {
       const msg = err instanceof AppError
         ? err.i18nKey
@@ -82,7 +87,7 @@ function AppInner() {
     } finally {
       setLoadingKey(null);
     }
-  }, []);
+  }, [t]);
 
   const addLocation = useCallback((location: NamedLocation) => {
     const key = locationKey(location);
@@ -166,6 +171,8 @@ function AppInner() {
     <div className="min-h-screen">
       <Header />
       <main className="mx-auto max-w-2xl space-y-4 px-4 py-5">
+        <NotificationBanner />
+
         {locations.length === 0 ? (
           <>
             <LocationPermissionCard

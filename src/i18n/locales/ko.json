@@ -162,6 +162,20 @@
     "mph": "mph",
     "theme": "테마"
   },
+  "notifications": {
+    "title": "날씨 알림",
+    "body": "비 예보, 강한 자외선, 대기질 악화 시 알림을 받아보세요.",
+    "enable": "알림 켜기",
+    "disable": "알림 끄기",
+    "enabled": "알림 켜짐",
+    "denied": "알림이 차단됐어요 — 브라우저 설정에서 허용해 주세요.",
+    "unsupported": "이 브라우저는 알림을 지원하지 않아요.",
+    "iosHint": "아이폰에서 알림을 받으려면 먼저 홈 화면에 앱을 추가해 주세요.",
+    "testBtn": "테스트 알림 보내기",
+    "rainAlert": "☂️ {{location}} 에 곧 비가 올 것 같아요",
+    "uvAlert": "🕶️ {{location}} 자외선 강함 — 자외선 차단제를 바르세요.",
+    "morningBrief": "좋은 아침! {{location}} 현재 {{temp}}°, {{condition}}."
+  },
   "footer": {
     "version": "버전 {{version}}",
     "openSource": "무료 오픈소스.",

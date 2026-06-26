@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "ओले के साथ तूफान",
     "thunderstormHailHeavy": "भारी ओले के साथ तूफान",
     "unknown": "अज्ञात"
+  },
+  "notifications": {
+    "title": "मौसम अलर्ट",
+    "body": "...",
+    "enable": "अलर्ट चालू करें",
+    "disable": "अलर्ट बंद करें",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "iPhone पर अलर्ट पाने के लिए पहले ऐप को होम स्क्रीन पर जोड़ें।",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

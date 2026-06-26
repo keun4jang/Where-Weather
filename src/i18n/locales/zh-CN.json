@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "伴有冰雹的雷暴",
     "thunderstormHailHeavy": "伴有强冰雹的雷暴",
     "unknown": "未知"
+  },
+  "notifications": {
+    "title": "天气提醒",
+    "body": "...",
+    "enable": "开启提醒",
+    "disable": "关闭提醒",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "要在iPhone上收到提醒，请先将此应用添加到主屏幕。",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

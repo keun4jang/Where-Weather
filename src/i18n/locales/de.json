@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "Gewitter mit Hagel",
     "thunderstormHailHeavy": "Schweres Gewitter mit Hagel",
     "unknown": "Unbekannt"
+  },
+  "notifications": {
+    "title": "Wetterwarnungen",
+    "body": "...",
+    "enable": "Benachrichtigungen aktivieren",
+    "disable": "Benachrichtigungen deaktivieren",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "Um Benachrichtigungen auf dem iPhone zu erhalten, füge die App zuerst zum Startbildschirm hinzu.",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

@@ -115,6 +115,33 @@ self.addEventListener('periodicsync', (event) => {
   }
 });
 
+// Push notification handler (for future server-side push)
+self.addEventListener('push', (event) => {
+  const data = event.data?.json() as { title?: string; body?: string; tag?: string } | undefined;
+  if (!data?.title) return;
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body: data.body ?? '',
+      icon: '/icons/icon-192.png',
+      badge: '/icons/icon-192.png',
+      tag: data.tag ?? 'weather',
+    }),
+  );
+});
+
+// Open app when notification is tapped
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  event.waitUntil(
+    self.clients.matchAll({ type: 'window', includeUncontrolled: true }).then((clients) => {
+      for (const client of clients) {
+        if ('focus' in client) return (client as WindowClient).focus();
+      }
+      return self.clients.openWindow('/');
+    }),
+  );
+});
+
 // Message from app: update widget data then re-render
 self.addEventListener('message', (event) => {
   const ev = event as unknown as { data: { type: string; payload: string } };

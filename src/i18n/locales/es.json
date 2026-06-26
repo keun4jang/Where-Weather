@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "Tormenta con granizo",
     "thunderstormHailHeavy": "Tormenta severa con granizo",
     "unknown": "Desconocido"
+  },
+  "notifications": {
+    "title": "Alertas meteorológicas",
+    "body": "...",
+    "enable": "Activar alertas",
+    "disable": "Desactivar alertas",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "Para recibir alertas en iPhone, añade primero esta app a la pantalla de inicio.",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

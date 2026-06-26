@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "雹を伴う雷雨",
     "thunderstormHailHeavy": "激しい雹を伴う雷雨",
     "unknown": "不明"
+  },
+  "notifications": {
+    "title": "天気アラート",
+    "body": "...",
+    "enable": "アラートをオン",
+    "disable": "アラートをオフ",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "iPhoneで通知を受け取るには、まずホーム画面にアプリを追加してください。",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

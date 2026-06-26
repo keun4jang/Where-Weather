@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "Giông có mưa đá",
     "thunderstormHailHeavy": "Giông bão mạnh có mưa đá",
     "unknown": "Không rõ"
+  },
+  "notifications": {
+    "title": "Cảnh báo thời tiết",
+    "body": "...",
+    "enable": "Bật cảnh báo",
+    "disable": "Tắt cảnh báo",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "Để nhận thông báo trên iPhone, trước tiên hãy thêm ứng dụng vào màn hình chính.",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }

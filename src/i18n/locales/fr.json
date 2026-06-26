@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "Orage avec grêle",
     "thunderstormHailHeavy": "Orage violent avec grêle",
     "unknown": "Inconnu"
+  },
+  "notifications": {
+    "title": "Alertes météo",
+    "body": "Recevez une alerte en cas de pluie, UV élevé ou mauvaise qualité de l'air.",
+    "enable": "Activer les alertes",
+    "disable": "Désactiver les alertes",
+    "enabled": "Alertes activées",
+    "denied": "Notifications bloquées — activez-les dans les paramètres du navigateur.",
+    "unsupported": "Notifications non supportées sur ce navigateur.",
+    "iosHint": "Pour recevoir des alertes sur iPhone, ajoutez cette app à votre écran d'accueil.",
+    "testBtn": "Envoyer une alerte test",
+    "rainAlert": "☂️ Pluie prévue bientôt à {{location}}",
+    "uvAlert": "🕶️ UV élevé à {{location}} — mettez de la crème solaire.",
+    "morningBrief": "Bonjour ! {{temp}}° et {{condition}} à {{location}}."
   }
 }

@@ -162,6 +162,20 @@
     "mph": "mph",
     "theme": "Theme"
   },
+  "notifications": {
+    "title": "Weather alerts",
+    "body": "Get notified when rain is coming, UV is high, or air quality drops.",
+    "enable": "Enable alerts",
+    "disable": "Disable alerts",
+    "enabled": "Alerts on",
+    "denied": "Notifications blocked — enable them in browser settings.",
+    "unsupported": "Notifications not supported on this browser.",
+    "iosHint": "To receive alerts on iPhone, first add this app to your Home Screen.",
+    "testBtn": "Send test alert",
+    "rainAlert": "☂️ Rain expected soon at {{location}}",
+    "uvAlert": "🕶️ High UV index at {{location}} — wear sunscreen.",
+    "morningBrief": "Good morning! {{temp}}° and {{condition}} at {{location}}."
+  },
   "footer": {
     "version": "Version {{version}}",
     "openSource": "Free and open.",

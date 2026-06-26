@@ -206,5 +206,19 @@
     "thunderstormHailSlight": "عاصفة رعدية مع برد",
     "thunderstormHailHeavy": "عاصفة رعدية شديدة مع برد",
     "unknown": "غير معروف"
+  },
+  "notifications": {
+    "title": "تنبيهات الطقس",
+    "body": "...",
+    "enable": "تفعيل التنبيهات",
+    "disable": "إيقاف التنبيهات",
+    "enabled": "...",
+    "denied": "...",
+    "unsupported": "...",
+    "iosHint": "لتلقي التنبيهات على iPhone، أضف التطبيق إلى الشاشة الرئيسية أولاً.",
+    "testBtn": "...",
+    "rainAlert": "☂️ {{location}}",
+    "uvAlert": "🕶️ {{location}}",
+    "morningBrief": "{{temp}}° {{condition}} {{location}}"
   }
 }
