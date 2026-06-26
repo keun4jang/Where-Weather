@@ -2,9 +2,9 @@
 # Where Weather pre-commit hook: keep generated version in sync and run fast checks.
 set -e
 
-echo "[pre-commit] syncing version…"
-node scripts/sync-version.mjs >/dev/null
-git add src/generated/appVersion.ts public/version.json 2>/dev/null || true
+echo "[pre-commit] bumping patch version…"
+node scripts/bump-version.mjs patch >/dev/null
+git add package.json src/generated/appVersion.ts public/version.json 2>/dev/null || true
 
 echo "[pre-commit] typecheck…"
 npm run --silent typecheck
