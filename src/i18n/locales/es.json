@@ -82,7 +82,8 @@
       },
       "bad": {
         "title": "El trayecto puede ser difícil"
-      }
+      },
+      "detail": "Comprueba el tráfico y el tiempo antes de salir."
     },
     "air": {
       "good": {

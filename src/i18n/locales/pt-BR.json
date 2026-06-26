@@ -82,7 +82,8 @@
       },
       "bad": {
         "title": "Viagem difícil pela frente"
-      }
+      },
+      "detail": "Verifique o trânsito e o tempo antes de sair."
     },
     "air": {
       "good": {

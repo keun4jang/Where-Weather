@@ -18,39 +18,83 @@
   },
   "verdict": {
     "umbrella": {
-      "no": { "title": "Leave the umbrella", "detail": "No rain expected ({{probability}}% chance)." },
-      "maybe": { "title": "Maybe bring an umbrella", "detail": "{{probability}}% chance of rain." },
-      "yes": { "title": "Take an umbrella", "detail": "Rain likely ({{probability}}% chance)." }
+      "no": {
+        "title": "Leave the umbrella",
+        "detail": "No rain expected ({{probability}}% chance)."
+      },
+      "maybe": {
+        "title": "Maybe bring an umbrella",
+        "detail": "{{probability}}% chance of rain."
+      },
+      "yes": {
+        "title": "Take an umbrella",
+        "detail": "Rain likely ({{probability}}% chance)."
+      }
     },
     "clothing": {
-      "freezing": { "title": "Bundle up — it's freezing" },
-      "cold": { "title": "Wear a warm coat" },
-      "mild": { "title": "A light jacket will do" },
-      "warm": { "title": "T-shirt weather" },
-      "hot": { "title": "Dress light — it's hot" },
+      "freezing": {
+        "title": "Bundle up — it's freezing"
+      },
+      "cold": {
+        "title": "Wear a warm coat"
+      },
+      "mild": {
+        "title": "A light jacket will do"
+      },
+      "warm": {
+        "title": "T-shirt weather"
+      },
+      "hot": {
+        "title": "Dress light — it's hot"
+      },
       "detail": "Feels like {{temperature}}°."
     },
     "laundry": {
-      "good": { "title": "Great drying day" },
-      "fair": { "title": "Drying may be slow" },
-      "bad": { "title": "Keep laundry indoors" },
+      "good": {
+        "title": "Great drying day"
+      },
+      "fair": {
+        "title": "Drying may be slow"
+      },
+      "bad": {
+        "title": "Keep laundry indoors"
+      },
       "detail": "Humidity around {{humidity}}%."
     },
     "running": {
-      "good": { "title": "Good run conditions" },
-      "fair": { "title": "Runnable, with care" },
-      "bad": { "title": "Maybe skip the run" },
+      "good": {
+        "title": "Good run conditions"
+      },
+      "fair": {
+        "title": "Runnable, with care"
+      },
+      "bad": {
+        "title": "Maybe skip the run"
+      },
       "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
     },
     "commute": {
-      "good": { "title": "Smooth commute" },
-      "fair": { "title": "Allow extra time" },
-      "bad": { "title": "Rough travel ahead" }
+      "good": {
+        "title": "Smooth commute"
+      },
+      "fair": {
+        "title": "Allow extra time"
+      },
+      "bad": {
+        "title": "Rough travel ahead"
+      },
+      "detail": "Check traffic and weather conditions before heading out."
     },
     "air": {
-      "good": { "title": "Clean air" },
-      "fair": { "title": "Moderate air quality" },
-      "bad": { "title": "Poor air quality" },
+      "good": {
+        "title": "Clean air"
+      },
+      "fair": {
+        "title": "Moderate air quality"
+      },
+      "bad": {
+        "title": "Poor air quality"
+      },
       "detail": "AQI {{aqi}}."
     }
   },

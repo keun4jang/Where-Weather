@@ -82,7 +82,8 @@
       },
       "bad": {
         "title": "Perjalanan mungkin terganggu"
-      }
+      },
+      "detail": "Periksa kondisi lalu lintas dan cuaca sebelum berangkat."
     },
     "air": {
       "good": {

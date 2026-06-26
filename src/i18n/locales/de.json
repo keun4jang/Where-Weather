@@ -82,7 +82,8 @@
       },
       "bad": {
         "title": "Schwierige Fahrbedingungen"
-      }
+      },
+      "detail": "Prüfen Sie vor der Abfahrt Verkehr und Wetter."
     },
     "air": {
       "good": {

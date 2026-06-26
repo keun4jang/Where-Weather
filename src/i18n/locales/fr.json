@@ -82,7 +82,8 @@
       },
       "bad": {
         "title": "Trajet difficile en vue"
-      }
+      },
+      "detail": "Vérifiez la circulation et la météo avant de partir."
     },
     "air": {
       "good": {

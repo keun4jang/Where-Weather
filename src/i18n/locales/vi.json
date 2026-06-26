@@ -82,7 +82,8 @@
       },
       "bad": {
         "title": "Di chuyển có thể khó khăn"
-      }
+      },
+      "detail": "Kiểm tra giao thông và thời tiết trước khi xuất phát."
     },
     "air": {
       "good": {
