@@ -12,6 +12,10 @@
     "useMyLocation": "現在地を使う",
     "locating": "位置情報を取得中…",
     "searchPlaceholder": "都市を検索…",
+    "addPlaceholder": "都市を追加…",
+    "addLocation": "場所を追加",
+    "removeLocation": "削除",
+    "myLocations": "...",
     "current": "現在地",
     "unknownPlace": "選択した場所",
     "coordinates": "{{lat}}, {{lon}}"

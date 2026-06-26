@@ -12,6 +12,10 @@
     "useMyLocation": "使用我的位置",
     "locating": "正在定位…",
     "searchPlaceholder": "搜索城市…",
+    "addPlaceholder": "添加城市…",
+    "addLocation": "添加位置",
+    "removeLocation": "删除",
+    "myLocations": "...",
     "current": "当前位置",
     "unknownPlace": "已选位置",
     "coordinates": "{{lat}}, {{lon}}"

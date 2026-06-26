@@ -12,9 +12,13 @@
     "useMyLocation": "Use my location",
     "locating": "Finding you…",
     "searchPlaceholder": "Search a city…",
+    "addPlaceholder": "Add a city…",
     "current": "Your location",
     "unknownPlace": "Selected location",
-    "coordinates": "{{lat}}, {{lon}}"
+    "coordinates": "{{lat}}, {{lon}}",
+    "addLocation": "Add location",
+    "removeLocation": "Remove",
+    "myLocations": "My locations"
   },
   "verdict": {
     "umbrella": {

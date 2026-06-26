@@ -12,6 +12,10 @@
     "useMyLocation": "Dùng vị trí của tôi",
     "locating": "Đang xác định vị trí…",
     "searchPlaceholder": "Tìm kiếm thành phố…",
+    "addPlaceholder": "Thêm thành phố…",
+    "addLocation": "Thêm vị trí",
+    "removeLocation": "Xóa",
+    "myLocations": "...",
     "current": "Vị trí của bạn",
     "unknownPlace": "Vị trí đã chọn",
     "coordinates": "{{lat}}, {{lon}}"

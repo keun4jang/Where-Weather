@@ -12,6 +12,10 @@
     "useMyLocation": "Gunakan lokasi saya",
     "locating": "Mencari lokasi…",
     "searchPlaceholder": "Cari kota…",
+    "addPlaceholder": "Tambah kota…",
+    "addLocation": "Tambah lokasi",
+    "removeLocation": "Hapus",
+    "myLocations": "...",
     "current": "Lokasi Anda",
     "unknownPlace": "Lokasi dipilih",
     "coordinates": "{{lat}}, {{lon}}"

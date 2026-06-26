@@ -12,6 +12,10 @@
     "useMyLocation": "मेरा स्थान उपयोग करें",
     "locating": "स्थान ढूँढ रहे हैं…",
     "searchPlaceholder": "शहर खोजें…",
+    "addPlaceholder": "शहर जोड़ें…",
+    "addLocation": "स्थान जोड़ें",
+    "removeLocation": "हटाएं",
+    "myLocations": "...",
     "current": "आपका स्थान",
     "unknownPlace": "चुना हुआ स्थान",
     "coordinates": "{{lat}}, {{lon}}"

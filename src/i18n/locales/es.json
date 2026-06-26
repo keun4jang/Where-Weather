@@ -12,6 +12,10 @@
     "useMyLocation": "Usar mi ubicación",
     "locating": "Localizando…",
     "searchPlaceholder": "Buscar ciudad…",
+    "addPlaceholder": "Añadir ciudad…",
+    "addLocation": "Añadir ubicación",
+    "removeLocation": "Eliminar",
+    "myLocations": "...",
     "current": "Tu ubicación",
     "unknownPlace": "Ubicación seleccionada",
     "coordinates": "{{lat}}, {{lon}}"

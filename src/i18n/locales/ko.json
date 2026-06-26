@@ -12,9 +12,13 @@
     "useMyLocation": "내 위치 사용",
     "locating": "위치 찾는 중…",
     "searchPlaceholder": "도시 검색…",
+    "addPlaceholder": "도시 추가…",
     "current": "내 위치",
     "unknownPlace": "선택한 위치",
-    "coordinates": "{{lat}}, {{lon}}"
+    "coordinates": "{{lat}}, {{lon}}",
+    "addLocation": "위치 추가",
+    "removeLocation": "삭제",
+    "myLocations": "내 위치 목록"
   },
   "verdict": {
     "umbrella": {

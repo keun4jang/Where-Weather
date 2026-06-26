@@ -12,6 +12,10 @@
     "useMyLocation": "استخدام موقعي",
     "locating": "جارٍ تحديد الموقع…",
     "searchPlaceholder": "ابحث عن مدينة…",
+    "addPlaceholder": "أضف مدينة…",
+    "addLocation": "إضافة موقع",
+    "removeLocation": "حذف",
+    "myLocations": "...",
     "current": "موقعك",
     "unknownPlace": "الموقع المحدد",
     "coordinates": "{{lat}}، {{lon}}"
