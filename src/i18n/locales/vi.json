@@ -1,121 +1,78 @@
 {
   "app": {
     "title": "Where Weather",
-    "tagline": "Nhận định thời tiết trung thực cho nơi bạn đang ở.",
+    "tagline": "Thời tiết thực tế nơi bạn đang ở.",
     "loading": "Đang đọc bầu trời…",
     "refresh": "Làm mới",
     "retry": "Thử lại"
   },
   "location": {
     "permissionTitle": "Bạn đang ở đâu?",
-    "permissionBody": "Chia sẻ vị trí một lần. Chỉ dùng để lấy thời tiết, không lưu hay gửi đi đâu.",
+    "permissionBody": "Hãy chia sẻ vị trí một lần. Chỉ dùng để lấy thời tiết, không lưu trữ hay truyền đi.",
     "useMyLocation": "Dùng vị trí của tôi",
-    "locating": "Đang định vị…",
-    "searchPlaceholder": "Tìm thành phố…",
+    "locating": "Đang xác định vị trí…",
+    "searchPlaceholder": "Tìm kiếm thành phố…",
     "current": "Vị trí của bạn",
-    "unknownPlace": "Selected location",
+    "unknownPlace": "Vị trí đã chọn",
     "coordinates": "{{lat}}, {{lon}}"
   },
   "verdict": {
     "umbrella": {
-      "no": {
-        "title": "Leave the umbrella",
-        "detail": "No rain expected ({{probability}}% chance)."
-      },
-      "maybe": {
-        "title": "Maybe bring an umbrella",
-        "detail": "{{probability}}% chance of rain."
-      },
-      "yes": {
-        "title": "Take an umbrella",
-        "detail": "Rain likely ({{probability}}% chance)."
-      }
+      "no": { "title": "Không cần ô", "detail": "Ít khả năng mưa ({{probability}}%)." },
+      "maybe": { "title": "Có thể mang ô", "detail": "Xác suất mưa {{probability}}%." },
+      "yes": { "title": "Nhớ mang ô", "detail": "Có khả năng mưa cao ({{probability}}%)." }
     },
     "clothing": {
-      "freezing": {
-        "title": "Bundle up — it's freezing"
-      },
-      "cold": {
-        "title": "Wear a warm coat"
-      },
-      "mild": {
-        "title": "A light jacket will do"
-      },
-      "warm": {
-        "title": "T-shirt weather"
-      },
-      "hot": {
-        "title": "Dress light — it's hot"
-      },
-      "detail": "Feels like {{temperature}}°."
+      "freezing": { "title": "Mặc thật ấm — rất lạnh" },
+      "cold": { "title": "Mặc áo khoác dày" },
+      "mild": { "title": "Áo khoác mỏng là đủ" },
+      "warm": { "title": "Thời tiết mặc áo phông" },
+      "hot": { "title": "Mặc nhẹ — trời nóng" },
+      "detail": "Cảm giác như {{temperature}}°."
     },
     "laundry": {
-      "good": {
-        "title": "Great drying day"
-      },
-      "fair": {
-        "title": "Drying may be slow"
-      },
-      "bad": {
-        "title": "Keep laundry indoors"
-      },
-      "detail": "Humidity around {{humidity}}%."
+      "good": { "title": "Ngày tốt để phơi đồ" },
+      "fair": { "title": "Đồ có thể khô chậm" },
+      "bad": { "title": "Phơi đồ trong nhà" },
+      "detail": "Độ ẩm khoảng {{humidity}}%."
     },
     "running": {
-      "good": {
-        "title": "Good run conditions"
-      },
-      "fair": {
-        "title": "Runnable, with care"
-      },
-      "bad": {
-        "title": "Maybe skip the run"
-      },
-      "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
+      "good": { "title": "Điều kiện chạy bộ tốt" },
+      "fair": { "title": "Có thể chạy nhưng cẩn thận" },
+      "bad": { "title": "Hôm nay không nên chạy bộ" },
+      "detail": "Cảm giác {{temperature}}°, gió {{wind}} m/s."
     },
     "commute": {
-      "good": {
-        "title": "Smooth commute"
-      },
-      "fair": {
-        "title": "Allow extra time"
-      },
-      "bad": {
-        "title": "Rough travel ahead"
-      }
+      "good": { "title": "Di chuyển thuận tiện" },
+      "fair": { "title": "Xuất phát sớm hơn" },
+      "bad": { "title": "Di chuyển có thể khó khăn" }
     },
     "air": {
-      "good": {
-        "title": "Clean air"
-      },
-      "fair": {
-        "title": "Moderate air quality"
-      },
-      "bad": {
-        "title": "Poor air quality"
-      },
+      "good": { "title": "Không khí trong lành" },
+      "fair": { "title": "Chất lượng không khí trung bình" },
+      "bad": { "title": "Chất lượng không khí kém" },
       "detail": "AQI {{aqi}}."
     }
   },
   "verdictMain": {
-    "title": "Ngay bây giờ",
-    "feelsLike": "Feels like {{value}}",
-    "humidity": "Humidity",
-    "wind": "Wind",
-    "uv": "UV index",
-    "precipChance": "Rain chance"
+    "title": "Hiện tại",
+    "feelsLike": "Cảm giác {{value}}",
+    "humidity": "Độ ẩm",
+    "wind": "Gió",
+    "uv": "Chỉ số UV",
+    "precipChance": "Khả năng mưa"
   },
   "timeline": {
-    "title": "Những giờ tới",
+    "title": "Vài giờ tới",
     "now": "Bây giờ",
-    "rain": "Rain"
+    "rain": "Mưa"
   },
   "jury": {
     "title": "Hội đồng nguồn",
-    "subtitle": "What each weather source says",
-    "agree": "Sources agree",
-    "value": "Value",
-    "noData": "No data"
+    "subtitle": "Dữ liệu từ từng nguồn thời tiết",
+    "agree": "Các nguồn đồng ý",
+    "value": "Giá trị",
+    "noData": "Không có dữ liệu"
   },
   "confidence": {
     "label": "Độ tin cậy",
@@ -124,8 +81,8 @@
     "low": "Thấp"
   },
   "verification": {
-    "verified": "Đã đối chiếu qua {{count}} nguồn.",
-    "disputed": "Các nguồn không khớp — hãy thận trọng.",
+    "verified": "Đã kiểm tra chéo từ {{count}} nguồn.",
+    "disputed": "Các nguồn không đồng ý — hãy thận trọng.",
     "singleSource": "Dựa trên một nguồn duy nhất."
   },
   "air": {
@@ -133,73 +90,73 @@
     "pm25": "PM2.5",
     "pm10": "PM10",
     "ozone": "Ozone",
-    "aqi": "Air Quality Index",
-    "unavailable": "Air quality data unavailable."
+    "aqi": "Chỉ số chất lượng không khí",
+    "unavailable": "Không có dữ liệu chất lượng không khí."
   },
   "lifeActions": {
     "title": "Lên kế hoạch cho ngày của bạn"
   },
   "about": {
-    "title": "Giới thiệu Where Weather",
-    "body": "Where Weather fuses multiple free weather sources into one honest verdict, and tells you when sources disagree. No accounts, no ads, no tracking.",
-    "dataSources": "Data: Open-Meteo and MET Norway.",
-    "privacy": "Your location never leaves your device except to fetch weather."
+    "title": "Về Where Weather",
+    "body": "Where Weather tổng hợp nhiều nguồn thời tiết miễn phí thành một nhận định trung thực và thông báo khi các nguồn không đồng ý. Không tài khoản, không quảng cáo, không theo dõi.",
+    "dataSources": "Dữ liệu: Open-Meteo và MET Norway.",
+    "privacy": "Vị trí của bạn không rời khỏi thiết bị trừ khi lấy dữ liệu thời tiết."
   },
   "settings": {
     "language": "Ngôn ngữ",
     "units": "Đơn vị",
-    "temperature": "Temperature",
-    "wind": "Wind speed",
+    "temperature": "Nhiệt độ",
+    "wind": "Tốc độ gió",
     "celsius": "Celsius",
     "fahrenheit": "Fahrenheit",
     "ms": "m/s",
     "kmh": "km/h",
     "mph": "mph",
-    "theme": "Theme"
+    "theme": "Giao diện"
   },
   "footer": {
     "version": "Phiên bản {{version}}",
-    "openSource": "Free and open.",
-    "madeWith": "Built with open weather data."
+    "openSource": "Miễn phí và mở.",
+    "madeWith": "Xây dựng với dữ liệu thời tiết mở."
   },
   "errors": {
-    "geolocationUnsupported": "Your browser does not support location.",
-    "geolocationDenied": "Location permission was denied.",
-    "geolocationUnavailable": "Could not determine your location.",
-    "geolocationTimeout": "Location request timed out.",
-    "providerFailed": "A weather source could not be reached.",
-    "allProvidersFailed": "Could not reach any weather source. Check your connection.",
-    "generic": "Something went wrong."
+    "geolocationUnsupported": "Trình duyệt của bạn không hỗ trợ định vị.",
+    "geolocationDenied": "Quyền truy cập vị trí bị từ chối.",
+    "geolocationUnavailable": "Không thể xác định vị trí của bạn.",
+    "geolocationTimeout": "Yêu cầu vị trí đã hết thời gian.",
+    "providerFailed": "Không thể kết nối nguồn thời tiết.",
+    "allProvidersFailed": "Không thể kết nối nguồn thời tiết nào. Kiểm tra kết nối mạng.",
+    "generic": "Đã xảy ra lỗi."
   },
   "wmo": {
-    "clear": "Clear sky",
-    "mainlyClear": "Mainly clear",
-    "partlyCloudy": "Partly cloudy",
-    "overcast": "Overcast",
-    "fog": "Fog",
-    "rimeFog": "Rime fog",
-    "drizzleLight": "Light drizzle",
-    "drizzleModerate": "Drizzle",
-    "drizzleDense": "Dense drizzle",
-    "freezingDrizzleLight": "Light freezing drizzle",
-    "freezingDrizzleDense": "Freezing drizzle",
-    "rainSlight": "Light rain",
-    "rainModerate": "Rain",
-    "rainHeavy": "Heavy rain",
-    "freezingRainLight": "Light freezing rain",
-    "freezingRainHeavy": "Freezing rain",
-    "snowSlight": "Light snow",
-    "snowModerate": "Snow",
-    "snowHeavy": "Heavy snow",
-    "snowGrains": "Snow grains",
-    "rainShowersSlight": "Light showers",
-    "rainShowersModerate": "Showers",
-    "rainShowersViolent": "Violent showers",
-    "snowShowersSlight": "Light snow showers",
-    "snowShowersHeavy": "Heavy snow showers",
-    "thunderstorm": "Thunderstorm",
-    "thunderstormHailSlight": "Thunderstorm with hail",
-    "thunderstormHailHeavy": "Severe thunderstorm",
-    "unknown": "Unknown"
+    "clear": "Trời quang",
+    "mainlyClear": "Chủ yếu quang",
+    "partlyCloudy": "Có mây một phần",
+    "overcast": "Nhiều mây",
+    "fog": "Sương mù",
+    "rimeFog": "Sương mù đóng băng",
+    "drizzleLight": "Mưa phùn nhẹ",
+    "drizzleModerate": "Mưa phùn",
+    "drizzleDense": "Mưa phùn dày",
+    "freezingDrizzleLight": "Mưa phùn đóng băng nhẹ",
+    "freezingDrizzleDense": "Mưa phùn đóng băng",
+    "rainSlight": "Mưa nhỏ",
+    "rainModerate": "Mưa",
+    "rainHeavy": "Mưa to",
+    "freezingRainLight": "Mưa đóng băng nhẹ",
+    "freezingRainHeavy": "Mưa đóng băng",
+    "snowSlight": "Tuyết nhẹ",
+    "snowModerate": "Tuyết",
+    "snowHeavy": "Tuyết nặng",
+    "snowGrains": "Hạt tuyết",
+    "rainShowersSlight": "Mưa rào nhẹ",
+    "rainShowersModerate": "Mưa rào",
+    "rainShowersViolent": "Mưa rào mạnh",
+    "snowShowersSlight": "Mưa tuyết nhẹ",
+    "snowShowersHeavy": "Mưa tuyết nặng",
+    "thunderstorm": "Giông bão",
+    "thunderstormHailSlight": "Giông có mưa đá",
+    "thunderstormHailHeavy": "Giông bão mạnh có mưa đá",
+    "unknown": "Không rõ"
   }
 }

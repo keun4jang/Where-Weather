@@ -1,205 +1,162 @@
 {
   "app": {
-    "title": "Where Weather",
-    "tagline": "आप जहाँ हैं वहाँ का ईमानदार मौसम फैसला।",
-    "loading": "आसमान पढ़ रहे हैं…",
-    "refresh": "ताज़ा करें",
-    "retry": "फिर से कोशिश करें"
+    "title": "वेयर वेदर",
+    "tagline": "जहाँ आप हैं, वहाँ का सच्चा मौसम।",
+    "loading": "आसमान पढ़ा जा रहा है…",
+    "refresh": "रिफ्रेश करें",
+    "retry": "फिर कोशिश करें"
   },
   "location": {
     "permissionTitle": "आप कहाँ हैं?",
-    "permissionBody": "एक बार अपना स्थान साझा करें। हम इसे केवल मौसम लाने के लिए उपयोग करते हैं, कभी संग्रहीत या भेजते नहीं।",
+    "permissionBody": "एक बार अपना स्थान साझा करें। केवल मौसम लाने के लिए उपयोग होगा, संग्रहीत या भेजा नहीं जाएगा।",
     "useMyLocation": "मेरा स्थान उपयोग करें",
-    "locating": "स्थान खोज रहे हैं…",
+    "locating": "स्थान ढूँढ रहे हैं…",
     "searchPlaceholder": "शहर खोजें…",
     "current": "आपका स्थान",
-    "unknownPlace": "Selected location",
+    "unknownPlace": "चुना हुआ स्थान",
     "coordinates": "{{lat}}, {{lon}}"
   },
   "verdict": {
     "umbrella": {
-      "no": {
-        "title": "Leave the umbrella",
-        "detail": "No rain expected ({{probability}}% chance)."
-      },
-      "maybe": {
-        "title": "Maybe bring an umbrella",
-        "detail": "{{probability}}% chance of rain."
-      },
-      "yes": {
-        "title": "Take an umbrella",
-        "detail": "Rain likely ({{probability}}% chance)."
-      }
+      "no": { "title": "छाते की जरूरत नहीं", "detail": "बारिश की संभावना कम है ({{probability}}%)।" },
+      "maybe": { "title": "शायद छाता ले जाएँ", "detail": "बारिश की संभावना {{probability}}%।" },
+      "yes": { "title": "छाता जरूर लें", "detail": "बारिश होने की संभावना अधिक है ({{probability}}%)।" }
     },
     "clothing": {
-      "freezing": {
-        "title": "Bundle up — it's freezing"
-      },
-      "cold": {
-        "title": "Wear a warm coat"
-      },
-      "mild": {
-        "title": "A light jacket will do"
-      },
-      "warm": {
-        "title": "T-shirt weather"
-      },
-      "hot": {
-        "title": "Dress light — it's hot"
-      },
-      "detail": "Feels like {{temperature}}°."
+      "freezing": { "title": "गरम कपड़े पहनें — बहुत ठंड है" },
+      "cold": { "title": "गरम कोट पहनें" },
+      "mild": { "title": "हल्की जैकेट काफी है" },
+      "warm": { "title": "टी-शर्ट का मौसम" },
+      "hot": { "title": "हल्के कपड़े पहनें — गर्मी है" },
+      "detail": "महसूस होता है {{temperature}}°।"
     },
     "laundry": {
-      "good": {
-        "title": "Great drying day"
-      },
-      "fair": {
-        "title": "Drying may be slow"
-      },
-      "bad": {
-        "title": "Keep laundry indoors"
-      },
-      "detail": "Humidity around {{humidity}}%."
+      "good": { "title": "कपड़े सुखाने का अच्छा दिन" },
+      "fair": { "title": "कपड़े धीरे सूख सकते हैं" },
+      "bad": { "title": "कपड़े अंदर रखें" },
+      "detail": "नमी लगभग {{humidity}}%।"
     },
     "running": {
-      "good": {
-        "title": "Good run conditions"
-      },
-      "fair": {
-        "title": "Runnable, with care"
-      },
-      "bad": {
-        "title": "Maybe skip the run"
-      },
-      "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
+      "good": { "title": "दौड़ने के लिए अच्छा मौसम" },
+      "fair": { "title": "सावधानी से दौड़ सकते हैं" },
+      "bad": { "title": "आज दौड़ना ठीक नहीं" },
+      "detail": "महसूस {{temperature}}°, हवा {{wind}} m/s।"
     },
     "commute": {
-      "good": {
-        "title": "Smooth commute"
-      },
-      "fair": {
-        "title": "Allow extra time"
-      },
-      "bad": {
-        "title": "Rough travel ahead"
-      }
+      "good": { "title": "आवागमन सुगम है" },
+      "fair": { "title": "थोड़ा जल्दी निकलें" },
+      "bad": { "title": "यात्रा कठिन हो सकती है" }
     },
     "air": {
-      "good": {
-        "title": "Clean air"
-      },
-      "fair": {
-        "title": "Moderate air quality"
-      },
-      "bad": {
-        "title": "Poor air quality"
-      },
-      "detail": "AQI {{aqi}}."
+      "good": { "title": "हवा साफ है" },
+      "fair": { "title": "वायु गुणवत्ता मध्यम है" },
+      "bad": { "title": "वायु गुणवत्ता खराब है" },
+      "detail": "AQI {{aqi}}।"
     }
   },
   "verdictMain": {
     "title": "अभी",
-    "feelsLike": "Feels like {{value}}",
-    "humidity": "Humidity",
-    "wind": "Wind",
-    "uv": "UV index",
-    "precipChance": "Rain chance"
+    "feelsLike": "महसूस {{value}}",
+    "humidity": "आर्द्रता",
+    "wind": "हवा",
+    "uv": "UV सूचकांक",
+    "precipChance": "बारिश की संभावना"
   },
   "timeline": {
-    "title": "अगले घंटे",
+    "title": "अगले कुछ घंटे",
     "now": "अभी",
-    "rain": "Rain"
+    "rain": "बारिश"
   },
   "jury": {
     "title": "स्रोत जूरी",
-    "subtitle": "What each weather source says",
-    "agree": "Sources agree",
-    "value": "Value",
-    "noData": "No data"
+    "subtitle": "प्रत्येक मौसम स्रोत क्या कहता है",
+    "agree": "स्रोत सहमत हैं",
+    "value": "मान",
+    "noData": "डेटा नहीं"
   },
   "confidence": {
-    "label": "विश्वास",
+    "label": "विश्वसनीयता",
     "high": "उच्च",
     "medium": "मध्यम",
     "low": "कम"
   },
   "verification": {
-    "verified": "{{count}} स्रोतों में सत्यापित।",
-    "disputed": "स्रोत असहमत हैं — सावधान रहें।",
+    "verified": "{{count}} स्रोतों से सत्यापित।",
+    "disputed": "स्रोत असहमत हैं — सावधानी से उपयोग करें।",
     "singleSource": "एकल स्रोत पर आधारित।"
   },
   "air": {
     "title": "वायु गुणवत्ता",
     "pm25": "PM2.5",
     "pm10": "PM10",
-    "ozone": "Ozone",
-    "aqi": "Air Quality Index",
-    "unavailable": "Air quality data unavailable."
+    "ozone": "ओज़ोन",
+    "aqi": "वायु गुणवत्ता सूचकांक",
+    "unavailable": "वायु गुणवत्ता डेटा उपलब्ध नहीं।"
   },
   "lifeActions": {
-    "title": "अपना दिन योजना बनाएं"
+    "title": "अपना दिन योजना करें"
   },
   "about": {
-    "title": "Where Weather के बारे में",
-    "body": "Where Weather fuses multiple free weather sources into one honest verdict, and tells you when sources disagree. No accounts, no ads, no tracking.",
-    "dataSources": "Data: Open-Meteo and MET Norway.",
-    "privacy": "Your location never leaves your device except to fetch weather."
+    "title": "वेयर वेदर के बारे में",
+    "body": "वेयर वेदर कई मुफ्त मौसम स्रोतों को एक ईमानदार निर्णय में जोड़ता है और जब स्रोत असहमत होते हैं तो आपको बताता है। कोई खाता नहीं, कोई विज्ञापन नहीं, कोई ट्रैकिंग नहीं।",
+    "dataSources": "डेटा: Open-Meteo और MET Norway।",
+    "privacy": "मौसम लाने के अलावा आपका स्थान डिवाइस से बाहर नहीं जाता।"
   },
   "settings": {
     "language": "भाषा",
     "units": "इकाइयाँ",
-    "temperature": "Temperature",
-    "wind": "Wind speed",
-    "celsius": "Celsius",
-    "fahrenheit": "Fahrenheit",
+    "temperature": "तापमान",
+    "wind": "हवा की गति",
+    "celsius": "सेल्सियस",
+    "fahrenheit": "फ़ारेनहाइट",
     "ms": "m/s",
     "kmh": "km/h",
     "mph": "mph",
-    "theme": "Theme"
+    "theme": "थीम"
   },
   "footer": {
     "version": "संस्करण {{version}}",
-    "openSource": "Free and open.",
-    "madeWith": "Built with open weather data."
+    "openSource": "मुफ्त और खुला स्रोत।",
+    "madeWith": "खुले मौसम डेटा से बनाया गया।"
   },
   "errors": {
-    "geolocationUnsupported": "Your browser does not support location.",
-    "geolocationDenied": "Location permission was denied.",
-    "geolocationUnavailable": "Could not determine your location.",
-    "geolocationTimeout": "Location request timed out.",
-    "providerFailed": "A weather source could not be reached.",
-    "allProvidersFailed": "Could not reach any weather source. Check your connection.",
-    "generic": "Something went wrong."
+    "geolocationUnsupported": "आपका ब्राउज़र स्थान सेवा का समर्थन नहीं करता।",
+    "geolocationDenied": "स्थान अनुमति अस्वीकार की गई।",
+    "geolocationUnavailable": "आपका स्थान निर्धारित नहीं किया जा सका।",
+    "geolocationTimeout": "स्थान अनुरोध समय समाप्त।",
+    "providerFailed": "एक मौसम स्रोत तक नहीं पहुँचा जा सका।",
+    "allProvidersFailed": "किसी भी मौसम स्रोत से जुड़ नहीं सका। अपना कनेक्शन जांचें।",
+    "generic": "कुछ गलत हुआ।"
   },
   "wmo": {
-    "clear": "Clear sky",
-    "mainlyClear": "Mainly clear",
-    "partlyCloudy": "Partly cloudy",
-    "overcast": "Overcast",
-    "fog": "Fog",
-    "rimeFog": "Rime fog",
-    "drizzleLight": "Light drizzle",
-    "drizzleModerate": "Drizzle",
-    "drizzleDense": "Dense drizzle",
-    "freezingDrizzleLight": "Light freezing drizzle",
-    "freezingDrizzleDense": "Freezing drizzle",
-    "rainSlight": "Light rain",
-    "rainModerate": "Rain",
-    "rainHeavy": "Heavy rain",
-    "freezingRainLight": "Light freezing rain",
-    "freezingRainHeavy": "Freezing rain",
-    "snowSlight": "Light snow",
-    "snowModerate": "Snow",
-    "snowHeavy": "Heavy snow",
-    "snowGrains": "Snow grains",
-    "rainShowersSlight": "Light showers",
-    "rainShowersModerate": "Showers",
-    "rainShowersViolent": "Violent showers",
-    "snowShowersSlight": "Light snow showers",
-    "snowShowersHeavy": "Heavy snow showers",
-    "thunderstorm": "Thunderstorm",
-    "thunderstormHailSlight": "Thunderstorm with hail",
-    "thunderstormHailHeavy": "Severe thunderstorm",
-    "unknown": "Unknown"
+    "clear": "साफ आसमान",
+    "mainlyClear": "मुख्यतः साफ",
+    "partlyCloudy": "आंशिक बादल",
+    "overcast": "बादल छाए",
+    "fog": "कोहरा",
+    "rimeFog": "जमाव कोहरा",
+    "drizzleLight": "हल्की फुहार",
+    "drizzleModerate": "फुहार",
+    "drizzleDense": "घनी फुहार",
+    "freezingDrizzleLight": "हल्की जमी फुहार",
+    "freezingDrizzleDense": "जमी फुहार",
+    "rainSlight": "हल्की बारिश",
+    "rainModerate": "बारिश",
+    "rainHeavy": "तेज बारिश",
+    "freezingRainLight": "हल्की जमी बारिश",
+    "freezingRainHeavy": "जमी बारिश",
+    "snowSlight": "हल्की बर्फ",
+    "snowModerate": "बर्फ",
+    "snowHeavy": "भारी बर्फ",
+    "snowGrains": "बर्फ के कण",
+    "rainShowersSlight": "हल्की बौछार",
+    "rainShowersModerate": "बौछार",
+    "rainShowersViolent": "तेज बौछार",
+    "snowShowersSlight": "हल्की बर्फ बौछार",
+    "snowShowersHeavy": "भारी बर्फ बौछार",
+    "thunderstorm": "आंधी-तूफान",
+    "thunderstormHailSlight": "ओले के साथ तूफान",
+    "thunderstormHailHeavy": "भारी ओले के साथ तूफान",
+    "unknown": "अज्ञात"
   }
 }

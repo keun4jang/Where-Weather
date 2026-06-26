@@ -1,205 +1,162 @@
 {
   "app": {
-    "title": "ウェア・ウェザー",
-    "tagline": "今いる場所の正直な天気判定。",
-    "loading": "空を読み取り中…",
+    "title": "ウェアウェザー",
+    "tagline": "あなたがいる場所の正直な天気判定。",
+    "loading": "空を読んでいます…",
     "refresh": "更新",
     "retry": "再試行"
   },
   "location": {
     "permissionTitle": "今どこにいますか？",
-    "permissionBody": "一度だけ位置を共有してください。天気の取得のみに使い、保存も送信もしません。",
-    "useMyLocation": "現在地を使用",
-    "locating": "位置を取得中…",
+    "permissionBody": "位置情報を一度だけ共有してください。天気取得のみに使用し、保存・送信はしません。",
+    "useMyLocation": "現在地を使う",
+    "locating": "位置情報を取得中…",
     "searchPlaceholder": "都市を検索…",
     "current": "現在地",
-    "unknownPlace": "Selected location",
+    "unknownPlace": "選択した場所",
     "coordinates": "{{lat}}, {{lon}}"
   },
   "verdict": {
     "umbrella": {
-      "no": {
-        "title": "Leave the umbrella",
-        "detail": "No rain expected ({{probability}}% chance)."
-      },
-      "maybe": {
-        "title": "Maybe bring an umbrella",
-        "detail": "{{probability}}% chance of rain."
-      },
-      "yes": {
-        "title": "Take an umbrella",
-        "detail": "Rain likely ({{probability}}% chance)."
-      }
+      "no": { "title": "傘は不要です", "detail": "雨の可能性は低いです（{{probability}}%）。" },
+      "maybe": { "title": "傘を持つか迷います", "detail": "雨の確率 {{probability}}%。" },
+      "yes": { "title": "傘を持って行きましょう", "detail": "雨の可能性が高いです（{{probability}}%）。" }
     },
     "clothing": {
-      "freezing": {
-        "title": "Bundle up — it's freezing"
-      },
-      "cold": {
-        "title": "Wear a warm coat"
-      },
-      "mild": {
-        "title": "A light jacket will do"
-      },
-      "warm": {
-        "title": "T-shirt weather"
-      },
-      "hot": {
-        "title": "Dress light — it's hot"
-      },
-      "detail": "Feels like {{temperature}}°."
+      "freezing": { "title": "厚着が必要です — 非常に寒い" },
+      "cold": { "title": "暖かいコートを着てください" },
+      "mild": { "title": "薄手のジャケットが適切です" },
+      "warm": { "title": "Tシャツ日和です" },
+      "hot": { "title": "薄着で — 暑いです" },
+      "detail": "体感温度 {{temperature}}°。"
     },
     "laundry": {
-      "good": {
-        "title": "Great drying day"
-      },
-      "fair": {
-        "title": "Drying may be slow"
-      },
-      "bad": {
-        "title": "Keep laundry indoors"
-      },
-      "detail": "Humidity around {{humidity}}%."
+      "good": { "title": "洗濯日和です" },
+      "fair": { "title": "乾くのに時間がかかるかも" },
+      "bad": { "title": "洗濯物は室内で" },
+      "detail": "湿度 約{{humidity}}%。"
     },
     "running": {
-      "good": {
-        "title": "Good run conditions"
-      },
-      "fair": {
-        "title": "Runnable, with care"
-      },
-      "bad": {
-        "title": "Maybe skip the run"
-      },
-      "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
+      "good": { "title": "ランニング日和です" },
+      "fair": { "title": "注意しながら走れます" },
+      "bad": { "title": "今日はランニングを休みましょう" },
+      "detail": "体感 {{temperature}}°、風速 {{wind}} m/s。"
     },
     "commute": {
-      "good": {
-        "title": "Smooth commute"
-      },
-      "fair": {
-        "title": "Allow extra time"
-      },
-      "bad": {
-        "title": "Rough travel ahead"
-      }
+      "good": { "title": "通勤は問題なし" },
+      "fair": { "title": "余裕を持って出発を" },
+      "bad": { "title": "移動が困難かもしれません" }
     },
     "air": {
-      "good": {
-        "title": "Clean air"
-      },
-      "fair": {
-        "title": "Moderate air quality"
-      },
-      "bad": {
-        "title": "Poor air quality"
-      },
-      "detail": "AQI {{aqi}}."
+      "good": { "title": "空気がきれいです" },
+      "fair": { "title": "空気質は普通です" },
+      "bad": { "title": "空気質が悪いです" },
+      "detail": "AQI {{aqi}}。"
     }
   },
   "verdictMain": {
     "title": "現在",
-    "feelsLike": "Feels like {{value}}",
-    "humidity": "Humidity",
-    "wind": "Wind",
-    "uv": "UV index",
-    "precipChance": "Rain chance"
+    "feelsLike": "体感 {{value}}",
+    "humidity": "湿度",
+    "wind": "風速",
+    "uv": "UV指数",
+    "precipChance": "降水確率"
   },
   "timeline": {
-    "title": "今後の時間",
+    "title": "これからの時間",
     "now": "今",
-    "rain": "Rain"
+    "rain": "雨"
   },
   "jury": {
-    "title": "情報源の陪審",
-    "subtitle": "What each weather source says",
-    "agree": "Sources agree",
-    "value": "Value",
-    "noData": "No data"
+    "title": "ソース陪審員",
+    "subtitle": "各天気ソースの意見",
+    "agree": "ソースが一致",
+    "value": "値",
+    "noData": "データなし"
   },
   "confidence": {
     "label": "信頼度",
-    "high": "高",
-    "medium": "中",
-    "low": "低"
+    "high": "高い",
+    "medium": "普通",
+    "low": "低い"
   },
   "verification": {
-    "verified": "{{count}}つの情報源で照合済み。",
-    "disputed": "情報源が不一致 — 注意してください。",
-    "singleSource": "単一の情報源に基づく。"
+    "verified": "{{count}}ソースで相互確認済み。",
+    "disputed": "ソース間で意見が分かれています — 注意してください。",
+    "singleSource": "単一ソースに基づく。"
   },
   "air": {
     "title": "大気質",
     "pm25": "PM2.5",
     "pm10": "PM10",
-    "ozone": "Ozone",
-    "aqi": "Air Quality Index",
-    "unavailable": "Air quality data unavailable."
+    "ozone": "オゾン",
+    "aqi": "大気質指数",
+    "unavailable": "大気質データを利用できません。"
   },
   "lifeActions": {
-    "title": "一日を計画"
+    "title": "一日の計画"
   },
   "about": {
-    "title": "ウェア・ウェザーについて",
-    "body": "Where Weather fuses multiple free weather sources into one honest verdict, and tells you when sources disagree. No accounts, no ads, no tracking.",
-    "dataSources": "Data: Open-Meteo and MET Norway.",
-    "privacy": "Your location never leaves your device except to fetch weather."
+    "title": "ウェアウェザーについて",
+    "body": "ウェアウェザーは複数の無料天気ソースを統合し、正直な判定をお届けします。ソース間で意見が異なる場合もお知らせします。アカウント・広告・追跡なし。",
+    "dataSources": "データ：Open-Meteo、MET Norway。",
+    "privacy": "天気取得時以外、位置情報はデバイス外に出ません。"
   },
   "settings": {
     "language": "言語",
     "units": "単位",
-    "temperature": "Temperature",
-    "wind": "Wind speed",
-    "celsius": "Celsius",
-    "fahrenheit": "Fahrenheit",
+    "temperature": "気温",
+    "wind": "風速",
+    "celsius": "摂氏",
+    "fahrenheit": "華氏",
     "ms": "m/s",
     "kmh": "km/h",
     "mph": "mph",
-    "theme": "Theme"
+    "theme": "テーマ"
   },
   "footer": {
     "version": "バージョン {{version}}",
-    "openSource": "Free and open.",
-    "madeWith": "Built with open weather data."
+    "openSource": "無料オープンソース。",
+    "madeWith": "オープン気象データで作成。"
   },
   "errors": {
-    "geolocationUnsupported": "Your browser does not support location.",
-    "geolocationDenied": "Location permission was denied.",
-    "geolocationUnavailable": "Could not determine your location.",
-    "geolocationTimeout": "Location request timed out.",
-    "providerFailed": "A weather source could not be reached.",
-    "allProvidersFailed": "Could not reach any weather source. Check your connection.",
-    "generic": "Something went wrong."
+    "geolocationUnsupported": "このブラウザは位置情報をサポートしていません。",
+    "geolocationDenied": "位置情報の許可が拒否されました。",
+    "geolocationUnavailable": "位置情報を取得できませんでした。",
+    "geolocationTimeout": "位置情報のリクエストがタイムアウトしました。",
+    "providerFailed": "天気ソースにアクセスできませんでした。",
+    "allProvidersFailed": "天気ソースに接続できません。接続を確認してください。",
+    "generic": "エラーが発生しました。"
   },
   "wmo": {
-    "clear": "Clear sky",
-    "mainlyClear": "Mainly clear",
-    "partlyCloudy": "Partly cloudy",
-    "overcast": "Overcast",
-    "fog": "Fog",
-    "rimeFog": "Rime fog",
-    "drizzleLight": "Light drizzle",
-    "drizzleModerate": "Drizzle",
-    "drizzleDense": "Dense drizzle",
-    "freezingDrizzleLight": "Light freezing drizzle",
-    "freezingDrizzleDense": "Freezing drizzle",
-    "rainSlight": "Light rain",
-    "rainModerate": "Rain",
-    "rainHeavy": "Heavy rain",
-    "freezingRainLight": "Light freezing rain",
-    "freezingRainHeavy": "Freezing rain",
-    "snowSlight": "Light snow",
-    "snowModerate": "Snow",
-    "snowHeavy": "Heavy snow",
-    "snowGrains": "Snow grains",
-    "rainShowersSlight": "Light showers",
-    "rainShowersModerate": "Showers",
-    "rainShowersViolent": "Violent showers",
-    "snowShowersSlight": "Light snow showers",
-    "snowShowersHeavy": "Heavy snow showers",
-    "thunderstorm": "Thunderstorm",
-    "thunderstormHailSlight": "Thunderstorm with hail",
-    "thunderstormHailHeavy": "Severe thunderstorm",
-    "unknown": "Unknown"
+    "clear": "快晴",
+    "mainlyClear": "ほぼ晴れ",
+    "partlyCloudy": "晴れ時々曇り",
+    "overcast": "曇り",
+    "fog": "霧",
+    "rimeFog": "凍霧",
+    "drizzleLight": "小雨",
+    "drizzleModerate": "霧雨",
+    "drizzleDense": "濃い霧雨",
+    "freezingDrizzleLight": "弱い着氷性霧雨",
+    "freezingDrizzleDense": "着氷性霧雨",
+    "rainSlight": "弱い雨",
+    "rainModerate": "雨",
+    "rainHeavy": "強い雨",
+    "freezingRainLight": "弱い着氷性雨",
+    "freezingRainHeavy": "着氷性雨",
+    "snowSlight": "小雪",
+    "snowModerate": "雪",
+    "snowHeavy": "大雪",
+    "snowGrains": "霰",
+    "rainShowersSlight": "にわか雨（弱）",
+    "rainShowersModerate": "にわか雨",
+    "rainShowersViolent": "激しいにわか雨",
+    "snowShowersSlight": "小雪のにわか雪",
+    "snowShowersHeavy": "強いにわか雪",
+    "thunderstorm": "雷雨",
+    "thunderstormHailSlight": "雹を伴う雷雨",
+    "thunderstormHailHeavy": "激しい雹を伴う雷雨",
+    "unknown": "不明"
   }
 }

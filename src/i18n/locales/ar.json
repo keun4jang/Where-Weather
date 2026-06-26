@@ -1,121 +1,78 @@
 {
   "app": {
     "title": "وير ويذر",
-    "tagline": "أحكام صادقة عن الطقس في مكانك.",
-    "loading": "نقرأ السماء…",
+    "tagline": "الطقس الحقيقي في مكانك.",
+    "loading": "جارٍ قراءة السماء…",
     "refresh": "تحديث",
-    "retry": "حاول مرة أخرى"
+    "retry": "إعادة المحاولة"
   },
   "location": {
     "permissionTitle": "أين أنت؟",
-    "permissionBody": "شارك موقعك مرة واحدة. نستخدمه فقط لجلب الطقس ولا نخزّنه أو نرسله أبدًا.",
-    "useMyLocation": "استخدم موقعي",
-    "locating": "جارٍ تحديد موقعك…",
+    "permissionBody": "شارك موقعك مرة واحدة. يُستخدم فقط لجلب الطقس ولا يُخزَّن أو يُرسَل.",
+    "useMyLocation": "استخدام موقعي",
+    "locating": "جارٍ تحديد الموقع…",
     "searchPlaceholder": "ابحث عن مدينة…",
     "current": "موقعك",
-    "unknownPlace": "Selected location",
-    "coordinates": "{{lat}}, {{lon}}"
+    "unknownPlace": "الموقع المحدد",
+    "coordinates": "{{lat}}، {{lon}}"
   },
   "verdict": {
     "umbrella": {
-      "no": {
-        "title": "Leave the umbrella",
-        "detail": "No rain expected ({{probability}}% chance)."
-      },
-      "maybe": {
-        "title": "Maybe bring an umbrella",
-        "detail": "{{probability}}% chance of rain."
-      },
-      "yes": {
-        "title": "Take an umbrella",
-        "detail": "Rain likely ({{probability}}% chance)."
-      }
+      "no": { "title": "لا حاجة للمظلة", "detail": "احتمال منخفض للمطر ({{probability}}%)." },
+      "maybe": { "title": "ربما تحمل مظلة", "detail": "احتمال المطر {{probability}}%." },
+      "yes": { "title": "خذ معك مظلة", "detail": "من المرجح أن تمطر ({{probability}}%)." }
     },
     "clothing": {
-      "freezing": {
-        "title": "Bundle up — it's freezing"
-      },
-      "cold": {
-        "title": "Wear a warm coat"
-      },
-      "mild": {
-        "title": "A light jacket will do"
-      },
-      "warm": {
-        "title": "T-shirt weather"
-      },
-      "hot": {
-        "title": "Dress light — it's hot"
-      },
-      "detail": "Feels like {{temperature}}°."
+      "freezing": { "title": "البس طبقات — البرد شديد جداً" },
+      "cold": { "title": "البس معطفاً دافئاً" },
+      "mild": { "title": "سترة خفيفة تكفي" },
+      "warm": { "title": "طقس مناسب للتيشيرت" },
+      "hot": { "title": "البس خفيفاً — الجو حار" },
+      "detail": "الحرارة المحسوسة {{temperature}}°."
     },
     "laundry": {
-      "good": {
-        "title": "Great drying day"
-      },
-      "fair": {
-        "title": "Drying may be slow"
-      },
-      "bad": {
-        "title": "Keep laundry indoors"
-      },
-      "detail": "Humidity around {{humidity}}%."
+      "good": { "title": "يوم رائع لتجفيف الغسيل" },
+      "fair": { "title": "قد يتأخر الجفاف" },
+      "bad": { "title": "الغسيل في الداخل أفضل" },
+      "detail": "الرطوبة حوالي {{humidity}}%."
     },
     "running": {
-      "good": {
-        "title": "Good run conditions"
-      },
-      "fair": {
-        "title": "Runnable, with care"
-      },
-      "bad": {
-        "title": "Maybe skip the run"
-      },
-      "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
+      "good": { "title": "ظروف ممتازة للجري" },
+      "fair": { "title": "يمكن الجري بحذر" },
+      "bad": { "title": "من الأفضل تأجيل الجري اليوم" },
+      "detail": "محسوسة {{temperature}}°، الريح {{wind}} م/ث."
     },
     "commute": {
-      "good": {
-        "title": "Smooth commute"
-      },
-      "fair": {
-        "title": "Allow extra time"
-      },
-      "bad": {
-        "title": "Rough travel ahead"
-      }
+      "good": { "title": "التنقل مريح" },
+      "fair": { "title": "اخرج مبكراً" },
+      "bad": { "title": "التنقل قد يكون صعباً" }
     },
     "air": {
-      "good": {
-        "title": "Clean air"
-      },
-      "fair": {
-        "title": "Moderate air quality"
-      },
-      "bad": {
-        "title": "Poor air quality"
-      },
+      "good": { "title": "الهواء نظيف" },
+      "fair": { "title": "جودة الهواء متوسطة" },
+      "bad": { "title": "جودة الهواء سيئة" },
       "detail": "AQI {{aqi}}."
     }
   },
   "verdictMain": {
     "title": "الآن",
-    "feelsLike": "Feels like {{value}}",
-    "humidity": "Humidity",
-    "wind": "Wind",
-    "uv": "UV index",
-    "precipChance": "Rain chance"
+    "feelsLike": "محسوسة {{value}}",
+    "humidity": "الرطوبة",
+    "wind": "الريح",
+    "uv": "مؤشر الأشعة فوق البنفسجية",
+    "precipChance": "احتمال الهطول"
   },
   "timeline": {
     "title": "الساعات القادمة",
     "now": "الآن",
-    "rain": "Rain"
+    "rain": "مطر"
   },
   "jury": {
-    "title": "هيئة المصادر",
-    "subtitle": "What each weather source says",
-    "agree": "Sources agree",
-    "value": "Value",
-    "noData": "No data"
+    "title": "هيئة محلفي المصادر",
+    "subtitle": "ما تقوله كل مصدر للطقس",
+    "agree": "المصادر متفقة",
+    "value": "القيمة",
+    "noData": "لا توجد بيانات"
   },
   "confidence": {
     "label": "الثقة",
@@ -125,81 +82,81 @@
   },
   "verification": {
     "verified": "تم التحقق عبر {{count}} مصادر.",
-    "disputed": "المصادر غير متفقة — توخَّ الحذر.",
-    "singleSource": "بناءً على مصدر واحد فقط."
+    "disputed": "المصادر غير متفقة — تعامل بحذر.",
+    "singleSource": "مبني على مصدر واحد فقط."
   },
   "air": {
     "title": "جودة الهواء",
     "pm25": "PM2.5",
     "pm10": "PM10",
-    "ozone": "Ozone",
-    "aqi": "Air Quality Index",
-    "unavailable": "Air quality data unavailable."
+    "ozone": "الأوزون",
+    "aqi": "مؤشر جودة الهواء",
+    "unavailable": "بيانات جودة الهواء غير متاحة."
   },
   "lifeActions": {
     "title": "خطط ليومك"
   },
   "about": {
-    "title": "حول وير ويذر",
-    "body": "Where Weather fuses multiple free weather sources into one honest verdict, and tells you when sources disagree. No accounts, no ads, no tracking.",
-    "dataSources": "Data: Open-Meteo and MET Norway.",
-    "privacy": "Your location never leaves your device except to fetch weather."
+    "title": "عن وير ويذر",
+    "body": "وير ويذر يدمج عدة مصادر طقس مجانية في حكم واحد صادق ويخبرك عند اختلاف المصادر. بدون حسابات أو إعلانات أو تتبع.",
+    "dataSources": "البيانات: Open-Meteo و MET Norway.",
+    "privacy": "لا يغادر موقعك الجهاز إلا عند جلب بيانات الطقس."
   },
   "settings": {
     "language": "اللغة",
     "units": "الوحدات",
-    "temperature": "Temperature",
-    "wind": "Wind speed",
-    "celsius": "Celsius",
-    "fahrenheit": "Fahrenheit",
-    "ms": "m/s",
-    "kmh": "km/h",
-    "mph": "mph",
-    "theme": "Theme"
+    "temperature": "درجة الحرارة",
+    "wind": "سرعة الريح",
+    "celsius": "مئوية",
+    "fahrenheit": "فهرنهايت",
+    "ms": "م/ث",
+    "kmh": "كم/س",
+    "mph": "ميل/س",
+    "theme": "المظهر"
   },
   "footer": {
     "version": "الإصدار {{version}}",
-    "openSource": "Free and open.",
-    "madeWith": "Built with open weather data."
+    "openSource": "مجاني ومفتوح المصدر.",
+    "madeWith": "مبني ببيانات الطقس المفتوحة."
   },
   "errors": {
-    "geolocationUnsupported": "Your browser does not support location.",
-    "geolocationDenied": "Location permission was denied.",
-    "geolocationUnavailable": "Could not determine your location.",
-    "geolocationTimeout": "Location request timed out.",
-    "providerFailed": "A weather source could not be reached.",
-    "allProvidersFailed": "Could not reach any weather source. Check your connection.",
-    "generic": "Something went wrong."
+    "geolocationUnsupported": "متصفحك لا يدعم خدمات الموقع.",
+    "geolocationDenied": "تم رفض إذن الموقع.",
+    "geolocationUnavailable": "تعذر تحديد موقعك.",
+    "geolocationTimeout": "انتهت مهلة طلب الموقع.",
+    "providerFailed": "تعذر الوصول إلى مصدر للطقس.",
+    "allProvidersFailed": "تعذر الاتصال بأي مصدر للطقس. تحقق من اتصالك.",
+    "generic": "حدث خطأ ما."
   },
   "wmo": {
-    "clear": "Clear sky",
-    "mainlyClear": "Mainly clear",
-    "partlyCloudy": "Partly cloudy",
-    "overcast": "Overcast",
-    "fog": "Fog",
-    "rimeFog": "Rime fog",
-    "drizzleLight": "Light drizzle",
-    "drizzleModerate": "Drizzle",
-    "drizzleDense": "Dense drizzle",
-    "freezingDrizzleLight": "Light freezing drizzle",
-    "freezingDrizzleDense": "Freezing drizzle",
-    "rainSlight": "Light rain",
-    "rainModerate": "Rain",
-    "rainHeavy": "Heavy rain",
-    "freezingRainLight": "Light freezing rain",
-    "freezingRainHeavy": "Freezing rain",
-    "snowSlight": "Light snow",
-    "snowModerate": "Snow",
-    "snowHeavy": "Heavy snow",
-    "snowGrains": "Snow grains",
-    "rainShowersSlight": "Light showers",
-    "rainShowersModerate": "Showers",
-    "rainShowersViolent": "Violent showers",
-    "snowShowersSlight": "Light snow showers",
-    "snowShowersHeavy": "Heavy snow showers",
-    "thunderstorm": "Thunderstorm",
-    "thunderstormHailSlight": "Thunderstorm with hail",
-    "thunderstormHailHeavy": "Severe thunderstorm",
-    "unknown": "Unknown"
+    "clear": "سماء صافية",
+    "mainlyClear": "صافية في معظمها",
+    "partlyCloudy": "غائم جزئياً",
+    "overcast": "ملبد بالغيوم",
+    "fog": "ضباب",
+    "rimeFog": "ضباب متجمد",
+    "drizzleLight": "رذاذ خفيف",
+    "drizzleModerate": "رذاذ",
+    "drizzleDense": "رذاذ كثيف",
+    "freezingDrizzleLight": "رذاذ متجمد خفيف",
+    "freezingDrizzleDense": "رذاذ متجمد",
+    "rainSlight": "مطر خفيف",
+    "rainModerate": "مطر",
+    "rainHeavy": "مطر غزير",
+    "freezingRainLight": "مطر متجمد خفيف",
+    "freezingRainHeavy": "مطر متجمد",
+    "snowSlight": "ثلج خفيف",
+    "snowModerate": "ثلج",
+    "snowHeavy": "ثلج كثيف",
+    "snowGrains": "حبيبات ثلجية",
+    "rainShowersSlight": "زخات خفيفة",
+    "rainShowersModerate": "زخات مطر",
+    "rainShowersViolent": "زخات عنيفة",
+    "snowShowersSlight": "زخات ثلج خفيفة",
+    "snowShowersHeavy": "زخات ثلج كثيفة",
+    "thunderstorm": "عاصفة رعدية",
+    "thunderstormHailSlight": "عاصفة رعدية مع برد",
+    "thunderstormHailHeavy": "عاصفة رعدية شديدة مع برد",
+    "unknown": "غير معروف"
   }
 }

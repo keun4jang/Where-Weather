@@ -1,205 +1,162 @@
 {
   "app": {
     "title": "Where Weather",
-    "tagline": "Ehrliche Wetterurteile für deinen Standort.",
-    "loading": "Lese den Himmel…",
+    "tagline": "Ehrliche Wetterurteile für Ihren Standort.",
+    "loading": "Himmel wird gelesen…",
     "refresh": "Aktualisieren",
     "retry": "Erneut versuchen"
   },
   "location": {
-    "permissionTitle": "Wo bist du?",
-    "permissionBody": "Teile deinen Standort einmal. Wir nutzen ihn nur fürs Wetter und speichern oder senden ihn nie.",
+    "permissionTitle": "Wo sind Sie?",
+    "permissionBody": "Teilen Sie einmalig Ihren Standort. Wird nur für die Wetterabfrage verwendet, nicht gespeichert oder übertragen.",
     "useMyLocation": "Meinen Standort verwenden",
     "locating": "Standort wird ermittelt…",
     "searchPlaceholder": "Stadt suchen…",
-    "current": "Dein Standort",
-    "unknownPlace": "Selected location",
+    "current": "Ihr Standort",
+    "unknownPlace": "Ausgewählter Standort",
     "coordinates": "{{lat}}, {{lon}}"
   },
   "verdict": {
     "umbrella": {
-      "no": {
-        "title": "Leave the umbrella",
-        "detail": "No rain expected ({{probability}}% chance)."
-      },
-      "maybe": {
-        "title": "Maybe bring an umbrella",
-        "detail": "{{probability}}% chance of rain."
-      },
-      "yes": {
-        "title": "Take an umbrella",
-        "detail": "Rain likely ({{probability}}% chance)."
-      }
+      "no": { "title": "Kein Regenschirm nötig", "detail": "Geringe Regenwahrscheinlichkeit ({{probability}}%)." },
+      "maybe": { "title": "Vielleicht einen Schirm mitnehmen", "detail": "{{probability}}% Regenwahrscheinlichkeit." },
+      "yes": { "title": "Regenschirm mitnehmen", "detail": "Regen wahrscheinlich ({{probability}}%)." }
     },
     "clothing": {
-      "freezing": {
-        "title": "Bundle up — it's freezing"
-      },
-      "cold": {
-        "title": "Wear a warm coat"
-      },
-      "mild": {
-        "title": "A light jacket will do"
-      },
-      "warm": {
-        "title": "T-shirt weather"
-      },
-      "hot": {
-        "title": "Dress light — it's hot"
-      },
-      "detail": "Feels like {{temperature}}°."
+      "freezing": { "title": "Warm anziehen — es ist sehr kalt" },
+      "cold": { "title": "Einen warmen Mantel anziehen" },
+      "mild": { "title": "Eine leichte Jacke reicht" },
+      "warm": { "title": "T-Shirt-Wetter" },
+      "hot": { "title": "Leicht anziehen — es ist heiß" },
+      "detail": "Gefühlt {{temperature}}°."
     },
     "laundry": {
-      "good": {
-        "title": "Great drying day"
-      },
-      "fair": {
-        "title": "Drying may be slow"
-      },
-      "bad": {
-        "title": "Keep laundry indoors"
-      },
-      "detail": "Humidity around {{humidity}}%."
+      "good": { "title": "Guter Tag zum Wäsche trocknen" },
+      "fair": { "title": "Trocknen dauert möglicherweise länger" },
+      "bad": { "title": "Wäsche besser drinnen lassen" },
+      "detail": "Luftfeuchtigkeit ca. {{humidity}}%."
     },
     "running": {
-      "good": {
-        "title": "Good run conditions"
-      },
-      "fair": {
-        "title": "Runnable, with care"
-      },
-      "bad": {
-        "title": "Maybe skip the run"
-      },
-      "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
+      "good": { "title": "Gute Bedingungen zum Laufen" },
+      "fair": { "title": "Laufen mit Vorsicht möglich" },
+      "bad": { "title": "Heute lieber nicht laufen" },
+      "detail": "Gefühlt {{temperature}}°, Wind {{wind}} m/s."
     },
     "commute": {
-      "good": {
-        "title": "Smooth commute"
-      },
-      "fair": {
-        "title": "Allow extra time"
-      },
-      "bad": {
-        "title": "Rough travel ahead"
-      }
+      "good": { "title": "Problemloser Arbeitsweg" },
+      "fair": { "title": "Mehr Zeit einplanen" },
+      "bad": { "title": "Schwierige Fahrbedingungen" }
     },
     "air": {
-      "good": {
-        "title": "Clean air"
-      },
-      "fair": {
-        "title": "Moderate air quality"
-      },
-      "bad": {
-        "title": "Poor air quality"
-      },
+      "good": { "title": "Saubere Luft" },
+      "fair": { "title": "Mäßige Luftqualität" },
+      "bad": { "title": "Schlechte Luftqualität" },
       "detail": "AQI {{aqi}}."
     }
   },
   "verdictMain": {
     "title": "Jetzt",
-    "feelsLike": "Feels like {{value}}",
-    "humidity": "Humidity",
+    "feelsLike": "Gefühlt {{value}}",
+    "humidity": "Luftfeuchtigkeit",
     "wind": "Wind",
-    "uv": "UV index",
-    "precipChance": "Rain chance"
+    "uv": "UV-Index",
+    "precipChance": "Regenwahrsch."
   },
   "timeline": {
     "title": "Nächste Stunden",
     "now": "Jetzt",
-    "rain": "Rain"
+    "rain": "Regen"
   },
   "jury": {
     "title": "Quellen-Jury",
-    "subtitle": "What each weather source says",
-    "agree": "Sources agree",
-    "value": "Value",
-    "noData": "No data"
+    "subtitle": "Was jede Wetterquelle sagt",
+    "agree": "Quellen stimmen überein",
+    "value": "Wert",
+    "noData": "Keine Daten"
   },
   "confidence": {
-    "label": "Sicherheit",
+    "label": "Zuverlässigkeit",
     "high": "Hoch",
     "medium": "Mittel",
     "low": "Niedrig"
   },
   "verification": {
-    "verified": "Über {{count}} Quellen abgeglichen.",
-    "disputed": "Quellen widersprechen sich — Vorsicht.",
+    "verified": "Über {{count}} Quellen geprüft.",
+    "disputed": "Quellen widersprechen sich — mit Vorsicht betrachten.",
     "singleSource": "Basiert auf einer einzigen Quelle."
   },
   "air": {
     "title": "Luftqualität",
     "pm25": "PM2.5",
     "pm10": "PM10",
-    "ozone": "Ozone",
-    "aqi": "Air Quality Index",
-    "unavailable": "Air quality data unavailable."
+    "ozone": "Ozon",
+    "aqi": "Luftqualitätsindex",
+    "unavailable": "Luftqualitätsdaten nicht verfügbar."
   },
   "lifeActions": {
-    "title": "Plane deinen Tag"
+    "title": "Ihren Tag planen"
   },
   "about": {
     "title": "Über Where Weather",
-    "body": "Where Weather fuses multiple free weather sources into one honest verdict, and tells you when sources disagree. No accounts, no ads, no tracking.",
-    "dataSources": "Data: Open-Meteo and MET Norway.",
-    "privacy": "Your location never leaves your device except to fetch weather."
+    "body": "Where Weather vereint mehrere kostenlose Wetterquellen zu einem ehrlichen Urteil und informiert Sie, wenn Quellen abweichen. Keine Accounts, keine Werbung, kein Tracking.",
+    "dataSources": "Daten: Open-Meteo und MET Norway.",
+    "privacy": "Ihr Standort verlässt Ihr Gerät nur zur Wetterabfrage."
   },
   "settings": {
     "language": "Sprache",
     "units": "Einheiten",
-    "temperature": "Temperature",
-    "wind": "Wind speed",
+    "temperature": "Temperatur",
+    "wind": "Windgeschwindigkeit",
     "celsius": "Celsius",
     "fahrenheit": "Fahrenheit",
     "ms": "m/s",
     "kmh": "km/h",
     "mph": "mph",
-    "theme": "Theme"
+    "theme": "Design"
   },
   "footer": {
     "version": "Version {{version}}",
-    "openSource": "Free and open.",
-    "madeWith": "Built with open weather data."
+    "openSource": "Kostenlos und offen.",
+    "madeWith": "Erstellt mit offenen Wetterdaten."
   },
   "errors": {
-    "geolocationUnsupported": "Your browser does not support location.",
-    "geolocationDenied": "Location permission was denied.",
-    "geolocationUnavailable": "Could not determine your location.",
-    "geolocationTimeout": "Location request timed out.",
-    "providerFailed": "A weather source could not be reached.",
-    "allProvidersFailed": "Could not reach any weather source. Check your connection.",
-    "generic": "Something went wrong."
+    "geolocationUnsupported": "Ihr Browser unterstützt keine Standortdienste.",
+    "geolocationDenied": "Standortzugriff wurde verweigert.",
+    "geolocationUnavailable": "Standort konnte nicht ermittelt werden.",
+    "geolocationTimeout": "Standortanfrage ist abgelaufen.",
+    "providerFailed": "Eine Wetterquelle war nicht erreichbar.",
+    "allProvidersFailed": "Keine Wetterquelle erreichbar. Verbindung prüfen.",
+    "generic": "Es ist ein Fehler aufgetreten."
   },
   "wmo": {
-    "clear": "Clear sky",
-    "mainlyClear": "Mainly clear",
-    "partlyCloudy": "Partly cloudy",
-    "overcast": "Overcast",
-    "fog": "Fog",
-    "rimeFog": "Rime fog",
-    "drizzleLight": "Light drizzle",
-    "drizzleModerate": "Drizzle",
-    "drizzleDense": "Dense drizzle",
-    "freezingDrizzleLight": "Light freezing drizzle",
-    "freezingDrizzleDense": "Freezing drizzle",
-    "rainSlight": "Light rain",
-    "rainModerate": "Rain",
-    "rainHeavy": "Heavy rain",
-    "freezingRainLight": "Light freezing rain",
-    "freezingRainHeavy": "Freezing rain",
-    "snowSlight": "Light snow",
-    "snowModerate": "Snow",
-    "snowHeavy": "Heavy snow",
-    "snowGrains": "Snow grains",
-    "rainShowersSlight": "Light showers",
-    "rainShowersModerate": "Showers",
-    "rainShowersViolent": "Violent showers",
-    "snowShowersSlight": "Light snow showers",
-    "snowShowersHeavy": "Heavy snow showers",
-    "thunderstorm": "Thunderstorm",
-    "thunderstormHailSlight": "Thunderstorm with hail",
-    "thunderstormHailHeavy": "Severe thunderstorm",
-    "unknown": "Unknown"
+    "clear": "Klarer Himmel",
+    "mainlyClear": "Überwiegend klar",
+    "partlyCloudy": "Teils bewölkt",
+    "overcast": "Bedeckt",
+    "fog": "Nebel",
+    "rimeFog": "Gefrierender Nebel",
+    "drizzleLight": "Leichter Nieselregen",
+    "drizzleModerate": "Nieselregen",
+    "drizzleDense": "Starker Nieselregen",
+    "freezingDrizzleLight": "Leichter gefrierender Nieselregen",
+    "freezingDrizzleDense": "Gefrierender Nieselregen",
+    "rainSlight": "Leichter Regen",
+    "rainModerate": "Regen",
+    "rainHeavy": "Starker Regen",
+    "freezingRainLight": "Leichter gefrierender Regen",
+    "freezingRainHeavy": "Gefrierender Regen",
+    "snowSlight": "Leichter Schneefall",
+    "snowModerate": "Schneefall",
+    "snowHeavy": "Starker Schneefall",
+    "snowGrains": "Schneegriesel",
+    "rainShowersSlight": "Leichte Regenschauer",
+    "rainShowersModerate": "Regenschauer",
+    "rainShowersViolent": "Starke Regenschauer",
+    "snowShowersSlight": "Leichte Schneeschauer",
+    "snowShowersHeavy": "Starke Schneeschauer",
+    "thunderstorm": "Gewitter",
+    "thunderstormHailSlight": "Gewitter mit Hagel",
+    "thunderstormHailHeavy": "Schweres Gewitter mit Hagel",
+    "unknown": "Unbekannt"
   }
 }
