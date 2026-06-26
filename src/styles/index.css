@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ww-good: #16a34a;
+  --ww-caution: #d97706;
+  --ww-bad: #dc2626;
+  --ww-surface: #ffffff;
+  --ww-surface-muted: #f1f5f9;
+  --ww-text: #0f172a;
+}
+
+.dark {
+  --ww-surface: #1e293b;
+  --ww-surface-muted: #0f172a;
+  --ww-text: #e2e8f0;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #1e3a8a 0%, transparent 60%),
+    #0f172a;
+  color: var(--ww-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .ww-card {
+    @apply rounded-2xl bg-white/90 p-4 shadow-sm ring-1 ring-black/5 backdrop-blur dark:bg-slate-800/80 dark:ring-white/10;
+  }
+  .ww-badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+  }
+  .ww-btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-60;
+  }
+  .ww-btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10;
+  }
+}

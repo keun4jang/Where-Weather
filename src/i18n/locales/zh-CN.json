@@ -1,0 +1,205 @@
+{
+  "app": {
+    "title": "此地天气",
+    "tagline": "为你所在之处提供诚实的天气判断。",
+    "loading": "正在读取天空…",
+    "refresh": "刷新",
+    "retry": "重试"
+  },
+  "location": {
+    "permissionTitle": "你在哪里？",
+    "permissionBody": "只需共享一次位置。仅用于获取天气，绝不存储或发送。",
+    "useMyLocation": "使用我的位置",
+    "locating": "正在定位…",
+    "searchPlaceholder": "搜索城市…",
+    "current": "我的位置",
+    "unknownPlace": "Selected location",
+    "coordinates": "{{lat}}, {{lon}}"
+  },
+  "verdict": {
+    "umbrella": {
+      "no": {
+        "title": "Leave the umbrella",
+        "detail": "No rain expected ({{probability}}% chance)."
+      },
+      "maybe": {
+        "title": "Maybe bring an umbrella",
+        "detail": "{{probability}}% chance of rain."
+      },
+      "yes": {
+        "title": "Take an umbrella",
+        "detail": "Rain likely ({{probability}}% chance)."
+      }
+    },
+    "clothing": {
+      "freezing": {
+        "title": "Bundle up — it's freezing"
+      },
+      "cold": {
+        "title": "Wear a warm coat"
+      },
+      "mild": {
+        "title": "A light jacket will do"
+      },
+      "warm": {
+        "title": "T-shirt weather"
+      },
+      "hot": {
+        "title": "Dress light — it's hot"
+      },
+      "detail": "Feels like {{temperature}}°."
+    },
+    "laundry": {
+      "good": {
+        "title": "Great drying day"
+      },
+      "fair": {
+        "title": "Drying may be slow"
+      },
+      "bad": {
+        "title": "Keep laundry indoors"
+      },
+      "detail": "Humidity around {{humidity}}%."
+    },
+    "running": {
+      "good": {
+        "title": "Good run conditions"
+      },
+      "fair": {
+        "title": "Runnable, with care"
+      },
+      "bad": {
+        "title": "Maybe skip the run"
+      },
+      "detail": "Feels like {{temperature}}°, wind {{wind}} m/s."
+    },
+    "commute": {
+      "good": {
+        "title": "Smooth commute"
+      },
+      "fair": {
+        "title": "Allow extra time"
+      },
+      "bad": {
+        "title": "Rough travel ahead"
+      }
+    },
+    "air": {
+      "good": {
+        "title": "Clean air"
+      },
+      "fair": {
+        "title": "Moderate air quality"
+      },
+      "bad": {
+        "title": "Poor air quality"
+      },
+      "detail": "AQI {{aqi}}."
+    }
+  },
+  "verdictMain": {
+    "title": "此刻",
+    "feelsLike": "Feels like {{value}}",
+    "humidity": "Humidity",
+    "wind": "Wind",
+    "uv": "UV index",
+    "precipChance": "Rain chance"
+  },
+  "timeline": {
+    "title": "未来几小时",
+    "now": "现在",
+    "rain": "Rain"
+  },
+  "jury": {
+    "title": "来源陪审团",
+    "subtitle": "What each weather source says",
+    "agree": "Sources agree",
+    "value": "Value",
+    "noData": "No data"
+  },
+  "confidence": {
+    "label": "置信度",
+    "high": "高",
+    "medium": "中",
+    "low": "低"
+  },
+  "verification": {
+    "verified": "已在 {{count}} 个来源间交叉核对。",
+    "disputed": "来源不一致 — 请谨慎对待。",
+    "singleSource": "基于单一来源。"
+  },
+  "air": {
+    "title": "空气质量",
+    "pm25": "PM2.5",
+    "pm10": "PM10",
+    "ozone": "Ozone",
+    "aqi": "Air Quality Index",
+    "unavailable": "Air quality data unavailable."
+  },
+  "lifeActions": {
+    "title": "规划你的一天"
+  },
+  "about": {
+    "title": "关于此地天气",
+    "body": "Where Weather fuses multiple free weather sources into one honest verdict, and tells you when sources disagree. No accounts, no ads, no tracking.",
+    "dataSources": "Data: Open-Meteo and MET Norway.",
+    "privacy": "Your location never leaves your device except to fetch weather."
+  },
+  "settings": {
+    "language": "语言",
+    "units": "单位",
+    "temperature": "Temperature",
+    "wind": "Wind speed",
+    "celsius": "Celsius",
+    "fahrenheit": "Fahrenheit",
+    "ms": "m/s",
+    "kmh": "km/h",
+    "mph": "mph",
+    "theme": "Theme"
+  },
+  "footer": {
+    "version": "版本 {{version}}",
+    "openSource": "Free and open.",
+    "madeWith": "Built with open weather data."
+  },
+  "errors": {
+    "geolocationUnsupported": "Your browser does not support location.",
+    "geolocationDenied": "Location permission was denied.",
+    "geolocationUnavailable": "Could not determine your location.",
+    "geolocationTimeout": "Location request timed out.",
+    "providerFailed": "A weather source could not be reached.",
+    "allProvidersFailed": "Could not reach any weather source. Check your connection.",
+    "generic": "Something went wrong."
+  },
+  "wmo": {
+    "clear": "Clear sky",
+    "mainlyClear": "Mainly clear",
+    "partlyCloudy": "Partly cloudy",
+    "overcast": "Overcast",
+    "fog": "Fog",
+    "rimeFog": "Rime fog",
+    "drizzleLight": "Light drizzle",
+    "drizzleModerate": "Drizzle",
+    "drizzleDense": "Dense drizzle",
+    "freezingDrizzleLight": "Light freezing drizzle",
+    "freezingDrizzleDense": "Freezing drizzle",
+    "rainSlight": "Light rain",
+    "rainModerate": "Rain",
+    "rainHeavy": "Heavy rain",
+    "freezingRainLight": "Light freezing rain",
+    "freezingRainHeavy": "Freezing rain",
+    "snowSlight": "Light snow",
+    "snowModerate": "Snow",
+    "snowHeavy": "Heavy snow",
+    "snowGrains": "Snow grains",
+    "rainShowersSlight": "Light showers",
+    "rainShowersModerate": "Showers",
+    "rainShowersViolent": "Violent showers",
+    "snowShowersSlight": "Light snow showers",
+    "snowShowersHeavy": "Heavy snow showers",
+    "thunderstorm": "Thunderstorm",
+    "thunderstormHailSlight": "Thunderstorm with hail",
+    "thunderstormHailHeavy": "Severe thunderstorm",
+    "unknown": "Unknown"
+  }
+}
