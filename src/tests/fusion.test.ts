@@ -58,7 +58,8 @@ describe('standardDeviation', () => {
 describe('fuse', () => {
   it('fuses two close providers with high confidence', () => {
     const out = fuse([provider('open-meteo', 20), provider('met-no', 21)]);
-    expect(out.current.temperatureC.value).toBeCloseTo(20.5, 1);
+    // Weighted median of two equal-weight values is the lower crossing point.
+    expect(out.current.temperatureC.value).toBe(20);
     expect(out.current.temperatureC.sourceCount).toBe(2);
     expect(out.confidence).toBeGreaterThan(0.7);
   });

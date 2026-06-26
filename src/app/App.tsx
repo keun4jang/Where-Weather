@@ -36,7 +36,6 @@ function AppInner() {
       } else {
         setErrorKey('errors.generic');
       }
-      // eslint-disable-next-line no-console
       console.error('Where Weather load failed:', toMessage(err));
     } finally {
       setLoading(false);

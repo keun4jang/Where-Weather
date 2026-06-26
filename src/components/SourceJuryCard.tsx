@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '../app/settings';
+import { useSettings } from '../app/useSettings';
 import { formatTemperature } from '../lib/units';
 import type { FusionOutput } from '../weather/types';
 

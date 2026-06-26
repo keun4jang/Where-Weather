@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '../app/settings';
+import { useSettings } from '../app/useSettings';
 import type { TemperatureUnit, WindUnit } from '../lib/units';
 
 function Segment<T extends string>({

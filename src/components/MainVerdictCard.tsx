@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useSettings } from '../app/settings';
+import { useSettings } from '../app/useSettings';
 import { formatTemperature, formatWind } from '../lib/units';
 import { describeWmo } from '../weather/wmoCodes';
 import { verify } from '../weather/verification';
