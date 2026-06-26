@@ -18,40 +18,83 @@
   },
   "verdict": {
     "umbrella": {
-      "no": { "title": "傘は不要です", "detail": "雨の可能性は低いです（{{probability}}%）。" },
-      "maybe": { "title": "傘を持つか迷います", "detail": "雨の確率 {{probability}}%。" },
-      "yes": { "title": "傘を持って行きましょう", "detail": "雨の可能性が高いです（{{probability}}%）。" }
+      "no": {
+        "title": "傘は不要です",
+        "detail": "雨の可能性は低いです（{{probability}}%）。"
+      },
+      "maybe": {
+        "title": "傘を持つか迷います",
+        "detail": "雨の確率 {{probability}}%。"
+      },
+      "yes": {
+        "title": "傘を持って行きましょう",
+        "detail": "雨の可能性が高いです（{{probability}}%）。"
+      }
     },
     "clothing": {
-      "freezing": { "title": "厚着が必要です — 非常に寒い" },
-      "cold": { "title": "暖かいコートを着てください" },
-      "mild": { "title": "薄手のジャケットが適切です" },
-      "warm": { "title": "Tシャツ日和です" },
-      "hot": { "title": "薄着で — 暑いです" },
+      "freezing": {
+        "title": "厚着が必要です — 非常に寒い"
+      },
+      "cold": {
+        "title": "暖かいコートを着てください"
+      },
+      "mild": {
+        "title": "薄手のジャケットが適切です"
+      },
+      "warm": {
+        "title": "Tシャツ日和です"
+      },
+      "hot": {
+        "title": "薄着で — 暑いです"
+      },
       "detail": "体感温度 {{temperature}}°。"
     },
     "laundry": {
-      "good": { "title": "洗濯日和です" },
-      "fair": { "title": "乾くのに時間がかかるかも" },
-      "bad": { "title": "洗濯物は室内で" },
+      "good": {
+        "title": "洗濯日和です"
+      },
+      "fair": {
+        "title": "乾くのに時間がかかるかも"
+      },
+      "bad": {
+        "title": "洗濯物は室内で"
+      },
       "detail": "湿度 約{{humidity}}%。"
     },
     "running": {
-      "good": { "title": "ランニング日和です" },
-      "fair": { "title": "注意しながら走れます" },
-      "bad": { "title": "今日はランニングを休みましょう" },
+      "good": {
+        "title": "ランニング日和です"
+      },
+      "fair": {
+        "title": "注意しながら走れます"
+      },
+      "bad": {
+        "title": "今日はランニングを休みましょう"
+      },
       "detail": "体感 {{temperature}}°、風速 {{wind}} m/s。"
     },
     "commute": {
-      "good": { "title": "通勤は問題なし" },
-      "fair": { "title": "余裕を持って出発を" },
-      "bad": { "title": "移動が困難かもしれません" }
+      "good": {
+        "title": "通勤は問題なし"
+      },
+      "fair": {
+        "title": "余裕を持って出発を"
+      },
+      "bad": {
+        "title": "移動が困難かもしれません"
+      }
     },
     "air": {
-      "good": { "title": "空気がきれいです" },
-      "fair": { "title": "空気質は普通です" },
-      "bad": { "title": "空気質が悪いです" },
-      "detail": "AQI {{aqi}}。"
+      "good": {
+        "title": "空気がきれいです"
+      },
+      "fair": {
+        "title": "空気質は普通です"
+      },
+      "bad": {
+        "title": "空気質が悪いです"
+      },
+      "detail": "大気質指数 {{aqi}}。"
     }
   },
   "verdictMain": {

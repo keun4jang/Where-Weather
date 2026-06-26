@@ -18,39 +18,82 @@
   },
   "verdict": {
     "umbrella": {
-      "no": { "title": "Pas besoin de parapluie", "detail": "Peu de risque de pluie ({{probability}}%)." },
-      "maybe": { "title": "Prenez peut-être un parapluie", "detail": "{{probability}}% de risque de pluie." },
-      "yes": { "title": "Prenez un parapluie", "detail": "Pluie probable ({{probability}}%)." }
+      "no": {
+        "title": "Pas besoin de parapluie",
+        "detail": "Peu de risque de pluie ({{probability}}%)."
+      },
+      "maybe": {
+        "title": "Prenez peut-être un parapluie",
+        "detail": "{{probability}}% de risque de pluie."
+      },
+      "yes": {
+        "title": "Prenez un parapluie",
+        "detail": "Pluie probable ({{probability}}%)."
+      }
     },
     "clothing": {
-      "freezing": { "title": "Couvrez-vous bien — il fait très froid" },
-      "cold": { "title": "Portez un manteau chaud" },
-      "mild": { "title": "Une veste légère suffira" },
-      "warm": { "title": "Temps pour un T-shirt" },
-      "hot": { "title": "Habillez-vous légèrement — il fait chaud" },
+      "freezing": {
+        "title": "Couvrez-vous bien — il fait très froid"
+      },
+      "cold": {
+        "title": "Portez un manteau chaud"
+      },
+      "mild": {
+        "title": "Une veste légère suffira"
+      },
+      "warm": {
+        "title": "Temps pour un T-shirt"
+      },
+      "hot": {
+        "title": "Habillez-vous légèrement — il fait chaud"
+      },
       "detail": "Ressenti {{temperature}}°."
     },
     "laundry": {
-      "good": { "title": "Bonne journée pour le linge" },
-      "fair": { "title": "Le séchage peut être lent" },
-      "bad": { "title": "Gardez le linge à l'intérieur" },
+      "good": {
+        "title": "Bonne journée pour le linge"
+      },
+      "fair": {
+        "title": "Le séchage peut être lent"
+      },
+      "bad": {
+        "title": "Gardez le linge à l'intérieur"
+      },
       "detail": "Humidité environ {{humidity}}%."
     },
     "running": {
-      "good": { "title": "Bonnes conditions pour courir" },
-      "fair": { "title": "Course possible avec prudence" },
-      "bad": { "title": "Mieux vaut ne pas courir aujourd'hui" },
+      "good": {
+        "title": "Bonnes conditions pour courir"
+      },
+      "fair": {
+        "title": "Course possible avec prudence"
+      },
+      "bad": {
+        "title": "Mieux vaut ne pas courir aujourd'hui"
+      },
       "detail": "Ressenti {{temperature}}°, vent {{wind}} m/s."
     },
     "commute": {
-      "good": { "title": "Trajet sans problème" },
-      "fair": { "title": "Prévoyez du temps supplémentaire" },
-      "bad": { "title": "Trajet difficile en vue" }
+      "good": {
+        "title": "Trajet sans problème"
+      },
+      "fair": {
+        "title": "Prévoyez du temps supplémentaire"
+      },
+      "bad": {
+        "title": "Trajet difficile en vue"
+      }
     },
     "air": {
-      "good": { "title": "Air pur" },
-      "fair": { "title": "Qualité de l'air modérée" },
-      "bad": { "title": "Mauvaise qualité de l'air" },
+      "good": {
+        "title": "Air pur"
+      },
+      "fair": {
+        "title": "Qualité de l'air modérée"
+      },
+      "bad": {
+        "title": "Mauvaise qualité de l'air"
+      },
       "detail": "IQA {{aqi}}."
     }
   },

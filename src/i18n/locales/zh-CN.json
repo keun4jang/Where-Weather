@@ -18,40 +18,83 @@
   },
   "verdict": {
     "umbrella": {
-      "no": { "title": "不需要雨伞", "detail": "降雨可能性低（{{probability}}%）。" },
-      "maybe": { "title": "考虑带把伞", "detail": "降雨概率 {{probability}}%。" },
-      "yes": { "title": "请带上雨伞", "detail": "很可能下雨（{{probability}}%）。" }
+      "no": {
+        "title": "不需要雨伞",
+        "detail": "降雨可能性低（{{probability}}%）。"
+      },
+      "maybe": {
+        "title": "考虑带把伞",
+        "detail": "降雨概率 {{probability}}%。"
+      },
+      "yes": {
+        "title": "请带上雨伞",
+        "detail": "很可能下雨（{{probability}}%）。"
+      }
     },
     "clothing": {
-      "freezing": { "title": "请穿厚衣服 — 非常寒冷" },
-      "cold": { "title": "请穿暖和的外套" },
-      "mild": { "title": "薄外套就够了" },
-      "warm": { "title": "适合穿T恤" },
-      "hot": { "title": "穿轻薄衣物 — 天气很热" },
+      "freezing": {
+        "title": "请穿厚衣服 — 非常寒冷"
+      },
+      "cold": {
+        "title": "请穿暖和的外套"
+      },
+      "mild": {
+        "title": "薄外套就够了"
+      },
+      "warm": {
+        "title": "适合穿T恤"
+      },
+      "hot": {
+        "title": "穿轻薄衣物 — 天气很热"
+      },
       "detail": "体感温度 {{temperature}}°。"
     },
     "laundry": {
-      "good": { "title": "适合晾晒衣物" },
-      "fair": { "title": "晾干可能较慢" },
-      "bad": { "title": "请在室内晾衣" },
+      "good": {
+        "title": "适合晾晒衣物"
+      },
+      "fair": {
+        "title": "晾干可能较慢"
+      },
+      "bad": {
+        "title": "请在室内晾衣"
+      },
       "detail": "湿度约 {{humidity}}%。"
     },
     "running": {
-      "good": { "title": "适合跑步" },
-      "fair": { "title": "小心跑步" },
-      "bad": { "title": "今天不适合跑步" },
+      "good": {
+        "title": "适合跑步"
+      },
+      "fair": {
+        "title": "小心跑步"
+      },
+      "bad": {
+        "title": "今天不适合跑步"
+      },
       "detail": "体感 {{temperature}}°，风速 {{wind}} m/s。"
     },
     "commute": {
-      "good": { "title": "通勤顺畅" },
-      "fair": { "title": "请提前出发" },
-      "bad": { "title": "出行可能不便" }
+      "good": {
+        "title": "通勤顺畅"
+      },
+      "fair": {
+        "title": "请提前出发"
+      },
+      "bad": {
+        "title": "出行可能不便"
+      }
     },
     "air": {
-      "good": { "title": "空气清新" },
-      "fair": { "title": "空气质量一般" },
-      "bad": { "title": "空气质量差" },
-      "detail": "AQI {{aqi}}。"
+      "good": {
+        "title": "空气清新"
+      },
+      "fair": {
+        "title": "空气质量一般"
+      },
+      "bad": {
+        "title": "空气质量差"
+      },
+      "detail": "空气质量指数 {{aqi}}。"
     }
   },
   "verdictMain": {

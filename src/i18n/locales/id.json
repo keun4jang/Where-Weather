@@ -18,40 +18,83 @@
   },
   "verdict": {
     "umbrella": {
-      "no": { "title": "Payung tidak diperlukan", "detail": "Kemungkinan hujan rendah ({{probability}}%)." },
-      "maybe": { "title": "Pertimbangkan membawa payung", "detail": "Kemungkinan hujan {{probability}}%." },
-      "yes": { "title": "Bawa payung", "detail": "Kemungkinan hujan tinggi ({{probability}}%)." }
+      "no": {
+        "title": "Payung tidak diperlukan",
+        "detail": "Kemungkinan hujan rendah ({{probability}}%)."
+      },
+      "maybe": {
+        "title": "Pertimbangkan membawa payung",
+        "detail": "Kemungkinan hujan {{probability}}%."
+      },
+      "yes": {
+        "title": "Bawa payung",
+        "detail": "Kemungkinan hujan tinggi ({{probability}}%)."
+      }
     },
     "clothing": {
-      "freezing": { "title": "Berpakaian tebal — sangat dingin" },
-      "cold": { "title": "Kenakan mantel hangat" },
-      "mild": { "title": "Jaket tipis sudah cukup" },
-      "warm": { "title": "Cuaca untuk kaos" },
-      "hot": { "title": "Berpakaian tipis — panas" },
+      "freezing": {
+        "title": "Berpakaian tebal — sangat dingin"
+      },
+      "cold": {
+        "title": "Kenakan mantel hangat"
+      },
+      "mild": {
+        "title": "Jaket tipis sudah cukup"
+      },
+      "warm": {
+        "title": "Cuaca untuk kaos"
+      },
+      "hot": {
+        "title": "Berpakaian tipis — panas"
+      },
       "detail": "Terasa seperti {{temperature}}°."
     },
     "laundry": {
-      "good": { "title": "Hari yang baik untuk jemuran" },
-      "fair": { "title": "Pengeringan mungkin lambat" },
-      "bad": { "title": "Jemur pakaian di dalam" },
+      "good": {
+        "title": "Hari yang baik untuk jemuran"
+      },
+      "fair": {
+        "title": "Pengeringan mungkin lambat"
+      },
+      "bad": {
+        "title": "Jemur pakaian di dalam"
+      },
       "detail": "Kelembapan sekitar {{humidity}}%."
     },
     "running": {
-      "good": { "title": "Kondisi lari yang baik" },
-      "fair": { "title": "Bisa lari dengan hati-hati" },
-      "bad": { "title": "Sebaiknya tidak lari hari ini" },
+      "good": {
+        "title": "Kondisi lari yang baik"
+      },
+      "fair": {
+        "title": "Bisa lari dengan hati-hati"
+      },
+      "bad": {
+        "title": "Sebaiknya tidak lari hari ini"
+      },
       "detail": "Terasa {{temperature}}°, angin {{wind}} m/s."
     },
     "commute": {
-      "good": { "title": "Perjalanan lancar" },
-      "fair": { "title": "Berangkat lebih awal" },
-      "bad": { "title": "Perjalanan mungkin terganggu" }
+      "good": {
+        "title": "Perjalanan lancar"
+      },
+      "fair": {
+        "title": "Berangkat lebih awal"
+      },
+      "bad": {
+        "title": "Perjalanan mungkin terganggu"
+      }
     },
     "air": {
-      "good": { "title": "Udara bersih" },
-      "fair": { "title": "Kualitas udara sedang" },
-      "bad": { "title": "Kualitas udara buruk" },
-      "detail": "AQI {{aqi}}."
+      "good": {
+        "title": "Udara bersih"
+      },
+      "fair": {
+        "title": "Kualitas udara sedang"
+      },
+      "bad": {
+        "title": "Kualitas udara buruk"
+      },
+      "detail": "Indeks kualitas udara {{aqi}}."
     }
   },
   "verdictMain": {

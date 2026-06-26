@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
@@ -15,13 +15,13 @@ import { reverseGeocode } from '../location/geocoding';
 import { getWeatherSnapshot } from '../weather/providers';
 import { AppError, toMessage } from '../lib/errors';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
-import i18n from '../i18n';
 
 function AppInner() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [snapshot, setSnapshot] = useState<WeatherSnapshot | null>(null);
   const [loading, setLoading] = useState(false);
   const [errorKey, setErrorKey] = useState<string | null>(null);
+  const gpsCoords = useRef<{ latitude: number; longitude: number } | null>(null);
 
   const loadFor = useCallback(async (location: NamedLocation) => {
     setLoading(true);
@@ -47,13 +47,23 @@ function AppInner() {
     setErrorKey(null);
     try {
       const coords = await requestCurrentPosition();
-      const named = await reverseGeocode(coords, i18n.language);
+      gpsCoords.current = coords;
+      const named = await reverseGeocode(coords, i18n.language ?? 'en');
       await loadFor(named);
     } catch (err) {
       setErrorKey(err instanceof AppError ? err.i18nKey : 'errors.geolocationUnavailable');
       setLoading(false);
     }
-  }, [loadFor]);
+  }, [loadFor, i18n.language]);
+
+  // 언어 변경 시 GPS 좌표가 있으면 지역명을 새 언어로 갱신
+  useEffect(() => {
+    if (!gpsCoords.current) return;
+    const coords = gpsCoords.current;
+    reverseGeocode(coords, i18n.language ?? 'en').then((named) => {
+      setSnapshot((prev) => prev ? { ...prev, location: named } : prev);
+    }).catch(() => {});
+  }, [i18n.language]);
 
   const handleRefresh = useCallback(() => {
     if (snapshot) void loadFor(snapshot.location);

@@ -18,39 +18,82 @@
   },
   "verdict": {
     "umbrella": {
-      "no": { "title": "Sem necessidade de guarda-chuva", "detail": "Baixa probabilidade de chuva ({{probability}}%)." },
-      "maybe": { "title": "Talvez leve um guarda-chuva", "detail": "{{probability}}% de chance de chuva." },
-      "yes": { "title": "Leve o guarda-chuva", "detail": "Chuva provável ({{probability}}%)." }
+      "no": {
+        "title": "Sem necessidade de guarda-chuva",
+        "detail": "Baixa probabilidade de chuva ({{probability}}%)."
+      },
+      "maybe": {
+        "title": "Talvez leve um guarda-chuva",
+        "detail": "{{probability}}% de chance de chuva."
+      },
+      "yes": {
+        "title": "Leve o guarda-chuva",
+        "detail": "Chuva provável ({{probability}}%)."
+      }
     },
     "clothing": {
-      "freezing": { "title": "Vista-se bem — está muito frio" },
-      "cold": { "title": "Use um casaco quente" },
-      "mild": { "title": "Uma jaqueta leve é suficiente" },
-      "warm": { "title": "Tempo de camiseta" },
-      "hot": { "title": "Vista-se levemente — está quente" },
+      "freezing": {
+        "title": "Vista-se bem — está muito frio"
+      },
+      "cold": {
+        "title": "Use um casaco quente"
+      },
+      "mild": {
+        "title": "Uma jaqueta leve é suficiente"
+      },
+      "warm": {
+        "title": "Tempo de camiseta"
+      },
+      "hot": {
+        "title": "Vista-se levemente — está quente"
+      },
       "detail": "Sensação de {{temperature}}°."
     },
     "laundry": {
-      "good": { "title": "Ótimo dia para secar roupa" },
-      "fair": { "title": "A secagem pode ser lenta" },
-      "bad": { "title": "Seque a roupa em casa" },
+      "good": {
+        "title": "Ótimo dia para secar roupa"
+      },
+      "fair": {
+        "title": "A secagem pode ser lenta"
+      },
+      "bad": {
+        "title": "Seque a roupa em casa"
+      },
       "detail": "Umidade em torno de {{humidity}}%."
     },
     "running": {
-      "good": { "title": "Boas condições para correr" },
-      "fair": { "title": "Pode correr com cuidado" },
-      "bad": { "title": "Melhor não correr hoje" },
+      "good": {
+        "title": "Boas condições para correr"
+      },
+      "fair": {
+        "title": "Pode correr com cuidado"
+      },
+      "bad": {
+        "title": "Melhor não correr hoje"
+      },
       "detail": "Sensação {{temperature}}°, vento {{wind}} m/s."
     },
     "commute": {
-      "good": { "title": "Deslocamento tranquilo" },
-      "fair": { "title": "Saia com tempo extra" },
-      "bad": { "title": "Viagem difícil pela frente" }
+      "good": {
+        "title": "Deslocamento tranquilo"
+      },
+      "fair": {
+        "title": "Saia com tempo extra"
+      },
+      "bad": {
+        "title": "Viagem difícil pela frente"
+      }
     },
     "air": {
-      "good": { "title": "Ar limpo" },
-      "fair": { "title": "Qualidade do ar moderada" },
-      "bad": { "title": "Qualidade do ar ruim" },
+      "good": {
+        "title": "Ar limpo"
+      },
+      "fair": {
+        "title": "Qualidade do ar moderada"
+      },
+      "bad": {
+        "title": "Qualidade do ar ruim"
+      },
       "detail": "IQA {{aqi}}."
     }
   },
