@@ -52,7 +52,7 @@ export async function fetchOpenMeteo(coords: Coordinates): Promise<ProviderResul
     'hourly',
     ['temperature_2m', 'precipitation_probability', 'precipitation', 'weather_code'].join(','),
   );
-  url.searchParams.set('timezone', 'auto');
+  url.searchParams.set('timezone', 'UTC');
   url.searchParams.set('forecast_days', '2');
 
   let data: OpenMeteoResponse;
@@ -70,18 +70,22 @@ export async function fetchOpenMeteo(coords: Coordinates): Promise<ProviderResul
     throw new ProviderFetchError('open-meteo', 'missing current data');
   }
 
+  // Open-Meteo with timezone=UTC returns times without 'Z' suffix.
+  // Appending 'Z' ensures new Date() parses them as UTC, not browser-local time.
+  function utc(t: string) { return t.endsWith('Z') ? t : t + 'Z'; }
+
   const h = data.hourly;
   const hourly = h
     ? hourlyFrom(
         buildHourly(
-          h.time,
+          h.time.map(utc),
           h.temperature_2m ?? [],
           h.precipitation_probability,
           h.precipitation,
           h.weather_code,
-          48, // fetch 2 days then filter to current time
+          48,
         ),
-        c.time,
+        utc(c.time),
       ).slice(0, 24)
     : [];
 
@@ -89,7 +93,7 @@ export async function fetchOpenMeteo(coords: Coordinates): Promise<ProviderResul
     provider: 'open-meteo',
     fetchedAt: Date.now(),
     current: {
-      time: c.time,
+      time: utc(c.time),
       temperatureC: c.temperature_2m,
       apparentTemperatureC: safeNumber(c.apparent_temperature),
       humidity: safeNumber(c.relative_humidity_2m),
