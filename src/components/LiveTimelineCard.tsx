@@ -29,7 +29,9 @@ export default function LiveTimelineCard({ hourly, location }: Props) {
               className="flex min-w-[64px] flex-col items-center gap-1 rounded-xl bg-slate-100 px-2 py-2 text-center dark:bg-slate-700/50"
             >
               <span className="text-xs text-slate-500 dark:text-slate-400">
-                {idx === 0 ? t('timeline.now') : formatHour(h.time, i18n.language, location.timezone)}
+                {idx === 0
+                  ? t('timeline.now')
+                  : formatHour(h.time, i18n.language, location.timezone)}
               </span>
               <span className="text-xl" aria-label={t(descriptor.key)}>
                 {descriptor.icon}

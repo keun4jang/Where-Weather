@@ -1,5 +1,5 @@
 import { ProviderFetchError } from '../lib/errors';
-import { buildHourly, safeNumber } from './normalize';
+import { buildHourly, hourlyFrom, safeNumber } from './normalize';
 import type { Coordinates, NormalizedHourly, ProviderResult } from './types';
 
 /**
@@ -98,14 +98,17 @@ export async function fetchMetNo(coords: Coordinates): Promise<ProviderResult> {
   const probs: number[] = [];
   const precip: number[] = [];
   const codes: number[] = [];
-  for (const step of series.slice(0, 24)) {
+  for (const step of series.slice(0, 48)) {
     times.push(step.time);
     temps.push(step.data.instant.details.air_temperature ?? NaN);
     probs.push(step.data.next_1_hours?.details?.probability_of_precipitation ?? NaN);
     precip.push(step.data.next_1_hours?.details?.precipitation_amount ?? NaN);
     codes.push(symbolToWmo(step.data.next_1_hours?.summary?.symbol_code) ?? NaN);
   }
-  const hourly: NormalizedHourly[] = buildHourly(times, temps, probs, precip, codes);
+  const hourly: NormalizedHourly[] = hourlyFrom(
+    buildHourly(times, temps, probs, precip, codes, 48),
+    first.time,
+  ).slice(0, 24);
 
   return {
     provider: 'met-no',

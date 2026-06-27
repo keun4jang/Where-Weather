@@ -1,6 +1,6 @@
 import { ProviderFetchError } from '../lib/errors';
 import type { Coordinates, ProviderResult } from './types';
-import { buildHourly, kmhToMs, safeNumber } from './normalize';
+import { buildHourly, hourlyFrom, kmhToMs, safeNumber } from './normalize';
 
 const FORECAST_URL = 'https://api.open-meteo.com/v1/forecast';
 
@@ -72,13 +72,17 @@ export async function fetchOpenMeteo(coords: Coordinates): Promise<ProviderResul
 
   const h = data.hourly;
   const hourly = h
-    ? buildHourly(
-        h.time,
-        h.temperature_2m ?? [],
-        h.precipitation_probability,
-        h.precipitation,
-        h.weather_code,
-      )
+    ? hourlyFrom(
+        buildHourly(
+          h.time,
+          h.temperature_2m ?? [],
+          h.precipitation_probability,
+          h.precipitation,
+          h.weather_code,
+          48, // fetch 2 days then filter to current time
+        ),
+        c.time,
+      ).slice(0, 24)
     : [];
 
   return {
