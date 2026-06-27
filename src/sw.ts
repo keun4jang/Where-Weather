@@ -1,4 +1,5 @@
 /// <reference lib="webworker" />
+import { clientsClaim } from 'workbox-core';
 import { precacheAndRoute, cleanupOutdatedCaches } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { NetworkFirst } from 'workbox-strategies';
@@ -27,6 +28,10 @@ interface WidgetEvent extends ExtendableEvent {
 interface PeriodicSyncEvent extends ExtendableEvent {
   tag: string;
 }
+
+// Take over immediately when a new SW installs, then notify clients to reload
+self.skipWaiting();
+clientsClaim();
 
 precacheAndRoute(self.__WB_MANIFEST);
 cleanupOutdatedCaches();

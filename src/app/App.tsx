@@ -19,7 +19,20 @@ import { AppError, toMessage } from '../lib/errors';
 import { pushWidgetData } from '../lib/widgetBridge';
 import { triggerWeatherAlerts } from '../lib/notifications';
 import NotificationBanner from '../components/NotificationBanner';
+import { removeCache } from '../lib/cache';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
+
+const WEATHER_REFRESH_MS = 10 * 60 * 1000; // 10분마다 자동 갱신
+
+/** 새 서비스 워커가 활성화되면 페이지를 자동으로 리로드 */
+function useSwUpdateReload() {
+  useEffect(() => {
+    if (!('serviceWorker' in navigator)) return;
+    const handler = () => window.location.reload();
+    navigator.serviceWorker.addEventListener('controllerchange', handler);
+    return () => navigator.serviceWorker.removeEventListener('controllerchange', handler);
+  }, []);
+}
 
 const LOCATIONS_KEY = 'savedLocations';
 
@@ -42,6 +55,7 @@ function saveSavedLocations(locs: NamedLocation[]) {
 
 function AppInner() {
   const { t, i18n } = useTranslation();
+  useSwUpdateReload();
 
   // Saved location list (persisted)
   const [locations, setLocations] = useState<NamedLocation[]>(loadSavedLocations);
@@ -163,6 +177,40 @@ function AppInner() {
   const handleRefresh = useCallback(() => {
     if (activeLocation) void loadFor(activeLocation);
   }, [activeLocation, loadFor]);
+
+  // 10분마다 + 탭 복귀 시 활성 위치 날씨 자동 갱신
+  const lastHiddenAt = useRef<number>(0);
+  useEffect(() => {
+    if (locations.length === 0) return;
+
+    function refreshActive() {
+      const loc = locations.find((l) => locationKey(l) === activeKey);
+      if (!loc) return;
+      // 캐시를 지우고 새로 불러옴
+      removeCache(`wx:${loc.latitude.toFixed(3)},${loc.longitude.toFixed(3)}`);
+      void loadFor(loc);
+    }
+
+    const interval = setInterval(refreshActive, WEATHER_REFRESH_MS);
+
+    function onVisibility() {
+      if (document.visibilityState === 'hidden') {
+        lastHiddenAt.current = Date.now();
+      } else if (document.visibilityState === 'visible') {
+        // 5분 이상 숨겨졌다가 돌아오면 즉시 갱신
+        if (Date.now() - lastHiddenAt.current > 5 * 60 * 1000) {
+          refreshActive();
+        }
+      }
+    }
+
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => {
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeKey, locations.length]);
 
   const activeError = errors[activeKey] || errors['gps'] || null;
   const isActiveLoading = loadingKey === activeKey || loadingKey === 'gps';
