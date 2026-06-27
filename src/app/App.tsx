@@ -24,13 +24,40 @@ import type { NamedLocation, WeatherSnapshot } from '../weather/types';
 
 const WEATHER_REFRESH_MS = 10 * 60 * 1000; // 10분마다 자동 갱신
 
-/** 새 서비스 워커가 활성화되면 페이지를 자동으로 리로드 */
+/** 새 서비스 워커가 활성화되면 페이지를 자동으로 리로드하고,
+ *  설치된 PWA도 주기적으로 업데이트를 확인한다. */
 function useSwUpdateReload() {
   useEffect(() => {
     if (!('serviceWorker' in navigator)) return;
+
+    // 새 SW 활성화 시 자동 리로드
     const handler = () => window.location.reload();
     navigator.serviceWorker.addEventListener('controllerchange', handler);
-    return () => navigator.serviceWorker.removeEventListener('controllerchange', handler);
+
+    // SW 업데이트 강제 확인 함수
+    function checkForUpdate() {
+      navigator.serviceWorker.ready
+        .then((reg) => reg.update())
+        .catch(() => {});
+    }
+
+    // 앱 시작 시 즉시 확인
+    checkForUpdate();
+
+    // 30분마다 확인 (설치된 PWA는 기본적으로 24시간 간격이므로 강제 단축)
+    const interval = setInterval(checkForUpdate, 30 * 60 * 1000);
+
+    // 포그라운드로 돌아올 때마다 확인
+    function onVisibility() {
+      if (document.visibilityState === 'visible') checkForUpdate();
+    }
+    document.addEventListener('visibilitychange', onVisibility);
+
+    return () => {
+      navigator.serviceWorker.removeEventListener('controllerchange', handler);
+      clearInterval(interval);
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
   }, []);
 }
 

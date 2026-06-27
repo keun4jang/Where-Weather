@@ -1,6 +1,6 @@
 {
   "name": "where-weather",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "private": true,
   "type": "module",
   "description": "Free multilingual PWA that fuses multiple free weather sources into a single honest verdict for where you are.",
