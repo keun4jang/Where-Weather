@@ -219,6 +219,7 @@
     "testBtn": "...",
     "rainAlert": "☂️ {{location}}",
     "uvAlert": "🕶️ {{location}}",
-    "morningBrief": "{{temp}}° {{condition}} {{location}}"
+    "morningBrief": "{{temp}}° {{condition}} {{location}}",
+    "scheduledInfo": "Alertas diarias a las 9:00, 12:00, 15:00 y 18:00."
   }
 }

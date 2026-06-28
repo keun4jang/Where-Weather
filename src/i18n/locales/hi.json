@@ -219,6 +219,7 @@
     "testBtn": "...",
     "rainAlert": "☂️ {{location}}",
     "uvAlert": "🕶️ {{location}}",
-    "morningBrief": "{{temp}}° {{condition}} {{location}}"
+    "morningBrief": "{{temp}}° {{condition}} {{location}}",
+    "scheduledInfo": "प्रतिदिन 9, 12, 15 और 18 बजे अलर्ट।"
   }
 }

@@ -18,6 +18,7 @@ import { getWeatherSnapshot } from '../weather/providers';
 import { AppError, toMessage } from '../lib/errors';
 import { pushWidgetData } from '../lib/widgetBridge';
 import { triggerWeatherAlerts } from '../lib/notifications';
+import { scheduleWeatherAlerts } from '../lib/scheduledNotifications';
 import NotificationBanner from '../components/NotificationBanner';
 import { removeCache } from '../lib/cache';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
@@ -112,11 +113,13 @@ function AppInner() {
     try {
       const result = await getWeatherSnapshot(location);
       setSnapshots((prev) => ({ ...prev, [key]: result }));
-      // Push to service worker for home screen widget
+      // Push to service worker / native widget
       void pushWidgetData(result);
-      // Trigger weather alerts if permission granted
+      // Trigger immediate alerts if conditions warrant
       const locName = [location.name, location.country].filter(Boolean).join(', ') || '';
       triggerWeatherAlerts(result, locName, t);
+      // Schedule daily alerts at 9, 12, 15, 18
+      void scheduleWeatherAlerts(result);
     } catch (err) {
       const msg = err instanceof AppError
         ? err.i18nKey

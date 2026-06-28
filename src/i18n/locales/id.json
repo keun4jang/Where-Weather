@@ -219,6 +219,7 @@
     "testBtn": "...",
     "rainAlert": "☂️ {{location}}",
     "uvAlert": "🕶️ {{location}}",
-    "morningBrief": "{{temp}}° {{condition}} {{location}}"
+    "morningBrief": "{{temp}}° {{condition}} {{location}}",
+    "scheduledInfo": "Notifikasi harian pukul 09.00, 12.00, 15.00 dan 18.00."
   }
 }

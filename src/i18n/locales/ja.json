@@ -219,6 +219,7 @@
     "testBtn": "...",
     "rainAlert": "☂️ {{location}}",
     "uvAlert": "🕶️ {{location}}",
-    "morningBrief": "{{temp}}° {{condition}} {{location}}"
+    "morningBrief": "{{temp}}° {{condition}} {{location}}",
+    "scheduledInfo": "毎日9時、12時、15時、18時にお知らせします。"
   }
 }

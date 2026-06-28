@@ -172,6 +172,7 @@
     "unsupported": "이 브라우저는 알림을 지원하지 않아요.",
     "iosHint": "아이폰에서 알림을 받으려면 먼저 홈 화면에 앱을 추가해 주세요.",
     "testBtn": "테스트 알림 보내기",
+    "scheduledInfo": "매일 9시, 12시, 15시, 18시에 알림을 보내드려요.",
     "rainAlert": "☂️ {{location}} 에 곧 비가 올 것 같아요",
     "uvAlert": "🕶️ {{location}} 자외선 강함 — 자외선 차단제를 바르세요.",
     "morningBrief": "좋은 아침! {{location}} 현재 {{temp}}°, {{condition}}."

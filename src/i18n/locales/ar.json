@@ -219,6 +219,7 @@
     "testBtn": "...",
     "rainAlert": "☂️ {{location}}",
     "uvAlert": "🕶️ {{location}}",
-    "morningBrief": "{{temp}}° {{condition}} {{location}}"
+    "morningBrief": "{{temp}}° {{condition}} {{location}}",
+    "scheduledInfo": "تنبيهات يومية في 9:00 و12:00 و15:00 و18:00."
   }
 }

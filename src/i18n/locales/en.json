@@ -172,6 +172,7 @@
     "unsupported": "Notifications not supported on this browser.",
     "iosHint": "To receive alerts on iPhone, first add this app to your Home Screen.",
     "testBtn": "Send test alert",
+    "scheduledInfo": "Daily alerts at 9:00, 12:00, 15:00 and 18:00.",
     "rainAlert": "☂️ Rain expected soon at {{location}}",
     "uvAlert": "🕶️ High UV index at {{location}} — wear sunscreen.",
     "morningBrief": "Good morning! {{temp}}° and {{condition}} at {{location}}."

@@ -219,6 +219,7 @@
     "testBtn": "Envoyer une alerte test",
     "rainAlert": "☂️ Pluie prévue bientôt à {{location}}",
     "uvAlert": "🕶️ UV élevé à {{location}} — mettez de la crème solaire.",
-    "morningBrief": "Bonjour ! {{temp}}° et {{condition}} à {{location}}."
+    "morningBrief": "Bonjour ! {{temp}}° et {{condition}} à {{location}}.",
+    "scheduledInfo": "Alertes quotidiennes à 9h, 12h, 15h et 18h."
   }
 }
