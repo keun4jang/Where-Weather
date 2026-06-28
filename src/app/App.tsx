@@ -23,7 +23,7 @@ import NotificationBanner from '../components/NotificationBanner';
 import { removeCache } from '../lib/cache';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
 
-const WEATHER_REFRESH_MS = 10 * 60 * 1000; // 10분마다 자동 갱신
+const WEATHER_REFRESH_MS = 30 * 60 * 1000; // 30분마다 자동 갱신
 
 /** 새 서비스 워커가 활성화되면 페이지를 자동으로 리로드하고,
  *  설치된 PWA도 주기적으로 업데이트를 확인한다. */
@@ -205,7 +205,9 @@ function AppInner() {
   }, [i18n.language]);
 
   const handleRefresh = useCallback(() => {
-    if (activeLocation) void loadFor(activeLocation);
+    if (!activeLocation) return;
+    removeCache(`wx:${activeLocation.latitude.toFixed(3)},${activeLocation.longitude.toFixed(3)}`);
+    void loadFor(activeLocation);
   }, [activeLocation, loadFor]);
 
   // 10분마다 + 탭 복귀 시 활성 위치 날씨 자동 갱신
