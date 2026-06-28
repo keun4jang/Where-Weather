@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Where Weather</string>
+    <string name="title_activity_main">Where Weather</string>
+    <string name="package_name">com.whereweather.app</string>
+    <string name="custom_url_scheme">com.whereweather.app</string>
+    <string name="widget_description">현재 날씨를 홈 화면에서 바로 확인</string>
+</resources>

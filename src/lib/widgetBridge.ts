@@ -58,19 +58,26 @@ export function buildWidgetData(snapshot: WeatherSnapshot): WidgetData {
 }
 
 export async function pushWidgetData(snapshot: WeatherSnapshot): Promise<void> {
-  const reg = await navigator.serviceWorker.ready.catch(() => null);
-  if (!reg?.active) return;
-
   const data = buildWidgetData(snapshot);
-  reg.active.postMessage({ type: 'WIDGET_DATA_UPDATE', payload: JSON.stringify(data) });
+  const payload = JSON.stringify(data);
 
-  // Register periodic background sync if available
-  try {
-    const ps = (reg as ServiceWorkerRegistration & { periodicSync?: { register(tag: string, opts: object): Promise<void> } }).periodicSync;
-    if (ps) {
-      await ps.register('weather-widget-sync', { minInterval: 60 * 60 * 1000 });
-    }
-  } catch {
-    // not supported — fine
+  // PWA service worker widget (Chrome/Edge on Windows/Android where supported)
+  const reg = await navigator.serviceWorker.ready.catch(() => null);
+  if (reg?.active) {
+    reg.active.postMessage({ type: 'WIDGET_DATA_UPDATE', payload });
+    try {
+      const ps = (reg as ServiceWorkerRegistration & { periodicSync?: { register(tag: string, opts: object): Promise<void> } }).periodicSync;
+      if (ps) await ps.register('weather-widget-sync', { minInterval: 60 * 60 * 1000 });
+    } catch { /* not supported */ }
   }
+
+  // Capacitor native Android widget (via WidgetPlugin)
+  try {
+    const { Capacitor } = await import('@capacitor/core');
+    if (Capacitor.isNativePlatform()) {
+      const { registerPlugin } = await import('@capacitor/core');
+      const WeatherWidget = registerPlugin<{ update(opts: { data: string }): Promise<void> }>('WeatherWidget');
+      await WeatherWidget.update({ data: payload });
+    }
+  } catch { /* not in Capacitor context */ }
 }

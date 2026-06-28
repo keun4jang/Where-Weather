@@ -1,6 +1,6 @@
 {
   "name": "where-weather",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "private": true,
   "type": "module",
   "description": "Free multilingual PWA that fuses multiple free weather sources into a single honest verdict for where you are.",
@@ -20,6 +20,9 @@
     "check:name": "node scripts/check-name-availability.mjs"
   },
   "dependencies": {
+    "@capacitor/android": "^8.4.1",
+    "@capacitor/cli": "^8.4.1",
+    "@capacitor/core": "^8.4.1",
     "i18next": "^23.11.5",
     "i18next-browser-languagedetector": "^8.0.0",
     "react": "^18.3.1",
