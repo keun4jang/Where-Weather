@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-const FORMSPREE_ID = import.meta.env.VITE_FORMSPREE_ID as string | undefined;
+// Formsubmit.co hash — set VITE_FORMSUBMIT_TOKEN to the hash from the
+// activation email (https://formsubmit.co). The email address is never
+// visible in the source.
+const FORMSUBMIT_TOKEN = import.meta.env.VITE_FORMSUBMIT_TOKEN as string | undefined;
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -12,14 +15,18 @@ export default function FeedbackModal({ onClose }: { onClose: () => void }) {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!message.trim() || !FORMSPREE_ID) return;
+    if (!message.trim() || !FORMSUBMIT_TOKEN) return;
 
     setStatus('sending');
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch(`https://formsubmit.co/ajax/${FORMSUBMIT_TOKEN}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ message, _subject: 'Where Weather 피드백' }),
+        body: JSON.stringify({
+          message,
+          _subject: 'Where Weather 피드백',
+          _captcha: 'false',
+        }),
       });
       if (res.ok) {
         setStatus('sent');
@@ -64,7 +71,7 @@ export default function FeedbackModal({ onClose }: { onClose: () => void }) {
             {status === 'error' && (
               <p className="text-xs text-red-400">{t('feedback.error')}</p>
             )}
-            {!FORMSPREE_ID && (
+            {!FORMSUBMIT_TOKEN && (
               <p className="text-xs text-amber-400">{t('feedback.notConfigured')}</p>
             )}
             <div className="flex gap-2 justify-end">
