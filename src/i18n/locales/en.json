@@ -180,7 +180,8 @@
   "footer": {
     "version": "Version {{version}}",
     "openSource": "Free and open.",
-    "madeWith": "Built with open weather data."
+    "madeWith": "Built with open weather data.",
+    "feedback": "Send feedback"
   },
   "errors": {
     "geolocationUnsupported": "Your browser does not support location.",
@@ -221,5 +222,18 @@
     "thunderstormHailSlight": "Thunderstorm with hail",
     "thunderstormHailHeavy": "Severe thunderstorm",
     "unknown": "Unknown"
+  },
+  "feedback": {
+    "title": "Send feedback",
+    "body": "Bug reports, ideas, or anything on your mind — we read everything.",
+    "placeholder": "What's on your mind?",
+    "submit": "Send",
+    "sending": "Sending…",
+    "cancel": "Cancel",
+    "close": "Close",
+    "sent": "Thanks for the feedback!",
+    "sentBody": "We read every message and use it to improve Where Weather.",
+    "error": "Couldn't send — please try again.",
+    "notConfigured": "Feedback is not configured yet."
   }
 }
