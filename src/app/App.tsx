@@ -23,7 +23,7 @@ import NotificationBanner from '../components/NotificationBanner';
 import { removeCache } from '../lib/cache';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
 
-const WEATHER_REFRESH_MS = 30 * 60 * 1000; // 30분마다 자동 갱신
+const WEATHER_REFRESH_MS = 5 * 60 * 1000; // 5분마다 자동 갱신
 
 /** 새 서비스 워커가 활성화되면 페이지를 자동으로 리로드하고,
  *  설치된 PWA도 주기적으로 업데이트를 확인한다. */
@@ -113,12 +113,9 @@ function AppInner() {
     try {
       const result = await getWeatherSnapshot(location);
       setSnapshots((prev) => ({ ...prev, [key]: result }));
-      // Push to service worker / native widget
       void pushWidgetData(result);
-      // Trigger immediate alerts if conditions warrant
       const locName = [location.name, location.country].filter(Boolean).join(', ') || '';
       triggerWeatherAlerts(result, locName, t);
-      // Schedule daily alerts at 9, 12, 15, 18
       void scheduleWeatherAlerts(result);
     } catch (err) {
       const msg = err instanceof AppError
@@ -132,6 +129,10 @@ function AppInner() {
       setLoadingKey(null);
     }
   }, [t]);
+
+  // loadFor를 ref로 유지 — setInterval 클로저가 항상 최신 함수를 참조하게 함
+  const loadForRef = useRef(loadFor);
+  useEffect(() => { loadForRef.current = loadFor; }, [loadFor]);
 
   const addLocation = useCallback((location: NamedLocation) => {
     const key = locationKey(location);
@@ -210,17 +211,22 @@ function AppInner() {
     void loadFor(activeLocation);
   }, [activeLocation, loadFor]);
 
-  // 10분마다 + 탭 복귀 시 활성 위치 날씨 자동 갱신
+  // 5분마다 + 탭 복귀 시 활성 위치 날씨 자동 갱신
+  // activeKey/locations를 ref로 유지해 setInterval 클로저가 항상 최신 값을 참조하게 함
+  const activeKeyRef = useRef(activeKey);
+  useEffect(() => { activeKeyRef.current = activeKey; }, [activeKey]);
+  const locationsRef = useRef(locations);
+  useEffect(() => { locationsRef.current = locations; }, [locations]);
+
   const lastHiddenAt = useRef<number>(0);
   useEffect(() => {
-    if (locations.length === 0) return;
-
     function refreshActive() {
-      const loc = locations.find((l) => locationKey(l) === activeKey);
+      const locs = locationsRef.current;
+      if (locs.length === 0) return;
+      const loc = locs.find((l) => locationKey(l) === activeKeyRef.current);
       if (!loc) return;
-      // 캐시를 지우고 새로 불러옴
       removeCache(`wx:${loc.latitude.toFixed(3)},${loc.longitude.toFixed(3)}`);
-      void loadFor(loc);
+      void loadForRef.current(loc);
     }
 
     const interval = setInterval(refreshActive, WEATHER_REFRESH_MS);
@@ -229,7 +235,6 @@ function AppInner() {
       if (document.visibilityState === 'hidden') {
         lastHiddenAt.current = Date.now();
       } else if (document.visibilityState === 'visible') {
-        // 5분 이상 숨겨졌다가 돌아오면 즉시 갱신
         if (Date.now() - lastHiddenAt.current > 5 * 60 * 1000) {
           refreshActive();
         }
@@ -241,8 +246,7 @@ function AppInner() {
       clearInterval(interval);
       document.removeEventListener('visibilitychange', onVisibility);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeKey, locations.length]);
+  }, []); // 마운트 시 한 번만 — 최신 값은 ref로 참조
 
   const activeError = errors[activeKey] || errors['gps'] || null;
   const isActiveLoading = loadingKey === activeKey || loadingKey === 'gps';
