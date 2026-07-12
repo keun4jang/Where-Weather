@@ -58,24 +58,42 @@ export async function reverseGeocode(
   };
 
   try {
-    const url = new URL('https://api.bigdatacloud.net/data/reverse-geocode-client');
-    url.searchParams.set('latitude', String(coords.latitude));
-    url.searchParams.set('longitude', String(coords.longitude));
-    url.searchParams.set('localityLanguage', language);
-    const res = await fetch(url.toString());
+    // Nominatim: zoom=18 gives neighbourhood/suburb level (e.g. 개봉1동)
+    const url = new URL('https://nominatim.openstreetmap.org/reverse');
+    url.searchParams.set('lat', String(coords.latitude));
+    url.searchParams.set('lon', String(coords.longitude));
+    url.searchParams.set('format', 'jsonv2');
+    url.searchParams.set('zoom', '18');
+    url.searchParams.set('accept-language', language);
+    const res = await fetch(url.toString(), {
+      headers: { 'User-Agent': 'WhereWeather/1.0 (weather app)' },
+    });
     if (!res.ok) return fallback;
     const data = (await res.json()) as {
-      city?: string;
-      locality?: string;
-      principalSubdivision?: string;
-      countryName?: string;
+      address?: {
+        neighbourhood?: string;
+        suburb?: string;
+        quarter?: string;
+        village?: string;
+        town?: string;
+        city?: string;
+        county?: string;
+        state?: string;
+        country?: string;
+      };
     };
+    const a = data.address ?? {};
+    // neighbourhood > suburb > quarter > village > town > city (most → least specific)
+    const neighbourhood = a.neighbourhood || a.suburb || a.quarter || a.village || a.town || a.city;
+    const city = a.city || a.county || a.state;
+    // Display: "서울특별시 개봉1동" style — state/city + neighbourhood
+    const nameParts = [city, neighbourhood].filter(Boolean);
     const named: NamedLocation = {
       latitude: coords.latitude,
       longitude: coords.longitude,
-      name: data.city || data.locality || undefined,
-      admin1: data.principalSubdivision,
-      country: data.countryName,
+      name: nameParts.length > 0 ? nameParts.join(' ') : undefined,
+      admin1: a.state,
+      country: a.country,
     };
     setCache(cacheKey, named, TTL.GEOCODE);
     return named;

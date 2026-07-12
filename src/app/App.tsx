@@ -10,6 +10,8 @@ import LiveTimelineCard from '../components/LiveTimelineCard';
 import SourceJuryCard from '../components/SourceJuryCard';
 import LifeActionCards from '../components/LifeActionCards';
 import AirQualityCard from '../components/AirQualityCard';
+import MonthlyForecastCard from '../components/MonthlyForecastCard';
+import PrepItemsCard from '../components/PrepItemsCard';
 import AboutCard from '../components/AboutCard';
 import { SettingsProvider } from './settings';
 import { requestCurrentPosition } from '../location/geolocation';
@@ -254,7 +256,7 @@ function AppInner() {
   return (
     <div className="min-h-screen">
       <Header />
-      <main className="mx-auto max-w-2xl space-y-4 px-4 py-5">
+      <main className="mx-auto max-w-2xl space-y-3 px-3 py-3">
         <NotificationBanner />
 
         {locations.length === 0 ? (
@@ -306,10 +308,12 @@ function AppInner() {
             {activeSnapshot && (
               <>
                 <MainVerdictCard location={activeSnapshot.location} fusion={activeSnapshot.fusion} />
+                <PrepItemsCard fusion={activeSnapshot.fusion} airQuality={activeSnapshot.airQuality} />
                 <LiveTimelineCard hourly={activeSnapshot.fusion.hourly} location={activeSnapshot.location} />
+                <MonthlyForecastCard location={activeSnapshot.location} />
+                <AirQualityCard airQuality={activeSnapshot.airQuality} />
                 <LifeActionCards verdicts={activeSnapshot.verdicts} />
                 <SourceJuryCard fusion={activeSnapshot.fusion} />
-                <AirQualityCard airQuality={activeSnapshot.airQuality} />
               </>
             )}
 

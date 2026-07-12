@@ -235,5 +235,33 @@
     "sentBody": "모든 의견을 읽고 앱 개선에 반영하겠습니다.",
     "error": "전송에 실패했어요 — 다시 시도해 주세요.",
     "notConfigured": "피드백 기능이 아직 설정되지 않았어요."
+  },
+  "monthly": {
+    "title": "16일 예보"
+  },
+  "prep": {
+    "title": "오늘 준비물",
+    "umbrella": "우산 필요",
+    "umbrellaJustInCase": "우산 챙기면 좋아요",
+    "parasol": "양산 필요",
+    "noUmbrella": "우산 불필요",
+    "sunscreen": "자외선 차단제",
+    "maskBad": "마스크 필수",
+    "maskModerate": "마스크 권장",
+    "gloves": "장갑",
+    "scarf": "목도리",
+    "heavyCoat": "두꺼운 코트",
+    "lightJacket": "가벼운 겉옷",
+    "lightClothes": "얇은 옷차림",
+    "water": "물 챙기세요"
+  },
+  "notifSettings": {
+    "title": "알림 설정",
+    "enableAll": "날씨 알림",
+    "scheduleInfo": "매일 정해진 시간에 날씨를 알려드려요",
+    "schedule": "알림 시간표",
+    "morning": "오늘 날씨 요약",
+    "daily": "날씨 업데이트",
+    "close": "확인"
   }
 }

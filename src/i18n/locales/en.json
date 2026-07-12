@@ -235,5 +235,33 @@
     "sentBody": "We read every message and use it to improve Where Weather.",
     "error": "Couldn't send — please try again.",
     "notConfigured": "Feedback is not configured yet."
+  },
+  "monthly": {
+    "title": "16-Day Forecast"
+  },
+  "prep": {
+    "title": "Today's kit",
+    "umbrella": "Umbrella needed",
+    "umbrellaJustInCase": "Maybe bring an umbrella",
+    "parasol": "Parasol for UV",
+    "noUmbrella": "No umbrella needed",
+    "sunscreen": "Wear sunscreen",
+    "maskBad": "Mask required",
+    "maskModerate": "Mask recommended",
+    "gloves": "Gloves",
+    "scarf": "Scarf",
+    "heavyCoat": "Heavy coat",
+    "lightJacket": "Light jacket",
+    "lightClothes": "Light clothes",
+    "water": "Stay hydrated"
+  },
+  "notifSettings": {
+    "title": "Notification settings",
+    "enableAll": "Weather alerts",
+    "scheduleInfo": "Daily weather reminders at set times",
+    "schedule": "Alert schedule",
+    "morning": "Today's weather summary",
+    "daily": "Weather update",
+    "close": "Done"
   }
 }
