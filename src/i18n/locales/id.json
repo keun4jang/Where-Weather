@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "Notifikasi harian pukul 09.00, 12.00, 15.00 dan 18.00."
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ Besok hujan",
+    "tomorrowBody": "{{location}}: peluang {{prob}}%, {{mm}} mm",
+    "weekTitle": "🌧 Hari hujan ke depan",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "Peringatan hujan (besok & 7 hari ke depan)",
+    "settingInfo": "Memberi tahu jika hujan diprakirakan besok atau minggu depan",
+    "webLimit": "Tanpa aplikasi Android, pengecekan hanya saat halaman ini terbuka.",
+    "batteryInfo": "Optimasi baterai dapat menunda pengecekan hujan. Izinkan aplikasi berjalan tanpa batasan.",
+    "batteryButton": "Nonaktifkan optimasi baterai",
+    "batteryOk": "Optimasi baterai mati — pengecekan tepat waktu"
   }
 }

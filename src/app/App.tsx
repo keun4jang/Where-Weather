@@ -21,6 +21,7 @@ import { AppError, toMessage } from '../lib/errors';
 import { pushWidgetData } from '../lib/widgetBridge';
 import { triggerWeatherAlerts } from '../lib/notifications';
 import { scheduleWeatherAlerts } from '../lib/scheduledNotifications';
+import { syncRainAlerts } from '../lib/rainAlerts';
 import NotificationBanner from '../components/NotificationBanner';
 import { removeCache } from '../lib/cache';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
@@ -83,6 +84,16 @@ function saveSavedLocations(locs: NamedLocation[]) {
   }
 }
 
+const GPS_KEY = 'gpsLocationKey';
+
+function loadGpsKey(): string | null {
+  try { return localStorage.getItem(GPS_KEY); } catch { return null; }
+}
+
+function saveGpsKey(key: string) {
+  try { localStorage.setItem(GPS_KEY, key); } catch { /* ignore */ }
+}
+
 function AppInner() {
   const { t, i18n } = useTranslation();
   useSwUpdateReload();
@@ -103,7 +114,7 @@ function AppInner() {
   // GPS coords for language-aware reverse geocoding
   const gpsCoords = useRef<{ latitude: number; longitude: number } | null>(null);
   // Key of the GPS-based location (so we can update its name on language change)
-  const gpsKey = useRef<string | null>(null);
+  const gpsKey = useRef<string | null>(loadGpsKey());
 
   const activeSnapshot = activeKey ? snapshots[activeKey] ?? null : null;
   const activeLocation = locations.find((l) => locationKey(l) === activeKey) ?? null;
@@ -136,6 +147,13 @@ function AppInner() {
   const loadForRef = useRef(loadFor);
   useEffect(() => { loadForRef.current = loadFor; }, [loadFor]);
 
+  // Rain alerts follow the primary (first) saved location; re-sync on language change
+  // so native notification templates are localized.
+  const primaryLocation = locations[0] ?? null;
+  useEffect(() => {
+    if (primaryLocation) void syncRainAlerts(t, primaryLocation);
+  }, [primaryLocation, t]);
+
   const addLocation = useCallback((location: NamedLocation) => {
     const key = locationKey(location);
     setLocations((prev) => {
@@ -166,6 +184,11 @@ function AppInner() {
     setSnapshots((prev) => { const n = { ...prev }; delete n[key]; return n; });
   }, [activeKey]);
 
+  /**
+   * Current location is a single slot pinned to the front of the list (so it is
+   * the default tab and the location rain alerts follow). Re-locating replaces
+   * that slot instead of appending a new tab every time you move.
+   */
   const handleUseMyLocation = useCallback(async () => {
     setLoadingKey('gps');
     setErrors((prev) => ({ ...prev, gps: '' }));
@@ -174,15 +197,37 @@ function AppInner() {
       gpsCoords.current = coords;
       const named = await reverseGeocode(coords, i18n.language ?? 'en');
       const key = locationKey(named);
+      const oldKey = gpsKey.current;
       gpsKey.current = key;
-      addLocation(named);
+      saveGpsKey(key);
+      setLocations((prev) => {
+        const rest = prev.filter((l) => {
+          const k = locationKey(l);
+          return k !== key && k !== oldKey;
+        });
+        const next = [named, ...rest];
+        saveSavedLocations(next);
+        return next;
+      });
+      setActiveKey(key);
+      void loadFor(named);
     } catch (err) {
       const msg = err instanceof AppError ? err.i18nKey : 'errors.geolocationUnavailable';
       setErrors((prev) => ({ ...prev, gps: msg }));
     } finally {
       setLoadingKey(null);
     }
-  }, [addLocation, i18n.language]);
+  }, [loadFor, i18n.language]);
+
+  // Default to current location on launch — but only after the user has granted
+  // location once via an explicit click (gpsKey is saved only on success).
+  // The first permission prompt therefore still comes from a user gesture.
+  const autoLocated = useRef(false);
+  useEffect(() => {
+    if (autoLocated.current || !loadGpsKey()) return;
+    autoLocated.current = true;
+    void handleUseMyLocation();
+  }, [handleUseMyLocation]);
 
   // On language change, update GPS location name
   useEffect(() => {
@@ -192,6 +237,7 @@ function AppInner() {
     reverseGeocode(coords, i18n.language ?? 'en').then((named) => {
       const newKey = locationKey(named);
       gpsKey.current = newKey;
+      saveGpsKey(newKey);
       setLocations((prev) => {
         const next = prev.map((l) => locationKey(l) === oldKey ? named : l);
         saveSavedLocations(next);
@@ -282,6 +328,7 @@ function AppInner() {
               onRemove={removeLocation}
               onUseMyLocation={() => void handleUseMyLocation()}
               loadingKey={loadingKey}
+              gpsKey={gpsKey.current}
             />
 
             <div className="flex items-center justify-end">

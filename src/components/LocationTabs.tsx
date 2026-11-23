@@ -12,6 +12,8 @@ interface Props {
   onRemove: (key: string) => void;
   onUseMyLocation: () => void;
   loadingKey: string | null;
+  /** Key of the current-location tab, if any. */
+  gpsKey?: string | null;
 }
 
 function locationLabel(loc: NamedLocation) {
@@ -27,6 +29,7 @@ export default function LocationTabs({
   onRemove,
   onUseMyLocation,
   loadingKey,
+  gpsKey,
 }: Props) {
   const { t, i18n } = useTranslation();
   const [showSearch, setShowSearch] = useState(false);
@@ -61,6 +64,19 @@ export default function LocationTabs({
     <div className="ww-card !p-0 overflow-hidden">
       {/* Tab row */}
       <div className="flex items-center gap-1 overflow-x-auto px-2 pt-2 pb-1 scrollbar-none">
+        {/* Current location — always visible */}
+        <button
+          type="button"
+          onClick={onUseMyLocation}
+          disabled={loadingKey === 'gps'}
+          className="shrink-0 rounded-full px-2 py-1 text-sm text-slate-400 hover:bg-slate-200 disabled:opacity-50 dark:hover:bg-slate-700"
+          title={t('location.useMyLocation')}
+          aria-label={t('location.useMyLocation')}
+        >
+          {loadingKey === 'gps'
+            ? <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />
+            : '📍'}
+        </button>
         {locations.map((loc) => {
           const key = locationKey(loc);
           const isActive = key === activeKey;
@@ -77,6 +93,7 @@ export default function LocationTabs({
                 }`}
               >
                 {isLoading && <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />}
+                {key === gpsKey && <span aria-hidden>📍</span>}
                 {locationLabel(loc)}
               </button>
               {locations.length > 1 && (

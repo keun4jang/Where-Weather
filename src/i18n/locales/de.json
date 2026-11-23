@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "Tägliche Benachrichtigungen um 9, 12, 15 und 18 Uhr."
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ Morgen Regen",
+    "tomorrowBody": "{{location}}: {{prob}} % Wahrscheinlichkeit, {{mm}} mm",
+    "weekTitle": "🌧 Regentage voraus",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "Regenwarnung (morgen & nächste 7 Tage)",
+    "settingInfo": "Benachrichtigt dich bei Regen morgen oder in der Woche danach",
+    "webLimit": "Ohne die Android-App wird nur bei geöffneter Seite geprüft.",
+    "batteryInfo": "Die Akku-Optimierung kann Regenprüfungen verzögern. Erlaube der App, uneingeschränkt zu laufen.",
+    "batteryButton": "Akku-Optimierung deaktivieren",
+    "batteryOk": "Akku-Optimierung aus — Prüfungen laufen pünktlich"
   }
 }

@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "प्रतिदिन 9, 12, 15 और 18 बजे अलर्ट।"
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ कल बारिश",
+    "tomorrowBody": "{{location}}: {{prob}}% संभावना, {{mm}} मिमी",
+    "weekTitle": "🌧 आने वाले बारिश के दिन",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "बारिश अलर्ट (कल और अगले 7 दिन)",
+    "settingInfo": "कल या अगले सप्ताह बारिश का पूर्वानुमान होने पर सूचित करता है",
+    "webLimit": "Android ऐप के बिना, केवल यह पेज खुला रहने पर जाँच होती है।",
+    "batteryInfo": "बैटरी ऑप्टिमाइज़ेशन बारिश जाँच में देरी कर सकता है। ऐप को बिना प्रतिबंध चलने दें।",
+    "batteryButton": "बैटरी ऑप्टिमाइज़ेशन बंद करें",
+    "batteryOk": "बैटरी ऑप्टिमाइज़ेशन बंद — जाँच समय पर होगी"
   }
 }

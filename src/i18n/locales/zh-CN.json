@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "每天9时、12时、15时、18时发送提醒。"
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ 明天有雨",
+    "tomorrowBody": "{{location}}：降水概率 {{prob}}%，约 {{mm}} 毫米",
+    "weekTitle": "🌧 未来几天有雨",
+    "weekBody": "{{location}}：{{days}}",
+    "settingTitle": "降雨提醒（明天和未来7天）",
+    "settingInfo": "明天或下周有雨时通知你",
+    "webLimit": "非 Android 应用时，仅在此页面打开时检查。",
+    "batteryInfo": "电池优化可能会延迟降雨检查。请允许应用不受限制运行。",
+    "batteryButton": "关闭电池优化",
+    "batteryOk": "已关闭电池优化 — 将按时检查降雨"
   }
 }

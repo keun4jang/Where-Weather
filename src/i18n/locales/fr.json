@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ UV élevé à {{location}} — mettez de la crème solaire.",
     "morningBrief": "Bonjour ! {{temp}}° et {{condition}} à {{location}}.",
     "scheduledInfo": "Alertes quotidiennes à 9h, 12h, 15h et 18h."
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ Pluie demain",
+    "tomorrowBody": "{{location}} : {{prob}} % de risque, {{mm}} mm",
+    "weekTitle": "🌧 Jours de pluie à venir",
+    "weekBody": "{{location}} : {{days}}",
+    "settingTitle": "Alertes pluie (demain et 7 prochains jours)",
+    "settingInfo": "Vous prévient si de la pluie est prévue demain ou la semaine suivante",
+    "webLimit": "Sans l'app Android, la vérification n'a lieu que si cette page est ouverte.",
+    "batteryInfo": "L'optimisation de la batterie peut retarder les vérifications. Autorisez l'app sans restriction.",
+    "batteryButton": "Désactiver l'optimisation de la batterie",
+    "batteryOk": "Optimisation désactivée — vérifications à l'heure"
   }
 }

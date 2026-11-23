@@ -263,5 +263,17 @@
     "morning": "오늘 날씨 요약",
     "daily": "날씨 업데이트",
     "close": "확인"
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ 내일 비 예보 — 스쿠터 주의",
+    "tomorrowBody": "{{location}} 강수확률 {{prob}}% · 예상 {{mm}}mm",
+    "weekTitle": "🌧 다음 주 비 오는 날",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "비 알림 (내일 · 다음 7일)",
+    "settingInfo": "내일이나 다음 주에 비 예보가 있으면 알려드려요",
+    "webLimit": "안드로이드 앱이 아니면 이 페이지를 열어 둔 동안에만 비를 확인해요.",
+    "batteryInfo": "절전(배터리 최적화) 때문에 비 확인이 늦어질 수 있어요. 앱을 제한 없음으로 허용해 주세요.",
+    "batteryButton": "절전 예외 설정하기",
+    "batteryOk": "절전 예외 적용됨 — 비 확인이 제때 실행돼요"
   }
 }

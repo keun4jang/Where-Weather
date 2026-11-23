@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "Thông báo hàng ngày lúc 9:00, 12:00, 15:00 và 18:00."
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ Ngày mai có mưa",
+    "tomorrowBody": "{{location}}: khả năng {{prob}}%, {{mm}} mm",
+    "weekTitle": "🌧 Những ngày mưa sắp tới",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "Cảnh báo mưa (ngày mai & 7 ngày tới)",
+    "settingInfo": "Thông báo khi dự báo có mưa vào ngày mai hoặc tuần tới",
+    "webLimit": "Nếu không dùng ứng dụng Android, chỉ kiểm tra khi trang này đang mở.",
+    "batteryInfo": "Tối ưu pin có thể làm chậm việc kiểm tra mưa. Hãy cho phép ứng dụng chạy không hạn chế.",
+    "batteryButton": "Tắt tối ưu pin",
+    "batteryOk": "Đã tắt tối ưu pin — kiểm tra đúng lịch"
   }
 }

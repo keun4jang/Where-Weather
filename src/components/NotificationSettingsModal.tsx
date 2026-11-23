@@ -1,12 +1,56 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { getNotifEnabled, setNotifEnabled } from '../lib/scheduledNotifications';
 import { getNotifPermission } from '../lib/notifications';
+import {
+  getBatteryExempt,
+  getRainAlertEnabled,
+  isNativeRainAlerts,
+  requestBatteryExemption,
+  setRainAlertEnabled,
+} from '../lib/rainAlerts';
+
+function Toggle({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={on}
+      aria-label={label}
+      onClick={onClick}
+      className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${on ? 'bg-brand-600' : 'bg-slate-600'}`}
+    >
+      <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${on ? 'translate-x-5.5' : 'translate-x-0.5'}`} />
+    </button>
+  );
+}
 
 export default function NotificationSettingsModal({ onClose }: { onClose: () => void }) {
   const { t } = useTranslation();
   const perm = getNotifPermission();
   const [enabled, setEnabled] = useState(getNotifEnabled());
+  const [rainOn, setRainOn] = useState(getRainAlertEnabled());
+  const [native, setNative] = useState(false);
+
+  const [batteryExempt, setBatteryExempt] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    void isNativeRainAlerts().then(setNative);
+    const refresh = () => void getBatteryExempt().then(setBatteryExempt);
+    refresh();
+    // Re-check when returning from the system dialog.
+    document.addEventListener('visibilitychange', refresh);
+    return () => document.removeEventListener('visibilitychange', refresh);
+  }, []);
+
+  function toggleRain() {
+    const next = !rainOn;
+    setRainOn(next);
+    void setRainAlertEnabled(next, t);
+  }
+
+  // The Android WebView has no web Notification API, so show the rain toggle there regardless.
+  const showRain = native || perm === 'granted';
 
   function toggle() {
     const next = !enabled;
@@ -55,6 +99,30 @@ export default function NotificationSettingsModal({ onClose }: { onClose: () => 
               <p>🌅 06:00 — {t('notifSettings.morning')}</p>
               <p>🌤 09:00, 12:00, 15:00, 18:00 — {t('notifSettings.daily')}</p>
             </div>
+          </div>
+        )}
+
+        {showRain && (
+          <div className="space-y-2 border-t border-slate-700 pt-3">
+            <div className="flex items-center justify-between gap-3">
+              <div>
+                <p className="text-sm font-medium text-white">☔ {t('rainAlert.settingTitle')}</p>
+                <p className="text-xs text-slate-400">{t('rainAlert.settingInfo')}</p>
+              </div>
+              <Toggle on={rainOn} onClick={toggleRain} label={t('rainAlert.settingTitle')} />
+            </div>
+            {!native && <p className="text-xs text-amber-400/80">{t('rainAlert.webLimit')}</p>}
+            {native && batteryExempt === false && (
+              <div className="rounded-xl bg-amber-400/10 px-3 py-2 text-xs text-amber-300 space-y-2">
+                <p>{t('rainAlert.batteryInfo')}</p>
+                <button type="button" className="ww-btn w-full" onClick={() => void requestBatteryExemption()}>
+                  🔋 {t('rainAlert.batteryButton')}
+                </button>
+              </div>
+            )}
+            {native && batteryExempt === true && (
+              <p className="text-xs text-emerald-400">✓ {t('rainAlert.batteryOk')}</p>
+            )}
           </div>
         )}
 

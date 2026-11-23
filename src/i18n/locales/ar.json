@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "تنبيهات يومية في 9:00 و12:00 و15:00 و18:00."
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ أمطار غدًا",
+    "tomorrowBody": "{{location}}: احتمال {{prob}}٪، {{mm}} مم",
+    "weekTitle": "🌧 أيام ممطرة قادمة",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "تنبيهات المطر (غدًا والأيام السبعة القادمة)",
+    "settingInfo": "ننبهك عند توقع أمطار غدًا أو الأسبوع التالي",
+    "webLimit": "بدون تطبيق أندرويد، يتم التحقق فقط أثناء فتح هذه الصفحة.",
+    "batteryInfo": "قد يؤخر تحسين البطارية فحص المطر. اسمح للتطبيق بالعمل دون قيود.",
+    "batteryButton": "إيقاف تحسين البطارية",
+    "batteryOk": "تم إيقاف تحسين البطارية — يتم الفحص في موعده"
   }
 }

@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "毎日9時、12時、15時、18時にお知らせします。"
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ 明日は雨の予報",
+    "tomorrowBody": "{{location}}：降水確率 {{prob}}%・{{mm}} mm",
+    "weekTitle": "🌧 今後の雨の日",
+    "weekBody": "{{location}}：{{days}}",
+    "settingTitle": "雨アラート（明日・今後7日）",
+    "settingInfo": "明日または来週に雨の予報があればお知らせします",
+    "webLimit": "Androidアプリ以外では、このページを開いている間だけ確認します。",
+    "batteryInfo": "省電力機能により雨の確認が遅れる場合があります。制限なしを許可してください。",
+    "batteryButton": "電池の最適化をオフにする",
+    "batteryOk": "電池の最適化オフ — 予定どおり確認します"
   }
 }

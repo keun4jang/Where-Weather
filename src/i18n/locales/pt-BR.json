@@ -221,5 +221,17 @@
     "uvAlert": "🕶️ {{location}}",
     "morningBrief": "{{temp}}° {{condition}} {{location}}",
     "scheduledInfo": "Alertas diários às 9h, 12h, 15h e 18h."
+  },
+  "rainAlert": {
+    "tomorrowTitle": "☔ Chuva amanhã",
+    "tomorrowBody": "{{location}}: {{prob}}% de chance, {{mm}} mm",
+    "weekTitle": "🌧 Dias de chuva à frente",
+    "weekBody": "{{location}}: {{days}}",
+    "settingTitle": "Alertas de chuva (amanhã e próximos 7 dias)",
+    "settingInfo": "Avisa quando há chuva prevista para amanhã ou a próxima semana",
+    "webLimit": "Sem o app Android, só verificamos com esta página aberta.",
+    "batteryInfo": "A otimização de bateria pode atrasar as verificações. Permita que o app rode sem restrições.",
+    "batteryButton": "Desativar otimização de bateria",
+    "batteryOk": "Otimização desativada — verificações no horário"
   }
 }
