@@ -59,7 +59,7 @@ export default function NotificationBanner() {
     <div className="rounded-xl bg-brand-600/20 border border-brand-500/30 px-4 py-3 text-sm flex items-center justify-between gap-3">
       <div>
         <p className="font-medium text-white mb-0.5">🔔 {t('notifications.title')}</p>
-        <p className="text-slate-400">{t('notifications.scheduledInfo')}</p>
+        <p className="text-violet-200/70">{t('notifications.scheduledInfo')}</p>
       </div>
       <div className="flex shrink-0 items-center gap-2">
         <button type="button" className="ww-btn !py-1 !px-3 !text-xs" onClick={() => void handleEnable()}>

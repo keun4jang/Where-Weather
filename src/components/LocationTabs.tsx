@@ -69,7 +69,7 @@ export default function LocationTabs({
           type="button"
           onClick={onUseMyLocation}
           disabled={loadingKey === 'gps'}
-          className="shrink-0 rounded-full px-2 py-1 text-sm text-slate-400 hover:bg-slate-200 disabled:opacity-50 dark:hover:bg-slate-700"
+          className="shrink-0 rounded-full px-2 py-1 text-sm text-violet-200/70 hover:bg-slate-200 disabled:opacity-50 dark:hover:bg-white/10"
           title={t('location.useMyLocation')}
           aria-label={t('location.useMyLocation')}
         >
@@ -89,7 +89,7 @@ export default function LocationTabs({
                 className={`flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium transition-colors ${
                   isActive
                     ? 'bg-brand-600 text-white'
-                    : 'text-slate-500 hover:bg-slate-200 dark:text-slate-400 dark:hover:bg-slate-700'
+                    : 'text-slate-500 hover:bg-slate-200 dark:text-violet-200/70 dark:hover:bg-white/10'
                 }`}
               >
                 {isLoading && <span className="inline-block h-3 w-3 animate-spin rounded-full border-2 border-current border-t-transparent" />}
@@ -101,7 +101,7 @@ export default function LocationTabs({
                   type="button"
                   aria-label={t('location.removeLocation')}
                   onClick={() => onRemove(key)}
-                  className="ml-0.5 rounded-full p-0.5 text-slate-400 hover:text-red-400"
+                  className="ml-0.5 rounded-full p-0.5 text-violet-200/70 hover:text-red-400"
                 >
                   ×
                 </button>
@@ -114,7 +114,7 @@ export default function LocationTabs({
         <button
           type="button"
           onClick={() => setShowSearch((s) => !s)}
-          className="shrink-0 rounded-full px-3 py-1 text-sm text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700"
+          className="shrink-0 rounded-full px-3 py-1 text-sm text-violet-200/70 hover:bg-slate-200 dark:hover:bg-white/10"
           title={t('location.addLocation')}
         >
           +
@@ -123,7 +123,7 @@ export default function LocationTabs({
 
       {/* Add location search */}
       {showSearch && (
-        <div className="border-t border-slate-200 px-3 py-2 dark:border-slate-700">
+        <div className="border-t border-slate-200 px-3 py-2 dark:border-white/10">
           <button
             type="button"
             className="ww-btn mb-2 w-full"
@@ -137,20 +137,20 @@ export default function LocationTabs({
             value={query}
             onChange={(e) => void runSearch(e.target.value)}
             placeholder={t('location.addPlaceholder')}
-            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100"
+            className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-100"
           />
-          {searching && <p className="mt-1 text-xs text-slate-400">{t('app.loading')}</p>}
+          {searching && <p className="mt-1 text-xs text-violet-200/70">{t('app.loading')}</p>}
           {results.length > 0 && (
-            <ul className="mt-2 divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 dark:divide-slate-700 dark:border-slate-700">
+            <ul className="mt-2 divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 dark:divide-white/10 dark:border-white/10">
               {results.map((r) => (
                 <li key={`${r.latitude},${r.longitude}`}>
                   <button
                     type="button"
-                    className="w-full px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-700"
+                    className="w-full px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-white/10"
                     onClick={() => pickLocation(r)}
                   >
                     <span className="font-medium">{r.name}</span>
-                    <span className="text-slate-400"> {[r.admin1, r.country].filter(Boolean).join(', ')}</span>
+                    <span className="text-violet-200/70"> {[r.admin1, r.country].filter(Boolean).join(', ')}</span>
                   </button>
                 </li>
               ))}

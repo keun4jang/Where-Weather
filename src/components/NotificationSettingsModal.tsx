@@ -18,7 +18,7 @@ function Toggle({ on, onClick, label }: { on: boolean; onClick: () => void; labe
       aria-checked={on}
       aria-label={label}
       onClick={onClick}
-      className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${on ? 'bg-brand-600' : 'bg-slate-600'}`}
+      className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${on ? 'bg-brand-600' : 'bg-white/20'}`}
     >
       <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${on ? 'translate-x-5.5' : 'translate-x-0.5'}`} />
     </button>
@@ -63,7 +63,7 @@ export default function NotificationSettingsModal({ onClose }: { onClose: () => 
       className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-4 sm:items-center"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="w-full max-w-md rounded-2xl bg-slate-900 border border-slate-700 p-5 space-y-4">
+      <div className="w-full max-w-md rounded-3xl bg-[#241a52]/95 backdrop-blur-xl border border-white/15 p-5 space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="font-semibold text-white">🔔 {t('notifSettings.title')}</h2>
           <button type="button" className="opacity-50 hover:opacity-100" onClick={onClose}>✕</button>
@@ -75,7 +75,7 @@ export default function NotificationSettingsModal({ onClose }: { onClose: () => 
           </p>
         )}
         {perm === 'unsupported' && (
-          <p className="text-sm text-slate-400">{t('notifications.unsupported')}</p>
+          <p className="text-sm text-violet-200/70">{t('notifications.unsupported')}</p>
         )}
 
         {perm === 'granted' && (
@@ -83,18 +83,18 @@ export default function NotificationSettingsModal({ onClose }: { onClose: () => 
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-white">{t('notifSettings.enableAll')}</p>
-                <p className="text-xs text-slate-400">{t('notifSettings.scheduleInfo')}</p>
+                <p className="text-xs text-violet-200/70">{t('notifSettings.scheduleInfo')}</p>
               </div>
               <button
                 type="button"
                 onClick={toggle}
-                className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${enabled ? 'bg-brand-600' : 'bg-slate-600'}`}
+                className={`relative inline-flex h-6 w-11 shrink-0 rounded-full transition-colors ${enabled ? 'bg-brand-600' : 'bg-white/20'}`}
               >
                 <span className={`inline-block h-5 w-5 mt-0.5 rounded-full bg-white shadow transition-transform ${enabled ? 'translate-x-5.5' : 'translate-x-0.5'}`} />
               </button>
             </div>
 
-            <div className="rounded-xl bg-slate-800 px-3 py-2 text-xs text-slate-400 space-y-1">
+            <div className="rounded-xl bg-white/[0.08] px-3 py-2 text-xs text-violet-200/70 space-y-1">
               <p className="font-medium text-slate-300">{t('notifSettings.schedule')}</p>
               <p>🌅 06:00 — {t('notifSettings.morning')}</p>
               <p>🌤 09:00, 12:00, 15:00, 18:00 — {t('notifSettings.daily')}</p>
@@ -107,7 +107,7 @@ export default function NotificationSettingsModal({ onClose }: { onClose: () => 
             <div className="flex items-center justify-between gap-3">
               <div>
                 <p className="text-sm font-medium text-white">☔ {t('rainAlert.settingTitle')}</p>
-                <p className="text-xs text-slate-400">{t('rainAlert.settingInfo')}</p>
+                <p className="text-xs text-violet-200/70">{t('rainAlert.settingInfo')}</p>
               </div>
               <Toggle on={rainOn} onClick={toggleRain} label={t('rainAlert.settingTitle')} />
             </div>

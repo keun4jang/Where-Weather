@@ -108,7 +108,9 @@
     "humidity": "습도",
     "wind": "바람",
     "uv": "자외선 지수",
-    "precipChance": "강수 확률"
+    "precipChance": "강수 확률",
+    "high": "최고",
+    "low": "최저"
   },
   "timeline": {
     "title": "앞으로 몇 시간",

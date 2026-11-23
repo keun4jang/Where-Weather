@@ -108,7 +108,9 @@
     "humidity": "Humidity",
     "wind": "Wind",
     "uv": "UV index",
-    "precipChance": "Rain chance"
+    "precipChance": "Rain chance",
+    "high": "H",
+    "low": "L"
   },
   "timeline": {
     "title": "Next hours",

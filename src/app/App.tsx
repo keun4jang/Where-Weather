@@ -296,6 +296,14 @@ function AppInner() {
     };
   }, []); // 마운트 시 한 번만 — 최신 값은 ref로 참조
 
+  // Load the active tab whenever it has no data yet (app launch, tab switch).
+  // Previously nothing loaded until the user pressed Refresh.
+  const hasActiveSnapshot = Boolean(activeSnapshot);
+  const hasActiveError = Boolean(errors[activeKey]);
+  useEffect(() => {
+    if (activeLocation && !hasActiveSnapshot && !hasActiveError) void loadForRef.current(activeLocation);
+  }, [activeLocation, hasActiveSnapshot, hasActiveError]);
+
   const activeError = errors[activeKey] || errors['gps'] || null;
   const isActiveLoading = loadingKey === activeKey || loadingKey === 'gps';
 

@@ -108,7 +108,9 @@
     "humidity": "湿度",
     "wind": "风速",
     "uv": "紫外线指数",
-    "precipChance": "降水概率"
+    "precipChance": "降水概率",
+    "high": "最高",
+    "low": "最低"
   },
   "timeline": {
     "title": "未来几小时",

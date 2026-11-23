@@ -57,13 +57,13 @@ export default function MonthlyForecastCard({ location }: Props) {
           return (
             <div
               key={day.date}
-              className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm ${today ? 'bg-brand-600/20 font-semibold' : 'hover:bg-slate-100/50 dark:hover:bg-slate-700/30'}`}
+              className={`flex items-center gap-2 rounded-lg px-2 py-1.5 text-sm ${today ? 'bg-brand-600/20 font-semibold' : 'hover:bg-slate-100/50 dark:hover:bg-white/[0.06]'}`}
             >
-              <span className="w-28 shrink-0 text-xs text-slate-500 dark:text-slate-400">
+              <span className="w-28 shrink-0 text-xs text-slate-500 dark:text-violet-200/70">
                 {today ? t('timeline.now') : formatDate(day.date, i18n.language)}
               </span>
               <span className="text-base" aria-label={t(descriptor.key)}>{descriptor.icon}</span>
-              <span className="flex-1 text-xs text-slate-500 dark:text-slate-400 truncate">
+              <span className="flex-1 text-xs text-slate-500 dark:text-violet-200/70 truncate">
                 {t(descriptor.key)}
               </span>
               {typeof day.precipitationProbability === 'number' && day.precipitationProbability >= 20 && (
@@ -71,7 +71,7 @@ export default function MonthlyForecastCard({ location }: Props) {
               )}
               <span className="shrink-0 text-xs">
                 <span className="text-red-400">{formatTemperature(day.tempMaxC, temperatureUnit)}</span>
-                <span className="text-slate-400 mx-0.5">/</span>
+                <span className="text-violet-200/70 mx-0.5">/</span>
                 <span className="text-blue-400">{formatTemperature(day.tempMinC, temperatureUnit)}</span>
               </span>
             </div>

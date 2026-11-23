@@ -108,7 +108,9 @@
     "humidity": "Humedad",
     "wind": "Viento",
     "uv": "Índice UV",
-    "precipChance": "Prob. lluvia"
+    "precipChance": "Prob. lluvia",
+    "high": "Máx",
+    "low": "Mín"
   },
   "timeline": {
     "title": "Próximas horas",

@@ -108,7 +108,9 @@
     "humidity": "湿度",
     "wind": "風速",
     "uv": "UV指数",
-    "precipChance": "降水確率"
+    "precipChance": "降水確率",
+    "high": "最高",
+    "low": "最低"
   },
   "timeline": {
     "title": "これからの時間",

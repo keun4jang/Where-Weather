@@ -13,11 +13,23 @@ interface Props {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl bg-slate-100 px-3 py-2 dark:bg-slate-700/50">
-      <div className="text-xs text-slate-500 dark:text-slate-400">{label}</div>
+    <div className="rounded-2xl bg-white/10 px-3 py-2 ring-1 ring-white/10">
+      <div className="text-[11px] text-violet-200/80">{label}</div>
       <div className="text-sm font-semibold">{value}</div>
     </div>
   );
+}
+
+/** High/low over the next 24 hours of hourly data. */
+function highLow(hourly: FusionOutput['hourly']): { hi: number; lo: number } | null {
+  const now = Date.now();
+  const next = hourly.filter((h) => {
+    const t = new Date(h.time).getTime();
+    return t >= now - 60 * 60 * 1000 && t <= now + 24 * 60 * 60 * 1000;
+  });
+  if (next.length === 0) return null;
+  const temps = next.map((h) => h.temperatureC);
+  return { hi: Math.max(...temps), lo: Math.min(...temps) };
 }
 
 export default function MainVerdictCard({ location, fusion }: Props) {
@@ -34,38 +46,46 @@ export default function MainVerdictCard({ location, fusion }: Props) {
       lon: location.longitude.toFixed(2),
     });
 
+  const hl = highLow(fusion.hourly);
+
   return (
-    <section className="ww-card">
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">
+    <section className="ww-card-solid relative overflow-hidden">
+      {/* soft glow behind the icon */}
+      <div aria-hidden className="pointer-events-none absolute -right-10 -top-10 h-48 w-48 rounded-full bg-violet-300/30 blur-3xl" />
+
+      <div className="relative flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <p className="text-[11px] uppercase tracking-widest text-violet-200/80">
             {t('verdictMain.title')}
           </p>
-          <h2 className="text-lg font-bold">{placeName}</h2>
+          <h2 className="truncate text-2xl font-light">{placeName}</h2>
         </div>
-        <div className="text-right">
-          <div className="text-4xl" aria-hidden>
-            {descriptor.icon}
-          </div>
+        <div className="ww-icon-3d -mr-1 -mt-1 text-7xl leading-none" aria-hidden>
+          {descriptor.icon}
         </div>
       </div>
 
-      <div className="mt-2 flex items-end gap-3">
-        <span className="text-5xl font-extrabold tracking-tight">
+      <div className="relative mt-1">
+        <span className="text-8xl font-thin leading-none tracking-tighter">
           {formatTemperature(c.temperatureC.value, temperatureUnit)}
         </span>
-        <span className="pb-1 text-sm text-slate-500 dark:text-slate-400">{t(descriptor.key)}</span>
+        <p className="mt-2 text-lg font-light">{t(descriptor.key)}</p>
+        <p className="text-sm text-violet-100/80">
+          {hl && (
+            <>
+              {t('verdictMain.high')}:{formatTemperature(hl.hi, temperatureUnit)}{' '}
+              {t('verdictMain.low')}:{formatTemperature(hl.lo, temperatureUnit)}
+            </>
+          )}
+          {hl && c.apparentTemperatureC && ' · '}
+          {c.apparentTemperatureC &&
+            t('verdictMain.feelsLike', {
+              value: formatTemperature(c.apparentTemperatureC.value, temperatureUnit),
+            })}
+        </p>
       </div>
 
-      {c.apparentTemperatureC && (
-        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
-          {t('verdictMain.feelsLike', {
-            value: formatTemperature(c.apparentTemperatureC.value, temperatureUnit),
-          })}
-        </p>
-      )}
-
-      <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+      <div className="relative mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
         {c.humidity && (
           <Stat label={t('verdictMain.humidity')} value={`${Math.round(c.humidity.value)}%`} />
         )}
@@ -83,9 +103,9 @@ export default function MainVerdictCard({ location, fusion }: Props) {
         )}
       </div>
 
-      <div className="mt-4">
+      <div className="relative mt-4">
         <ConfidenceMeter value={fusion.confidence} />
-        <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
+        <p className="mt-2 text-xs text-violet-100/80">
           {t(verification.messageKey, { count: verification.sourceCount })}
         </p>
       </div>

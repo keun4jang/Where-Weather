@@ -108,7 +108,9 @@
     "humidity": "Luftfeuchtigkeit",
     "wind": "Wind",
     "uv": "UV-Index",
-    "precipChance": "Regenwahrsch."
+    "precipChance": "Regenwahrsch.",
+    "high": "H",
+    "low": "T"
   },
   "timeline": {
     "title": "Nächste Stunden",

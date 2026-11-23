@@ -13,7 +13,7 @@ export default function ConfidenceMeter({ value }: Props) {
 
   return (
     <div>
-      <div className="mb-1 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+      <div className="mb-1 flex items-center justify-between text-xs text-slate-500 dark:text-violet-200/70">
         <span>{t('confidence.label')}</span>
         <span className="font-medium">
           {t(levelKey)} · {pct}%

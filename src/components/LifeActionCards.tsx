@@ -28,7 +28,7 @@ export default function LifeActionCards({ verdicts }: Props) {
                 <h4 className="text-sm font-semibold">{t(v.titleKey, v.values)}</h4>
                 <StatusBadge level={v.level} label={t(LEVEL_LABEL[v.level])} />
               </div>
-              <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
+              <p className="mt-1 text-xs text-slate-500 dark:text-violet-200/70">
                 {t(v.detailKey, v.values)}
               </p>
             </div>

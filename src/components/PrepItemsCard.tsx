@@ -70,12 +70,12 @@ export default function PrepItemsCard({ fusion, airQuality }: { fusion: FusionOu
         {items.map((item, i) => (
           <div
             key={i}
-            className="flex items-center gap-1.5 rounded-xl bg-slate-100 dark:bg-slate-700/50 px-2.5 py-1.5 text-xs"
+            className="flex items-center gap-1.5 rounded-xl bg-slate-100 dark:bg-white/[0.08] px-2.5 py-1.5 text-xs"
           >
             <span className="text-base">{item.emoji}</span>
             <div>
               <div className="font-medium">{t(item.labelKey)}</div>
-              {item.reason && <div className="text-slate-400 text-[10px]">{item.reason}</div>}
+              {item.reason && <div className="text-violet-200/70 text-[10px]">{item.reason}</div>}
             </div>
           </div>
         ))}

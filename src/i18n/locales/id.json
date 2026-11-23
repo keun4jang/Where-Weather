@@ -108,7 +108,9 @@
     "humidity": "Kelembapan",
     "wind": "Angin",
     "uv": "Indeks UV",
-    "precipChance": "Peluang hujan"
+    "precipChance": "Peluang hujan",
+    "high": "Maks",
+    "low": "Min"
   },
   "timeline": {
     "title": "Beberapa jam ke depan",

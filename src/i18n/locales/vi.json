@@ -108,7 +108,9 @@
     "humidity": "Độ ẩm",
     "wind": "Gió",
     "uv": "Chỉ số UV",
-    "precipChance": "Khả năng mưa"
+    "precipChance": "Khả năng mưa",
+    "high": "Cao",
+    "low": "Thấp"
   },
   "timeline": {
     "title": "Vài giờ tới",

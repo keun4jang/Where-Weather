@@ -12,9 +12,13 @@
 }
 
 .dark {
-  --ww-surface: #1e293b;
-  --ww-surface-muted: #0f172a;
-  --ww-text: #e2e8f0;
+  --ww-surface: #2a1f5c;
+  --ww-surface-muted: #1b1440;
+  --ww-text: #f5f3ff;
+}
+
+html {
+  background-color: #1b1440;
 }
 
 html,
@@ -25,24 +29,47 @@ body,
 
 body {
   margin: 0;
+  /* Night-sky violet: soft glows + faint stars over a deep indigo gradient */
   background:
-    radial-gradient(1200px 600px at 50% -10%, #1e3a8a 0%, transparent 60%),
-    #0f172a;
+    radial-gradient(1px 1px at 12% 18%, rgba(255, 255, 255, 0.55) 50%, transparent 51%),
+    radial-gradient(1px 1px at 72% 9%, rgba(255, 255, 255, 0.45) 50%, transparent 51%),
+    radial-gradient(1.5px 1.5px at 38% 32%, rgba(255, 255, 255, 0.35) 50%, transparent 51%),
+    radial-gradient(1px 1px at 88% 41%, rgba(255, 255, 255, 0.4) 50%, transparent 51%),
+    radial-gradient(1px 1px at 22% 63%, rgba(255, 255, 255, 0.3) 50%, transparent 51%),
+    radial-gradient(900px 520px at 85% -5%, rgba(167, 139, 250, 0.45) 0%, transparent 60%),
+    radial-gradient(800px 600px at -10% 40%, rgba(124, 58, 237, 0.35) 0%, transparent 60%),
+    linear-gradient(180deg, #1b1440 0%, #2a1f5c 45%, #3b2580 100%);
+  background-color: #2a1f5c;
+  min-height: 100vh;
   color: var(--ww-text);
   -webkit-font-smoothing: antialiased;
 }
 
 @layer components {
   .ww-card {
-    @apply rounded-xl bg-white/90 p-3 shadow-sm ring-1 ring-black/5 backdrop-blur dark:bg-slate-800/80 dark:ring-white/10;
+    @apply rounded-3xl bg-white/90 p-4 shadow-lg ring-1 ring-black/5 backdrop-blur-xl dark:bg-white/[0.07] dark:ring-white/15 dark:shadow-violet-950/40;
+  }
+  /* Solid violet card, used for the hero / highlighted items */
+  .ww-card-solid {
+    @apply rounded-3xl bg-gradient-to-br from-brand-500 to-brand-800 p-5 text-white shadow-xl shadow-violet-950/50 ring-1 ring-white/20;
+  }
+  /* Tall capsule for hourly forecast */
+  .ww-pill {
+    @apply flex min-w-[60px] flex-col items-center gap-1.5 rounded-full bg-white/[0.08] px-2 py-3 text-center ring-1 ring-white/10;
+  }
+  .ww-pill-active {
+    @apply bg-gradient-to-b from-brand-500 to-brand-700 ring-white/30 shadow-lg shadow-violet-900/50;
+  }
+  .ww-icon-3d {
+    filter: drop-shadow(0 6px 10px rgba(20, 10, 60, 0.55));
   }
   .ww-badge {
     @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
   }
   .ww-btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-60;
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-4 py-2.5 text-sm font-semibold text-white shadow-lg shadow-violet-950/40 transition hover:bg-brand-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 disabled:opacity-60;
   }
   .ww-btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-slate-200 transition hover:bg-white/10;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-3 py-2 text-sm font-medium text-violet-100 transition hover:bg-white/10;
   }
 }

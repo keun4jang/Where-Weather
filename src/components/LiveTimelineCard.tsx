@@ -26,28 +26,28 @@ export default function LiveTimelineCard({ hourly, location }: Props) {
   return (
     <section className="ww-card">
       <h3 className="mb-3 text-sm font-bold">{t('timeline.title')}</h3>
-      <ol className="flex gap-3 overflow-x-auto pb-1" role="list">
+      <ol className="-mx-1 flex gap-2.5 overflow-x-auto px-1 py-1" role="list">
         {upcoming.map((h, idx) => {
           const descriptor = describeWmo(h.weatherCode);
           const isNow = idx === 0;
           return (
             <li
               key={h.time}
-              className="flex min-w-[64px] flex-col items-center gap-1 rounded-xl bg-slate-100 px-2 py-2 text-center dark:bg-slate-700/50"
+              className={`ww-pill ${isNow ? 'ww-pill-active' : ''}`}
             >
-              <span className="text-xs text-slate-500 dark:text-slate-400">
+              <span className={`text-xs ${isNow ? 'font-semibold text-white' : 'text-violet-200/80'}`}>
                 {isNow
                   ? t('timeline.now')
                   : formatHour(h.time, i18n.language, location.timezone)}
               </span>
-              <span className="text-xl" aria-label={t(descriptor.key)}>
+              <span className="ww-icon-3d text-2xl" aria-label={t(descriptor.key)}>
                 {descriptor.icon}
               </span>
               <span className="text-sm font-semibold">
                 {formatTemperature(h.temperatureC, temperatureUnit)}
               </span>
               {typeof h.precipitationProbability === 'number' && (
-                <span className="text-[10px] text-blue-500">💧{Math.round(h.precipitationProbability)}%</span>
+                <span className="text-[10px] font-semibold text-sky-300">💧{Math.round(h.precipitationProbability)}%</span>
               )}
             </li>
           );

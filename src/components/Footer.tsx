@@ -9,7 +9,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="mx-auto mt-8 max-w-2xl px-4 pb-10 text-center text-xs text-slate-400">
+      <footer className="mx-auto mt-8 max-w-2xl px-4 pb-10 text-center text-xs text-violet-200/70">
         <p>{t('footer.madeWith')}</p>
         <p className="mt-1">
           {t('footer.openSource')} · {t('footer.version', { version: APP_VERSION })}

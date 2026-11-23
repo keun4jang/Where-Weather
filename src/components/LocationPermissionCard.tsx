@@ -39,7 +39,7 @@ export default function LocationPermissionCard({
         📍
       </div>
       <h2 className="text-lg font-bold">{t('location.permissionTitle')}</h2>
-      <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
+      <p className="mt-2 text-sm text-slate-500 dark:text-violet-200/70">
         {t('location.permissionBody')}
       </p>
 
@@ -53,21 +53,21 @@ export default function LocationPermissionCard({
           value={query}
           onChange={(e) => void runSearch(e.target.value)}
           placeholder={t('location.searchPlaceholder')}
-          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 dark:border-slate-600 dark:bg-slate-900 dark:text-slate-100"
+          className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 dark:border-white/15 dark:bg-white/[0.06] dark:text-slate-100"
           aria-label={t('location.searchPlaceholder')}
         />
-        {searching && <p className="mt-2 text-xs text-slate-400">{t('app.loading')}</p>}
+        {searching && <p className="mt-2 text-xs text-violet-200/70">{t('app.loading')}</p>}
         {results.length > 0 && (
-          <ul className="mt-2 divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 dark:divide-slate-700 dark:border-slate-700">
+          <ul className="mt-2 divide-y divide-slate-200 overflow-hidden rounded-xl border border-slate-200 dark:divide-white/10 dark:border-white/10">
             {results.map((r) => (
               <li key={`${r.latitude},${r.longitude}`}>
                 <button
                   type="button"
-                  className="w-full px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-slate-700"
+                  className="w-full px-3 py-2 text-left text-sm hover:bg-slate-100 dark:hover:bg-white/10"
                   onClick={() => onPickLocation(r)}
                 >
                   <span className="font-medium">{r.name}</span>
-                  <span className="text-slate-400">
+                  <span className="text-violet-200/70">
                     {' '}
                     {[r.admin1, r.country].filter(Boolean).join(', ')}
                   </span>

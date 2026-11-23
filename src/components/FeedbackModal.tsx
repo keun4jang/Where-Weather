@@ -43,7 +43,7 @@ export default function FeedbackModal({ onClose }: { onClose: () => void }) {
       className="fixed inset-0 z-50 flex items-end justify-center bg-black/60 p-4 sm:items-center"
       onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
     >
-      <div className="w-full max-w-md rounded-2xl bg-slate-900 border border-slate-700 p-5 space-y-4">
+      <div className="w-full max-w-md rounded-3xl bg-[#241a52]/95 backdrop-blur-xl border border-white/15 p-5 space-y-4">
         <div className="flex items-center justify-between">
           <h2 className="font-semibold text-white">{t('feedback.title')}</h2>
           <button type="button" className="opacity-50 hover:opacity-100" onClick={onClose}>✕</button>
@@ -53,14 +53,14 @@ export default function FeedbackModal({ onClose }: { onClose: () => void }) {
           <div className="py-6 text-center space-y-2">
             <p className="text-2xl">🙏</p>
             <p className="text-white font-medium">{t('feedback.sent')}</p>
-            <p className="text-sm text-slate-400">{t('feedback.sentBody')}</p>
+            <p className="text-sm text-violet-200/70">{t('feedback.sentBody')}</p>
             <button type="button" className="ww-btn mt-3" onClick={onClose}>{t('feedback.close')}</button>
           </div>
         ) : (
           <form onSubmit={(e) => void handleSubmit(e)} className="space-y-3">
-            <p className="text-sm text-slate-400">{t('feedback.body')}</p>
+            <p className="text-sm text-violet-200/70">{t('feedback.body')}</p>
             <textarea
-              className="w-full rounded-xl bg-slate-800 border border-slate-600 px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 resize-none"
+              className="w-full rounded-xl bg-white/[0.08] border border-white/15 px-3 py-2 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 resize-none"
               rows={5}
               placeholder={t('feedback.placeholder')}
               value={message}
