@@ -14,8 +14,9 @@ const config: CapacitorConfig = {
   },
   plugins: {
     SystemBars: {
-      // Inject --safe-area-inset-* CSS vars (used by Header / body padding).
-      insetsHandling: 'css',
+      // Insets are applied natively in MainActivity (padding around the WebView),
+      // which works regardless of the device's WebView version.
+      insetsHandling: 'disable',
       // Light status-bar icons on our dark violet background.
       style: 'DARK',
     },
