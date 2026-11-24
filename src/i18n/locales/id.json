@@ -241,6 +241,9 @@
     "button": "Perbarui sekarang",
     "downloading": "Mengunduh…",
     "needsPermission": "Izinkan \"Instal aplikasi tidak dikenal\" untuk Where Weather, lalu ketuk Perbarui lagi.",
-    "failed": "Pembaruan gagal. Periksa koneksi dan coba lagi."
+    "failed": "Pembaruan gagal. Periksa koneksi dan coba lagi.",
+    "check": "Periksa pembaruan",
+    "checking": "Memeriksa…",
+    "latest": "Anda sudah memakai versi terbaru."
   }
 }

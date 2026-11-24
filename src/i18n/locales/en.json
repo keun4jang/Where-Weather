@@ -283,6 +283,9 @@
     "button": "Update now",
     "downloading": "Downloading…",
     "needsPermission": "Allow \"Install unknown apps\" for Where Weather, then tap Update again.",
-    "failed": "Update failed. Check your connection and try again."
+    "failed": "Update failed. Check your connection and try again.",
+    "check": "Check for updates",
+    "checking": "Checking…",
+    "latest": "You're on the latest version."
   }
 }

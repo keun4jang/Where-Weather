@@ -23,6 +23,10 @@ async function plugin(): Promise<AppUpdatePlugin | null> {
   }
 }
 
+export async function isNativeApp(): Promise<boolean> {
+  return (await plugin()) !== null;
+}
+
 /** null on web or when the check fails (offline etc.). */
 export async function checkForAppUpdate(): Promise<UpdateInfo | null> {
   const p = await plugin();

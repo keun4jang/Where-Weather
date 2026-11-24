@@ -241,6 +241,9 @@
     "button": "Cập nhật ngay",
     "downloading": "Đang tải…",
     "needsPermission": "Hãy cho phép Where Weather \"Cài đặt ứng dụng không rõ nguồn gốc\", rồi nhấn Cập nhật lại.",
-    "failed": "Cập nhật thất bại. Kiểm tra kết nối và thử lại."
+    "failed": "Cập nhật thất bại. Kiểm tra kết nối và thử lại.",
+    "check": "Kiểm tra cập nhật",
+    "checking": "Đang kiểm tra…",
+    "latest": "Bạn đang dùng phiên bản mới nhất."
   }
 }

@@ -241,6 +241,9 @@
     "button": "Atualizar agora",
     "downloading": "Baixando…",
     "needsPermission": "Permita \"Instalar apps desconhecidos\" para o Where Weather e toque em Atualizar de novo.",
-    "failed": "Falha na atualização. Verifique a conexão e tente novamente."
+    "failed": "Falha na atualização. Verifique a conexão e tente novamente.",
+    "check": "Verificar atualizações",
+    "checking": "Verificando…",
+    "latest": "Você está na versão mais recente."
   }
 }

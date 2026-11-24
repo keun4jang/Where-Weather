@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { APP_VERSION } from '../generated/appVersion';
 import FeedbackModal from './FeedbackModal';
+import UpdateCheckButton from './UpdateCheckButton';
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -14,6 +15,7 @@ export default function Footer() {
         <p className="mt-1">
           {t('footer.openSource')} · {t('footer.version', { version: APP_VERSION })}
         </p>
+        <UpdateCheckButton />
         <button
           type="button"
           className="mt-3 text-xs text-slate-500 hover:text-slate-300 underline underline-offset-2 transition-colors"

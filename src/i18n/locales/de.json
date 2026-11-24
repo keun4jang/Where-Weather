@@ -241,6 +241,9 @@
     "button": "Jetzt aktualisieren",
     "downloading": "Wird heruntergeladen…",
     "needsPermission": "Erlaube „Unbekannte Apps installieren“ für Where Weather und tippe erneut auf Aktualisieren.",
-    "failed": "Aktualisierung fehlgeschlagen. Prüfe die Verbindung und versuche es erneut."
+    "failed": "Aktualisierung fehlgeschlagen. Prüfe die Verbindung und versuche es erneut.",
+    "check": "Nach Updates suchen",
+    "checking": "Wird geprüft…",
+    "latest": "Du hast die neueste Version."
   }
 }

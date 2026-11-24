@@ -241,6 +241,9 @@
     "button": "立即更新",
     "downloading": "正在下载…",
     "needsPermission": "请允许 Where Weather“安装未知应用”，然后再次点击更新。",
-    "failed": "更新失败。请检查网络后重试。"
+    "failed": "更新失败。请检查网络后重试。",
+    "check": "检查更新",
+    "checking": "正在检查…",
+    "latest": "已是最新版本。"
   }
 }
