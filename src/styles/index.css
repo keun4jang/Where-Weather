@@ -41,6 +41,8 @@ body {
     linear-gradient(180deg, #1b1440 0%, #2a1f5c 45%, #3b2580 100%);
   background-color: #2a1f5c;
   min-height: 100vh;
+  /* keep content clear of the Android gesture/nav bar */
+  padding-bottom: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
   color: var(--ww-text);
   -webkit-font-smoothing: antialiased;
 }

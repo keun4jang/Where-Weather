@@ -127,10 +127,15 @@ function AppInner() {
     try {
       const result = await getWeatherSnapshot(location);
       setSnapshots((prev) => ({ ...prev, [key]: result }));
-      void pushWidgetData(result);
-      const locName = [location.name, location.country].filter(Boolean).join(', ') || '';
-      triggerWeatherAlerts(result, locName, t);
-      void scheduleWeatherAlerts(result);
+      // Side effects must never turn a successful load into an error banner.
+      try {
+        void pushWidgetData(result).catch(() => {});
+        const locName = [location.name, location.country].filter(Boolean).join(', ') || '';
+        triggerWeatherAlerts(result, locName, t);
+        void scheduleWeatherAlerts(result).catch(() => {});
+      } catch (sideErr) {
+        console.warn('Where Weather post-load step failed:', toMessage(sideErr));
+      }
     } catch (err) {
       const msg = err instanceof AppError
         ? err.i18nKey

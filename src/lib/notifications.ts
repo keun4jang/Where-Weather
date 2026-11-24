@@ -50,7 +50,8 @@ export function showNotification(title: string, body: string, tag = 'weather') {
 
 /** Analyze a snapshot and show relevant alerts if permission is granted. */
 export function triggerWeatherAlerts(snapshot: WeatherSnapshot, locationName: string, t: (key: string, vals?: Record<string, string | number>) => string) {
-  if (Notification.permission !== 'granted') return;
+  // The Android WebView has no web Notification API (native alerts are handled by workers).
+  if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return;
 
   const c = snapshot.fusion.current;
   const precipProb = c.precipitationProbability?.value ?? 0;

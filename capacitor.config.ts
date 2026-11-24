@@ -12,6 +12,14 @@ const config: CapacitorConfig = {
   server: {
     androidScheme: 'https',
   },
+  plugins: {
+    SystemBars: {
+      // Inject --safe-area-inset-* CSS vars (used by Header / body padding).
+      insetsHandling: 'css',
+      // Light status-bar icons on our dark violet background.
+      style: 'DARK',
+    },
+  },
 };
 
 export default config;

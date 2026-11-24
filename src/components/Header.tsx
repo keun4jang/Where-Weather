@@ -10,7 +10,11 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-10 border-b border-white/10 bg-[#1b1440]/70 backdrop-blur">
+      <header
+        className="sticky top-0 z-10 border-b border-white/10 bg-[#1b1440]/70 backdrop-blur"
+        // Android edge-to-edge: Capacitor injects --safe-area-inset-*; iOS/PWA use env().
+        style={{ paddingTop: 'var(--safe-area-inset-top, env(safe-area-inset-top, 0px))' }}
+      >
         <div className="mx-auto flex max-w-2xl flex-col gap-2 px-3 py-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <span className="text-xl" aria-hidden>🌦️</span>
