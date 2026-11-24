@@ -24,6 +24,16 @@ else next = `${major}.${minor}.${patch + 1}`;
 
 pkg.version = next;
 fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 2) + '\n');
+
+// Keep package-lock.json in step; otherwise the next `npm install` rewrites it and
+// leaves a stray "version" diff behind after every commit.
+const lockPath = path.join(root, 'package-lock.json');
+if (fs.existsSync(lockPath)) {
+  const lock = JSON.parse(fs.readFileSync(lockPath, 'utf8'));
+  lock.version = next;
+  if (lock.packages?.['']) lock.packages[''].version = next;
+  fs.writeFileSync(lockPath, JSON.stringify(lock, null, 2) + '\n');
+}
 console.log(`Bumped version to ${next}`);
 
 execFileSync(process.execPath, [path.join(root, 'scripts/sync-version.mjs')], {
