@@ -69,16 +69,16 @@ export default function NotificationSettingsModal({ onClose }: { onClose: () => 
           <button type="button" className="opacity-50 hover:opacity-100" onClick={onClose}>✕</button>
         </div>
 
-        {perm === 'denied' && (
+        {!native && perm === 'denied' && (
           <p className="text-sm text-amber-400 bg-amber-400/10 rounded-xl px-3 py-2">
             {t('notifications.denied')}
           </p>
         )}
-        {perm === 'unsupported' && (
+        {!native && perm === 'unsupported' && (
           <p className="text-sm text-violet-200/70">{t('notifications.unsupported')}</p>
         )}
 
-        {perm === 'granted' && (
+        {(perm === 'granted' || native) && (
           <div className="space-y-3">
             <div className="flex items-center justify-between">
               <div>

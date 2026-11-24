@@ -12,6 +12,7 @@ import com.getcapacitor.Plugin
 import com.getcapacitor.PluginCall
 import com.getcapacitor.PluginMethod
 import com.getcapacitor.annotation.CapacitorPlugin
+import com.whereweather.app.daily.DailyWeatherWorker
 
 /** JS bridge: `RainAlert.configure({ enabled, latitude, longitude, locationName, strings })`. */
 @CapacitorPlugin(name = "RainAlert")
@@ -43,6 +44,13 @@ class RainAlertPlugin : Plugin() {
             RainAlertWorker.schedule(context)
             RainAlertWorker.runNow(context)
         }
+        call.resolve()
+    }
+
+    /** Daily 06/09/12/15/18h notifications with weather fetched at send time. */
+    @PluginMethod
+    fun configureDaily(call: PluginCall) {
+        DailyWeatherWorker.setEnabled(context, call.getBoolean("enabled", false) ?: false)
         call.resolve()
     }
 

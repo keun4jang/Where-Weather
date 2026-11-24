@@ -2,6 +2,7 @@ package com.whereweather.app;
 
 import android.os.Bundle;
 import com.getcapacitor.BridgeActivity;
+import com.whereweather.app.daily.DailyWeatherWorker;
 import com.whereweather.app.rain.RainAlertPlugin;
 import com.whereweather.app.rain.RainAlertWorker;
 import com.whereweather.app.widget.WidgetPlugin;
@@ -17,5 +18,7 @@ public class MainActivity extends BridgeActivity {
         WidgetUpdateWorker.Companion.schedule(this);
         // Background rain check (no-op until enabled from JS via RainAlert.configure)
         RainAlertWorker.Companion.schedule(this);
+        // Daily slot notifications (no-op until enabled from JS)
+        DailyWeatherWorker.Companion.ensureScheduled(this);
     }
 }
