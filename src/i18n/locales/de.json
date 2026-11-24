@@ -235,5 +235,12 @@
     "batteryInfo": "Die Akku-Optimierung kann Regenprüfungen verzögern. Erlaube der App, uneingeschränkt zu laufen.",
     "batteryButton": "Akku-Optimierung deaktivieren",
     "batteryOk": "Akku-Optimierung aus — Prüfungen laufen pünktlich"
+  },
+  "update": {
+    "available": "Neue Version {{version}} verfügbar",
+    "button": "Jetzt aktualisieren",
+    "downloading": "Wird heruntergeladen…",
+    "needsPermission": "Erlaube „Unbekannte Apps installieren“ für Where Weather und tippe erneut auf Aktualisieren.",
+    "failed": "Aktualisierung fehlgeschlagen. Prüfe die Verbindung und versuche es erneut."
   }
 }

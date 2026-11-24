@@ -1,2 +1,4 @@
 /build/*
 !/build/.npmkeep
+# Signing key comes from the ANDROID_DEBUG_KEYSTORE_B64 secret; never commit it
+ww-debug.keystore

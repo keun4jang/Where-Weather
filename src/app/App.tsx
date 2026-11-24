@@ -23,6 +23,7 @@ import { triggerWeatherAlerts } from '../lib/notifications';
 import { scheduleWeatherAlerts } from '../lib/scheduledNotifications';
 import { syncRainAlerts } from '../lib/rainAlerts';
 import NotificationBanner from '../components/NotificationBanner';
+import UpdateBanner from '../components/UpdateBanner';
 import { removeCache } from '../lib/cache';
 import type { NamedLocation, WeatherSnapshot } from '../weather/types';
 
@@ -311,6 +312,7 @@ function AppInner() {
     <div className="min-h-screen">
       <Header />
       <main className="mx-auto max-w-2xl space-y-3 px-3 py-3">
+        <UpdateBanner />
         <NotificationBanner />
 
         {locations.length === 0 ? (

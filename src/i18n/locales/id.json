@@ -235,5 +235,12 @@
     "batteryInfo": "Optimasi baterai dapat menunda pengecekan hujan. Izinkan aplikasi berjalan tanpa batasan.",
     "batteryButton": "Nonaktifkan optimasi baterai",
     "batteryOk": "Optimasi baterai mati — pengecekan tepat waktu"
+  },
+  "update": {
+    "available": "Versi baru {{version}} tersedia",
+    "button": "Perbarui sekarang",
+    "downloading": "Mengunduh…",
+    "needsPermission": "Izinkan \"Instal aplikasi tidak dikenal\" untuk Where Weather, lalu ketuk Perbarui lagi.",
+    "failed": "Pembaruan gagal. Periksa koneksi dan coba lagi."
   }
 }

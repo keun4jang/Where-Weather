@@ -277,5 +277,12 @@
     "batteryInfo": "Battery optimization may delay rain checks. Allow the app to run unrestricted.",
     "batteryButton": "Disable battery optimization",
     "batteryOk": "Battery optimization off — rain checks run on schedule"
+  },
+  "update": {
+    "available": "New version {{version}} is available",
+    "button": "Update now",
+    "downloading": "Downloading…",
+    "needsPermission": "Allow \"Install unknown apps\" for Where Weather, then tap Update again.",
+    "failed": "Update failed. Check your connection and try again."
   }
 }

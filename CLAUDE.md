@@ -37,3 +37,16 @@ weather sources into one honest verdict. No backend, no paid APIs, no tracking.
 1. Add a client in `src/weather/` returning a `ProviderResult` (normalized units).
 2. Register it in `providers.ts`.
 3. Fusion and verdicts work automatically; add tests in `src/tests/`.
+
+## Release flow (no manual steps)
+
+- Push to a `claude/*` branch → GitHub Actions (`build-apk.yml`) runs the quality gate,
+  builds the APK and publishes it + `version.json` to the `latest-apk` release.
+- If that succeeds, the same workflow auto-merges the branch into `main`.
+  Caveat: GITHUB_TOKEN cannot push commits that change `.github/workflows/*`; such
+  merges must be pushed to `main` by a human/agent with normal credentials.
+- Installed Android apps check `version.json` (on start + every ~12h) and offer an
+  in-app update. `versionCode` = workflow run number.
+- APKs are signed with a fixed key from the `ANDROID_DEBUG_KEYSTORE_B64` secret
+  (git-ignored as `android/app/ww-debug.keystore`). Never rotate it: a different
+  key makes updates fail to install.

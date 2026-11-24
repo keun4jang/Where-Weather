@@ -235,5 +235,12 @@
     "batteryInfo": "电池优化可能会延迟降雨检查。请允许应用不受限制运行。",
     "batteryButton": "关闭电池优化",
     "batteryOk": "已关闭电池优化 — 将按时检查降雨"
+  },
+  "update": {
+    "available": "有新版本 {{version}}",
+    "button": "立即更新",
+    "downloading": "正在下载…",
+    "needsPermission": "请允许 Where Weather“安装未知应用”，然后再次点击更新。",
+    "failed": "更新失败。请检查网络后重试。"
   }
 }

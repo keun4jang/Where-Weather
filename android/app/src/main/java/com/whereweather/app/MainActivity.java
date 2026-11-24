@@ -5,6 +5,8 @@ import com.getcapacitor.BridgeActivity;
 import com.whereweather.app.daily.DailyWeatherWorker;
 import com.whereweather.app.rain.RainAlertPlugin;
 import com.whereweather.app.rain.RainAlertWorker;
+import com.whereweather.app.update.UpdateCheckWorker;
+import com.whereweather.app.update.UpdatePlugin;
 import com.whereweather.app.widget.WidgetPlugin;
 import com.whereweather.app.widget.WidgetUpdateWorker;
 
@@ -13,6 +15,7 @@ public class MainActivity extends BridgeActivity {
     public void onCreate(Bundle savedInstanceState) {
         registerPlugin(WidgetPlugin.class);
         registerPlugin(RainAlertPlugin.class);
+        registerPlugin(UpdatePlugin.class);
         super.onCreate(savedInstanceState);
         // Start periodic widget refresh (every 30 min, survives app close)
         WidgetUpdateWorker.Companion.schedule(this);
@@ -20,5 +23,7 @@ public class MainActivity extends BridgeActivity {
         RainAlertWorker.Companion.schedule(this);
         // Daily slot notifications (no-op until enabled from JS)
         DailyWeatherWorker.Companion.ensureScheduled(this);
+        // Check GitHub for a newer APK every ~12h and notify
+        UpdateCheckWorker.Companion.schedule(this);
     }
 }

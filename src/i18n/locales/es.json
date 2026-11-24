@@ -235,5 +235,12 @@
     "batteryInfo": "La optimización de batería puede retrasar las comprobaciones. Permite que la app funcione sin restricciones.",
     "batteryButton": "Desactivar optimización de batería",
     "batteryOk": "Optimización desactivada — se comprueba a tiempo"
+  },
+  "update": {
+    "available": "Hay una nueva versión {{version}}",
+    "button": "Actualizar ahora",
+    "downloading": "Descargando…",
+    "needsPermission": "Permite \"Instalar apps desconocidas\" para Where Weather y vuelve a tocar Actualizar.",
+    "failed": "Error al actualizar. Revisa tu conexión e inténtalo de nuevo."
   }
 }

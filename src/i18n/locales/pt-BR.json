@@ -235,5 +235,12 @@
     "batteryInfo": "A otimização de bateria pode atrasar as verificações. Permita que o app rode sem restrições.",
     "batteryButton": "Desativar otimização de bateria",
     "batteryOk": "Otimização desativada — verificações no horário"
+  },
+  "update": {
+    "available": "Nova versão {{version}} disponível",
+    "button": "Atualizar agora",
+    "downloading": "Baixando…",
+    "needsPermission": "Permita \"Instalar apps desconhecidos\" para o Where Weather e toque em Atualizar de novo.",
+    "failed": "Falha na atualização. Verifique a conexão e tente novamente."
   }
 }

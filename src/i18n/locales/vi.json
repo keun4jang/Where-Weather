@@ -235,5 +235,12 @@
     "batteryInfo": "Tối ưu pin có thể làm chậm việc kiểm tra mưa. Hãy cho phép ứng dụng chạy không hạn chế.",
     "batteryButton": "Tắt tối ưu pin",
     "batteryOk": "Đã tắt tối ưu pin — kiểm tra đúng lịch"
+  },
+  "update": {
+    "available": "Đã có phiên bản mới {{version}}",
+    "button": "Cập nhật ngay",
+    "downloading": "Đang tải…",
+    "needsPermission": "Hãy cho phép Where Weather \"Cài đặt ứng dụng không rõ nguồn gốc\", rồi nhấn Cập nhật lại.",
+    "failed": "Cập nhật thất bại. Kiểm tra kết nối và thử lại."
   }
 }
