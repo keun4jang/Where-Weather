@@ -1,11 +1,23 @@
 name: Build Debug APK
 
+# 클로드 없이 APK를 만드는 자동 빌드.
+# 어떤 브랜치든 푸시하면 GitHub 서버가 APK를 빌드하고,
+# "latest-apk" 릴리스에 올려서 폰에서 바로 받을 수 있게 한다.
 on:
   push:
     branches:
-      - main
-      - claude/where-weather-pwa-mvp-rbt797
+      - '**'
+    paths-ignore:
+      - '**.md'
+      - 'docs/**'
   workflow_dispatch: # 수동 실행 버튼
+
+permissions:
+  contents: write # 릴리스에 APK 올리기용
+
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -24,13 +36,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Quality gate (typecheck, lint, test)
+        run: npm run typecheck && npm run lint && npm run test
+
       - name: Build web app
         run: npm run build
 
-      - name: Set up JDK 17
+      # Capacitor 8은 Java 21이 필요하다 (17이면 컴파일 실패)
+      - name: Set up JDK 21
         uses: actions/setup-java@v4
         with:
-          java-version: 17
+          java-version: 21
           distribution: temurin
 
       - name: Sync Capacitor
@@ -49,3 +65,17 @@ jobs:
           name: where-weather-debug
           path: android/app/build/outputs/apk/debug/app-debug.apk
           retention-days: 30
+
+      # 폰 브라우저에서 바로 받을 수 있는 고정 주소:
+      # https://github.com/<owner>/<repo>/releases/tag/latest-apk
+      - name: Publish to "latest-apk" release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: latest-apk
+          name: 최신 APK (${{ github.ref_name }})
+          body: |
+            자동 빌드: ${{ github.ref_name }} @ ${{ github.sha }}
+            app-debug.apk 를 폰에서 받아 설치하세요.
+          prerelease: true
+          make_latest: false
+          files: android/app/build/outputs/apk/debug/app-debug.apk
