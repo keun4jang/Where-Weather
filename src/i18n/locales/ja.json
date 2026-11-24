@@ -245,5 +245,31 @@
     "check": "アップデートを確認",
     "checking": "確認中…",
     "latest": "最新バージョンです。"
+  },
+  "settingsScreen": {
+    "title": "設定",
+    "general": "一般",
+    "location": "位置情報",
+    "autoLocate": "起動時に現在地を使う",
+    "autoLocateHint": "一度 📍 で許可すると、起動のたびに現在地から始まります",
+    "notifications": "通知",
+    "osNotifOff": "Androidの設定でこのアプリの通知がオフになっています。",
+    "openNotifSettings": "通知設定を開く",
+    "dailyHint": "選んだ時刻にその時の天気をお知らせします",
+    "hours": "通知時刻",
+    "noHours": "時刻が選ばれていないため定期通知は停止中です。",
+    "sensitivity": "雨の判定",
+    "sensitivityHint": "降水確率 {{value}}% 以上を雨とみなします",
+    "sensHigh": "敏感",
+    "sensMid": "標準",
+    "sensLow": "ゆるめ",
+    "test": "テスト通知を送る",
+    "testSent": "送信しました！数秒以内に届くはずです。届かない場合は通知権限と電池設定を確認してください。",
+    "testFailed": "送信できません — 先に通知を許可してください。",
+    "testBody": "通知は正常に動作しています。",
+    "battery": "電池",
+    "samsungHint": "Samsung: 設定 → 電池 → バックグラウンド使用制限で Where Weather を「制限なし」にしてください。",
+    "about": "アプリ情報",
+    "version": "バージョン"
   }
 }

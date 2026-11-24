@@ -245,5 +245,31 @@
     "check": "检查更新",
     "checking": "正在检查…",
     "latest": "已是最新版本。"
+  },
+  "settingsScreen": {
+    "title": "设置",
+    "general": "通用",
+    "location": "位置",
+    "autoLocate": "启动时使用当前位置",
+    "autoLocateHint": "点过一次 📍 授权后，每次启动都从当前位置开始",
+    "notifications": "通知",
+    "osNotifOff": "Android 设置中已关闭此应用的通知。",
+    "openNotifSettings": "打开通知设置",
+    "dailyHint": "在你选择的时间推送当时的天气",
+    "hours": "通知时间",
+    "noHours": "未选择时间，定时通知已暂停。",
+    "sensitivity": "降雨判定",
+    "sensitivityHint": "降水概率 ≥ {{value}}% 视为下雨",
+    "sensHigh": "敏感",
+    "sensMid": "正常",
+    "sensLow": "宽松",
+    "test": "发送测试通知",
+    "testSent": "已发送！几秒内应收到。若没有，请检查通知权限和电池设置。",
+    "testFailed": "无法发送 — 请先允许通知。",
+    "testBody": "通知工作正常。",
+    "battery": "电池",
+    "samsungHint": "三星手机：请在 设置 → 电池 → 后台使用限制 中将 Where Weather 设为“不受限制”。",
+    "about": "关于",
+    "version": "版本"
   }
 }

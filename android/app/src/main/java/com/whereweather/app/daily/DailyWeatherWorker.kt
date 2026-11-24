@@ -48,18 +48,25 @@ class DailyWeatherWorker(
     override suspend fun doWork(): Result {
         val slotHour = inputData.getInt(KEY_SLOT_HOUR, -1)
         val slotAt = inputData.getLong(KEY_SLOT_AT, 0L)
-
-        // Book the next slot first so a failure here never breaks the chain.
-        if (runAttemptCount == 0) scheduleNext(ctx, System.currentTimeMillis() + 60_000)
-
+        val test = inputData.getBoolean(KEY_TEST, false)
         val prefs = ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-        if (!prefs.getBoolean(KEY_ENABLED, false)) return Result.success()
+
+        if (!test) {
+            // Book the next slot first so a failure here never breaks the chain.
+            if (runAttemptCount == 0) scheduleNext(ctx, System.currentTimeMillis() + 60_000)
+            if (!prefs.getBoolean(KEY_ENABLED, false)) return Result.success()
+            // The user may have removed this hour since it was booked.
+            if (slotHour !in hours(ctx)) return Result.success()
+            // Too late to be useful (e.g. phone was off): skip rather than send "9시" news at noon.
+            if (slotAt > 0 && System.currentTimeMillis() - slotAt > MAX_LATE_MS) return Result.success()
+        }
         if (!NotificationManagerCompat.from(ctx).areNotificationsEnabled()) return Result.success()
-        // Too late to be useful (e.g. phone was off): skip rather than send "9시" news at noon.
-        if (slotAt > 0 && System.currentTimeMillis() - slotAt > MAX_LATE_MS) return Result.success()
 
         val rain = ctx.getSharedPreferences(RainAlertWorker.PREFS, Context.MODE_PRIVATE)
-        if (!rain.contains(RainAlertWorker.KEY_LAT)) return Result.success()
+        if (!rain.contains(RainAlertWorker.KEY_LAT)) {
+            if (test) notify(-1, "🔔 테스트 알림 — 알림은 정상이에요. (위치가 아직 없어 날씨는 생략)", test = true)
+            return Result.success()
+        }
         val lat = rain.getFloat(RainAlertWorker.KEY_LAT, 0f).toDouble()
         val lon = rain.getFloat(RainAlertWorker.KEY_LON, 0f).toDouble()
         val name = rain.getString(RainAlertWorker.KEY_NAME, "") ?: ""
@@ -67,10 +74,14 @@ class DailyWeatherWorker(
         val now = try {
             withContext(Dispatchers.IO) { fetchNow(lat, lon) }
         } catch (_: Exception) {
+            if (test) {
+                notify(-1, "🔔 테스트 알림 — 알림은 정상, 날씨는 못 받아왔어요 (인터넷 확인).", test = true)
+                return Result.success()
+            }
             return if (runAttemptCount < 3) Result.retry() else Result.success()
         }
 
-        notify(slotHour, buildBody(slotHour, name, now))
+        notify(slotHour, buildBody(if (test) 12 else slotHour, name, now), test)
         return Result.success()
     }
 
@@ -121,7 +132,7 @@ class DailyWeatherWorker(
         }
     }
 
-    private fun notify(slotHour: Int, body: String) {
+    private fun notify(slotHour: Int, body: String, test: Boolean = false) {
         ensureChannel(ctx)
         val intent = Intent(ctx, MainActivity::class.java)
             .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -131,7 +142,7 @@ class DailyWeatherWorker(
         )
         val notification = NotificationCompat.Builder(ctx, CHANNEL_ID)
             .setSmallIcon(R.mipmap.ic_launcher)
-            .setContentTitle("Where Weather 🌦️")
+            .setContentTitle(if (test) "Where Weather 🔔 테스트" else "Where Weather 🌦️")
             .setContentText(body)
             .setStyle(NotificationCompat.BigTextStyle().bigText(body))
             .setContentIntent(pending)
@@ -145,9 +156,11 @@ class DailyWeatherWorker(
     }
 
     companion object {
-        val SLOT_HOURS = intArrayOf(6, 9, 12, 15, 18)
+        private val DEFAULT_HOURS = intArrayOf(6, 9, 12, 15, 18)
         const val PREFS = "DailyWeather"
         const val KEY_ENABLED = "enabled"
+        private const val KEY_HOURS = "hours"
+        private const val KEY_TEST = "test"
         private const val KEY_SLOT_HOUR = "slotHour"
         private const val KEY_SLOT_AT = "slotAt"
         private const val TAG = "daily-weather"
@@ -164,11 +177,21 @@ class DailyWeatherWorker(
             )
         }
 
-        /** Next slot strictly after [fromMs]. */
-        fun nextSlot(fromMs: Long): Pair<Int, Long> {
+        /** Configured notification hours (sorted), default 6/9/12/15/18. */
+        fun hours(context: Context): IntArray {
+            val raw = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).getString(KEY_HOURS, null)
+                ?: return DEFAULT_HOURS
+            return raw.split(',').mapNotNull { it.trim().toIntOrNull() }
+                .filter { it in 0..23 }.distinct().sorted().toIntArray()
+        }
+
+        /** Next slot strictly after [fromMs], or null when no hours are selected. */
+        fun nextSlot(context: Context, fromMs: Long): Pair<Int, Long>? {
+            val slotHours = hours(context)
+            if (slotHours.isEmpty()) return null
             val cal = Calendar.getInstance().apply { timeInMillis = fromMs }
             for (dayOffset in 0..1) {
-                for (h in SLOT_HOURS) {
+                for (h in slotHours) {
                     val c = Calendar.getInstance().apply {
                         timeInMillis = fromMs
                         add(Calendar.DAY_OF_YEAR, dayOffset)
@@ -180,12 +203,12 @@ class DailyWeatherWorker(
                     if (c.timeInMillis > cal.timeInMillis) return h to c.timeInMillis
                 }
             }
-            error("unreachable")
+            return null
         }
 
         /** Idempotent: one unique work per slot (KEEP), so repeated calls don't duplicate. */
         fun scheduleNext(context: Context, fromMs: Long = System.currentTimeMillis()) {
-            val (hour, at) = nextSlot(fromMs)
+            val (hour, at) = nextSlot(context, fromMs) ?: return
             val delay = (at - System.currentTimeMillis()).coerceAtLeast(0)
             val request = OneTimeWorkRequestBuilder<DailyWeatherWorker>()
                 .setInitialDelay(delay, TimeUnit.MILLISECONDS)
@@ -207,14 +230,23 @@ class DailyWeatherWorker(
             if (prefs.getBoolean(KEY_ENABLED, false)) scheduleNext(context)
         }
 
-        fun setEnabled(context: Context, enabled: Boolean) {
-            context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
-                .putBoolean(KEY_ENABLED, enabled).apply()
-            if (enabled) {
-                scheduleNext(context)
-            } else {
-                WorkManager.getInstance(context).cancelAllWorkByTag(TAG)
-            }
+        fun configure(context: Context, enabled: Boolean, hours: List<Int>?) {
+            val editor = context.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit()
+                .putBoolean(KEY_ENABLED, enabled)
+            if (hours != null) editor.putString(KEY_HOURS, hours.joinToString(","))
+            editor.commit()
+            // Drop already-booked slots (hours may have changed), then rebook.
+            WorkManager.getInstance(context).cancelAllWorkByTag(TAG)
+            if (enabled) scheduleNext(context)
+        }
+
+        /** Sends one notification now with fresh weather, ignoring time slots. */
+        fun sendTest(context: Context) {
+            val request = OneTimeWorkRequestBuilder<DailyWeatherWorker>()
+                .setInputData(workDataOf(KEY_TEST to true))
+                .build()
+            WorkManager.getInstance(context)
+                .enqueueUniqueWork("DailyWeatherTest", ExistingWorkPolicy.REPLACE, request)
         }
     }
 }

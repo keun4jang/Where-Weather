@@ -287,5 +287,31 @@
     "check": "업데이트 확인",
     "checking": "확인 중…",
     "latest": "최신 버전이에요."
+  },
+  "settingsScreen": {
+    "title": "설정",
+    "general": "일반",
+    "location": "위치",
+    "autoLocate": "앱 시작 시 현재 위치",
+    "autoLocateHint": "📍를 한 번 눌러 허용했다면, 앱을 켤 때마다 현재 위치로 시작해요",
+    "notifications": "알림",
+    "osNotifOff": "안드로이드 설정에서 이 앱의 알림이 꺼져 있어요.",
+    "openNotifSettings": "알림 설정 열기",
+    "dailyHint": "선택한 시간마다 그때의 날씨를 알려드려요",
+    "hours": "알림 시간",
+    "noHours": "선택한 시간이 없어서 정기 알림이 멈춰 있어요.",
+    "sensitivity": "비 판단 기준",
+    "sensitivityHint": "강수확률 {{value}}% 이상이면 비로 판단해요",
+    "sensHigh": "예민하게",
+    "sensMid": "보통",
+    "sensLow": "느슨하게",
+    "test": "테스트 알림 보내기",
+    "testSent": "보냈어요! 몇 초 안에 알림이 와야 해요. 안 오면 알림 권한과 배터리 설정을 확인해 주세요.",
+    "testFailed": "보낼 수 없어요 — 먼저 알림을 허용해 주세요.",
+    "testBody": "알림이 정상적으로 작동해요.",
+    "battery": "배터리",
+    "samsungHint": "삼성 폰은 설정 → 배터리 → 백그라운드 사용 제한에서 Where Weather를 '제한 없음'으로도 바꿔 주세요.",
+    "about": "앱 정보",
+    "version": "버전"
   }
 }

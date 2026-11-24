@@ -43,7 +43,7 @@ class RainAlertWorker(
 ) : CoroutineWorker(ctx, params) {
 
     private data class Day(val date: String, val prob: Double, val mm: Double) {
-        val rainy: Boolean get() = prob >= RAIN_PROB_THRESHOLD || mm >= RAIN_MM_THRESHOLD
+        fun rainy(probThreshold: Double): Boolean = prob >= probThreshold || mm >= RAIN_MM_THRESHOLD
     }
 
     override suspend fun doWork(): Result {
@@ -56,6 +56,7 @@ class RainAlertWorker(
         val hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY)
         if (hour < QUIET_END_HOUR || hour >= QUIET_START_HOUR) return Result.success()
 
+        val threshold = prefs.getInt(KEY_PROB_THRESHOLD, RAIN_PROB_THRESHOLD.toInt()).toDouble()
         val lat = prefs.getFloat(KEY_LAT, 0f).toDouble()
         val lon = prefs.getFloat(KEY_LON, 0f).toDouble()
         val days = try {
@@ -72,7 +73,7 @@ class RainAlertWorker(
         val editor = prefs.edit()
 
         val tomorrow = days.getOrNull(todayIdx + 1)
-        if (tomorrow != null && tomorrow.rainy && prefs.getString(KEY_LAST_TOMORROW, null) != tomorrow.date) {
+        if (tomorrow != null && tomorrow.rainy(threshold) && prefs.getString(KEY_LAST_TOMORROW, null) != tomorrow.date) {
             notify(
                 ID_TOMORROW,
                 fill(prefs.getString(KEY_T_TOMORROW_TITLE, null) ?: "☔ 내일 비 예보 — 스쿠터 주의", location, tomorrow),
@@ -84,7 +85,7 @@ class RainAlertWorker(
         val week = days.subList(
             (todayIdx + 2).coerceAtMost(days.size),
             (todayIdx + 1 + WEEK_DAYS_AHEAD).coerceAtMost(days.size),
-        ).filter { it.rainy }
+        ).filter { it.rainy(threshold) }
         val sig = week.joinToString(",") { it.date }
         if (week.isNotEmpty() && prefs.getString(KEY_LAST_WEEK_SIG, null) != sig &&
             prefs.getString(KEY_LAST_WEEK_DAY, null) != today
@@ -179,6 +180,7 @@ class RainAlertWorker(
         const val KEY_LAT = "lat"
         const val KEY_LON = "lon"
         const val KEY_NAME = "name"
+        const val KEY_PROB_THRESHOLD = "probThreshold"
         const val KEY_T_TOMORROW_TITLE = "tTomorrowTitle"
         const val KEY_T_TOMORROW_BODY = "tTomorrowBody"
         const val KEY_T_WEEK_TITLE = "tWeekTitle"

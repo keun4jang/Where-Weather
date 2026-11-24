@@ -245,5 +245,31 @@
     "check": "Periksa pembaruan",
     "checking": "Memeriksa…",
     "latest": "Anda sudah memakai versi terbaru."
+  },
+  "settingsScreen": {
+    "title": "Pengaturan",
+    "general": "Umum",
+    "location": "Lokasi",
+    "autoLocate": "Mulai di lokasi saat ini",
+    "autoLocateHint": "Pakai GPS saat dibuka jika Anda pernah mengetuk 📍",
+    "notifications": "Notifikasi",
+    "osNotifOff": "Notifikasi aplikasi ini dimatikan di pengaturan Android.",
+    "openNotifSettings": "Buka pengaturan notifikasi",
+    "dailyHint": "Cuaca terkini pada jam pilihan Anda",
+    "hours": "Jam notifikasi",
+    "noHours": "Belum ada jam dipilih — notifikasi harian dijeda.",
+    "sensitivity": "Sensitivitas hujan",
+    "sensitivityHint": "Dianggap hujan mulai {{value}}%",
+    "sensHigh": "Sensitif",
+    "sensMid": "Normal",
+    "sensLow": "Longgar",
+    "test": "Kirim notifikasi uji",
+    "testSent": "Terkirim! Seharusnya muncul dalam beberapa detik. Jika tidak, periksa izin dan baterai.",
+    "testFailed": "Tidak bisa mengirim — izinkan notifikasi dulu.",
+    "testBody": "Notifikasi berfungsi.",
+    "battery": "Baterai",
+    "samsungHint": "Samsung: setel Where Weather ke \"Tidak dibatasi\" di Pengaturan → Baterai.",
+    "about": "Tentang",
+    "version": "Versi"
   }
 }

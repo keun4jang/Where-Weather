@@ -245,5 +245,31 @@
     "check": "Kiểm tra cập nhật",
     "checking": "Đang kiểm tra…",
     "latest": "Bạn đang dùng phiên bản mới nhất."
+  },
+  "settingsScreen": {
+    "title": "Cài đặt",
+    "general": "Chung",
+    "location": "Vị trí",
+    "autoLocate": "Bắt đầu ở vị trí hiện tại",
+    "autoLocateHint": "Dùng GPS khi mở nếu bạn đã nhấn 📍 trước đó",
+    "notifications": "Thông báo",
+    "osNotifOff": "Thông báo của ứng dụng đang tắt trong cài đặt Android.",
+    "openNotifSettings": "Mở cài đặt thông báo",
+    "dailyHint": "Thời tiết hiện tại vào giờ bạn chọn",
+    "hours": "Giờ thông báo",
+    "noHours": "Chưa chọn giờ — thông báo hằng ngày tạm dừng.",
+    "sensitivity": "Độ nhạy với mưa",
+    "sensitivityHint": "Tính là mưa từ {{value}}%",
+    "sensHigh": "Nhạy",
+    "sensMid": "Bình thường",
+    "sensLow": "Thoải mái",
+    "test": "Gửi thông báo thử",
+    "testSent": "Đã gửi! Thông báo sẽ đến trong vài giây. Nếu không, kiểm tra quyền và pin.",
+    "testFailed": "Không gửi được — hãy cho phép thông báo trước.",
+    "testBody": "Thông báo hoạt động bình thường.",
+    "battery": "Pin",
+    "samsungHint": "Samsung: đặt Where Weather thành \"Không hạn chế\" trong Cài đặt → Pin.",
+    "about": "Giới thiệu",
+    "version": "Phiên bản"
   }
 }

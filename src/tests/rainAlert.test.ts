@@ -42,6 +42,17 @@ describe('planRainAlerts', () => {
   });
 });
 
+describe('sensitivity threshold', () => {
+  it('40% counts a 50% day as rain, 80% does not', () => {
+    const days = dates.map((d, i) => day(d, i === 1 ? 50 : 0, 0));
+    expect(planRainAlerts(days, dates[0], 40).tomorrow?.date).toBe(dates[1]);
+    expect(planRainAlerts(days, dates[0], 80).tomorrow).toBeUndefined();
+  });
+  it('amount still counts regardless of threshold', () => {
+    expect(isRainyDay(day('d', 0, 3), 80)).toBe(true);
+  });
+});
+
 describe('helpers', () => {
   it('weekSignature joins dates', () => {
     expect(weekSignature([day('a'), day('b')])).toBe('a,b');

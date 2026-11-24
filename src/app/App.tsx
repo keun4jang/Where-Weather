@@ -22,6 +22,7 @@ import { pushWidgetData } from '../lib/widgetBridge';
 import { triggerWeatherAlerts } from '../lib/notifications';
 import { scheduleWeatherAlerts } from '../lib/scheduledNotifications';
 import { syncRainAlerts } from '../lib/rainAlerts';
+import { getAutoLocate } from '../lib/prefs';
 import NotificationBanner from '../components/NotificationBanner';
 import UpdateBanner from '../components/UpdateBanner';
 import { removeCache } from '../lib/cache';
@@ -230,7 +231,7 @@ function AppInner() {
   // The first permission prompt therefore still comes from a user gesture.
   const autoLocated = useRef(false);
   useEffect(() => {
-    if (autoLocated.current || !loadGpsKey()) return;
+    if (autoLocated.current || !loadGpsKey() || !getAutoLocate()) return;
     autoLocated.current = true;
     void handleUseMyLocation();
   }, [handleUseMyLocation]);

@@ -2,9 +2,31 @@ import type { WeatherSnapshot } from '../weather/types';
 
 /** IDs used by the old LocalNotifications repeating schedule (stale text). Cancelled on start. */
 const LEGACY_IDS = [600, 901, 1201, 1501, 1801];
-const SCHEDULE_HOURS = [6, 9, 12, 15, 18];
+export const DEFAULT_HOURS = [6, 9, 12, 15, 18];
+/** Hours the user can pick from in settings. */
+export const HOUR_OPTIONS = [5, 6, 7, 8, 9, 12, 15, 18, 21];
 
 const NOTIF_ENABLED_KEY = 'notifEnabled';
+const NOTIF_HOURS_KEY = 'notifHours';
+
+export function getNotifHours(): number[] {
+  try {
+    const raw = localStorage.getItem(NOTIF_HOURS_KEY);
+    if (!raw) return DEFAULT_HOURS;
+    const hours = (JSON.parse(raw) as unknown[]).filter(
+      (h): h is number => typeof h === 'number' && h >= 0 && h <= 23,
+    );
+    return [...new Set(hours)].sort((a, b) => a - b);
+  } catch {
+    return DEFAULT_HOURS;
+  }
+}
+
+export function setNotifHours(hours: number[]): void {
+  const clean = [...new Set(hours)].sort((a, b) => a - b);
+  try { localStorage.setItem(NOTIF_HOURS_KEY, JSON.stringify(clean)); } catch { /* */ }
+  void scheduleWeatherAlerts();
+}
 
 export function getNotifEnabled(): boolean {
   try { return localStorage.getItem(NOTIF_ENABLED_KEY) !== 'false'; } catch { return true; }
@@ -16,7 +38,7 @@ export function setNotifEnabled(enabled: boolean): void {
 }
 
 interface DailyPlugin {
-  configureDaily(opts: { enabled: boolean }): Promise<void>;
+  configureDaily(opts: { enabled: boolean; hours: number[] }): Promise<void>;
 }
 
 async function nativeDailyPlugin(): Promise<DailyPlugin | null> {
@@ -30,7 +52,7 @@ async function nativeDailyPlugin(): Promise<DailyPlugin | null> {
 }
 
 /**
- * Daily weather notifications at 06:00 / 09:00 / 12:00 / 15:00 / 18:00.
+ * Daily weather notifications at the user's chosen hours (default 06/09/12/15/18).
  *
  * Native: the Android DailyWeatherWorker fetches weather AT SEND TIME (location comes
  * from RainAlert.configure). Web: timers only fire while the page is open; text is
@@ -43,7 +65,7 @@ export async function scheduleWeatherAlerts(snapshot?: WeatherSnapshot): Promise
   const plugin = await nativeDailyPlugin();
   if (plugin) {
     await cancelLegacyNative();
-    await plugin.configureDaily({ enabled: getNotifEnabled() }).catch(() => {});
+    await plugin.configureDaily({ enabled: getNotifEnabled(), hours: getNotifHours() }).catch(() => {});
     return;
   }
   scheduleWeb();
@@ -82,7 +104,7 @@ function scheduleWeb(): void {
   if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return;
 
   const now = new Date();
-  for (const hour of SCHEDULE_HOURS) {
+  for (const hour of getNotifHours()) {
     const target = new Date(now);
     target.setHours(hour, 0, 0, 0);
     if (target <= now) target.setDate(target.getDate() + 1);

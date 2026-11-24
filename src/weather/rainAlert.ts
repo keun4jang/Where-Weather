@@ -15,10 +15,10 @@ export const RAIN_MM_THRESHOLD = 1;
 /** "Next week" = the 7 days after tomorrow's alert, i.e. today+2 … today+7. */
 export const WEEK_DAYS_AHEAD = 7;
 
-export function isRainyDay(day: DailyForecast): boolean {
+export function isRainyDay(day: DailyForecast, probThreshold = RAIN_PROB_THRESHOLD): boolean {
   const prob = day.precipitationProbability ?? 0;
   const mm = day.precipitationMm ?? 0;
-  return prob >= RAIN_PROB_THRESHOLD || mm >= RAIN_MM_THRESHOLD;
+  return prob >= probThreshold || mm >= RAIN_MM_THRESHOLD;
 }
 
 export interface RainPlan {
@@ -32,18 +32,23 @@ export interface RainPlan {
  * Decide which rain alerts apply.
  * @param days  daily forecast (any order-preserving list containing today)
  * @param todayIso  local date of "today" for the location, YYYY-MM-DD
+ * @param probThreshold  user-selected sensitivity (%), default RAIN_PROB_THRESHOLD
  */
-export function planRainAlerts(days: DailyForecast[], todayIso: string): RainPlan {
+export function planRainAlerts(
+  days: DailyForecast[],
+  todayIso: string,
+  probThreshold = RAIN_PROB_THRESHOLD,
+): RainPlan {
   const todayIdx = days.findIndex((d) => d.date === todayIso);
   if (todayIdx < 0) return { week: [] };
 
   const tomorrowDay = days[todayIdx + 1];
   const week = days
     .slice(todayIdx + 2, todayIdx + 1 + WEEK_DAYS_AHEAD)
-    .filter(isRainyDay);
+    .filter((d) => isRainyDay(d, probThreshold));
 
   return {
-    tomorrow: tomorrowDay && isRainyDay(tomorrowDay) ? tomorrowDay : undefined,
+    tomorrow: tomorrowDay && isRainyDay(tomorrowDay, probThreshold) ? tomorrowDay : undefined,
     week,
   };
 }

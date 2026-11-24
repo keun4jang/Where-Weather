@@ -287,5 +287,31 @@
     "check": "Check for updates",
     "checking": "Checking…",
     "latest": "You're on the latest version."
+  },
+  "settingsScreen": {
+    "title": "Settings",
+    "general": "General",
+    "location": "Location",
+    "autoLocate": "Start at current location",
+    "autoLocateHint": "Uses GPS at launch once you've tapped 📍 before",
+    "notifications": "Notifications",
+    "osNotifOff": "Notifications are turned off for this app in Android settings.",
+    "openNotifSettings": "Open notification settings",
+    "dailyHint": "Current weather at the times you pick",
+    "hours": "Notification times",
+    "noHours": "No times selected — daily alerts are paused.",
+    "sensitivity": "Rain sensitivity",
+    "sensitivityHint": "Counts as rain from {{value}}% chance",
+    "sensHigh": "Sensitive",
+    "sensMid": "Normal",
+    "sensLow": "Relaxed",
+    "test": "Send test notification",
+    "testSent": "Sent! It should appear within a few seconds. If not, check notification permission and battery settings.",
+    "testFailed": "Couldn't send — allow notifications first.",
+    "testBody": "Notifications are working.",
+    "battery": "Battery",
+    "samsungHint": "Samsung: also set Where Weather to \"Unrestricted\" in Settings → Battery → Background usage limits.",
+    "about": "About",
+    "version": "Version"
   }
 }

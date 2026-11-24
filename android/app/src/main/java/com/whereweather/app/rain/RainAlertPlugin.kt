@@ -31,6 +31,9 @@ class RainAlertPlugin : Plugin() {
                 .putFloat(RainAlertWorker.KEY_LON, lon.toFloat())
         }
         call.getString("locationName")?.let { editor.putString(RainAlertWorker.KEY_NAME, it) }
+        call.getInt("rainProbThreshold")?.let {
+            editor.putInt(RainAlertWorker.KEY_PROB_THRESHOLD, it.coerceIn(10, 100))
+        }
 
         call.getObject("strings")?.let { s ->
             s.getString("tomorrowTitle")?.let { editor.putString(RainAlertWorker.KEY_T_TOMORROW_TITLE, it) }
@@ -48,9 +51,42 @@ class RainAlertPlugin : Plugin() {
     }
 
     /** Daily 06/09/12/15/18h notifications with weather fetched at send time. */
+    /** `{ enabled, hours?: number[] }` */
     @PluginMethod
     fun configureDaily(call: PluginCall) {
-        DailyWeatherWorker.setEnabled(context, call.getBoolean("enabled", false) ?: false)
+        val hours = call.getArray("hours")?.let { arr ->
+            (0 until arr.length()).mapNotNull { arr.optInt(it, -1).takeIf { h -> h in 0..23 } }
+        }
+        DailyWeatherWorker.configure(context, call.getBoolean("enabled", false) ?: false, hours)
+        call.resolve()
+    }
+
+    /** Sends a notification right now with current weather (to verify notifications work). */
+    @PluginMethod
+    fun sendTestNotification(call: PluginCall) {
+        DailyWeatherWorker.sendTest(context)
+        call.resolve()
+    }
+
+    /** `{ enabled: boolean }` — whether the OS allows this app to show notifications. */
+    @PluginMethod
+    fun notificationStatus(call: PluginCall) {
+        val enabled = androidx.core.app.NotificationManagerCompat.from(context).areNotificationsEnabled()
+        call.resolve(JSObject().put("enabled", enabled))
+    }
+
+    /** Opens this app's notification settings page. */
+    @PluginMethod
+    fun openNotificationSettings(call: PluginCall) {
+        val intent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, context.packageName)
+        } else {
+            Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:${context.packageName}"))
+        }
+        try {
+            context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+        } catch (_: Exception) { /* no settings screen */ }
         call.resolve()
     }
 

@@ -245,5 +245,31 @@
     "check": "Buscar actualizaciones",
     "checking": "Comprobando…",
     "latest": "Tienes la última versión."
+  },
+  "settingsScreen": {
+    "title": "Ajustes",
+    "general": "General",
+    "location": "Ubicación",
+    "autoLocate": "Empezar en la ubicación actual",
+    "autoLocateHint": "Usa el GPS al abrir si ya tocaste 📍 antes",
+    "notifications": "Notificaciones",
+    "osNotifOff": "Las notificaciones de esta app están desactivadas en Android.",
+    "openNotifSettings": "Abrir ajustes de notificaciones",
+    "dailyHint": "El tiempo actual a las horas que elijas",
+    "hours": "Horas de aviso",
+    "noHours": "No hay horas elegidas: los avisos diarios están en pausa.",
+    "sensitivity": "Sensibilidad a la lluvia",
+    "sensitivityHint": "Cuenta como lluvia desde {{value}}%",
+    "sensHigh": "Sensible",
+    "sensMid": "Normal",
+    "sensLow": "Relajada",
+    "test": "Enviar notificación de prueba",
+    "testSent": "¡Enviada! Debería llegar en segundos. Si no, revisa permisos y batería.",
+    "testFailed": "No se pudo enviar: permite las notificaciones primero.",
+    "testBody": "Las notificaciones funcionan.",
+    "battery": "Batería",
+    "samsungHint": "Samsung: pon Where Weather en \"Sin restricciones\" en Ajustes → Batería → Límites de uso en segundo plano.",
+    "about": "Acerca de",
+    "version": "Versión"
   }
 }

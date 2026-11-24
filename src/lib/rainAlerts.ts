@@ -14,6 +14,7 @@ import { showNotification } from './notifications';
  */
 
 const ENABLED_KEY = 'rainAlertEnabled';
+const THRESHOLD_KEY = 'rainProbThreshold';
 const LOCATION_KEY = 'rainAlertLocation';
 const WEB_LAST_TOMORROW = 'rainAlertLastTomorrow';
 const WEB_LAST_WEEK = 'rainAlertLastWeek';
@@ -25,14 +26,33 @@ interface RainAlertPlugin {
     latitude?: number;
     longitude?: number;
     locationName?: string;
+    rainProbThreshold?: number;
     strings?: Record<string, string>;
   }): Promise<void>;
+  sendTestNotification(): Promise<void>;
+  notificationStatus(): Promise<{ enabled: boolean }>;
+  openNotificationSettings(): Promise<void>;
   batteryStatus(): Promise<{ ignoring: boolean }>;
   requestBatteryExemption(): Promise<void>;
 }
 
 export function getRainAlertEnabled(): boolean {
   try { return localStorage.getItem(ENABLED_KEY) !== 'false'; } catch { return true; }
+}
+
+/** Rain sensitivity: daily max precipitation probability (%) that counts as rain. */
+export const RAIN_THRESHOLD_OPTIONS = [40, 60, 80] as const;
+
+export function getRainThreshold(): number {
+  try {
+    const v = Number(localStorage.getItem(THRESHOLD_KEY));
+    return (RAIN_THRESHOLD_OPTIONS as readonly number[]).includes(v) ? v : 60;
+  } catch { return 60; }
+}
+
+export async function setRainThreshold(value: number, t: TFunction): Promise<void> {
+  try { localStorage.setItem(THRESHOLD_KEY, String(value)); } catch { /* */ }
+  await syncRainAlerts(t);
 }
 
 function readLocation(): NamedLocation | null {
@@ -70,6 +90,36 @@ export async function getBatteryExempt(): Promise<boolean | null> {
 export async function requestBatteryExemption(): Promise<void> {
   const plugin = await nativePlugin();
   if (plugin) await plugin.requestBatteryExemption().catch(() => {});
+}
+
+/** Android: OS-level notification permission for the app. null on web. */
+export async function getNativeNotificationsEnabled(): Promise<boolean | null> {
+  const plugin = await nativePlugin();
+  if (!plugin) return null;
+  try { return (await plugin.notificationStatus()).enabled; } catch { return null; }
+}
+
+export async function openNativeNotificationSettings(): Promise<void> {
+  const plugin = await nativePlugin();
+  if (plugin) await plugin.openNotificationSettings().catch(() => {});
+}
+
+/**
+ * Sends a test notification now. Android: native worker fetches current weather
+ * and posts it. Web: shows a notification if permission is granted.
+ * Returns false when it could not even be attempted.
+ */
+export async function sendTestNotification(t: TFunction): Promise<boolean> {
+  const plugin = await nativePlugin();
+  if (plugin) {
+    if (!(await ensureNativePermission())) return false;
+    await syncRainAlerts(t); // make sure the native side has the current location
+    await plugin.sendTestNotification();
+    return true;
+  }
+  if (typeof Notification === 'undefined' || Notification.permission !== 'granted') return false;
+  showNotification('Where Weather 🔔', t('settingsScreen.testBody'), 'test');
+  return true;
 }
 
 /** Native notifications use single-brace placeholders filled in Kotlin. */
@@ -114,6 +164,7 @@ export async function syncRainAlerts(t: TFunction, location?: NamedLocation | nu
       latitude: loc?.latitude,
       longitude: loc?.longitude,
       locationName: loc ? locationLabel(loc) : undefined,
+      rainProbThreshold: getRainThreshold(),
       strings: nativeStrings(t),
     });
     return;
@@ -144,7 +195,7 @@ async function checkWeb(t: TFunction, loc: NamedLocation): Promise<void> {
   }
 
   const today = localIsoDate(new Date());
-  const plan = planRainAlerts(days, today);
+  const plan = planRainAlerts(days, today, getRainThreshold());
   const location = locationLabel(loc);
 
   if (plan.tomorrow && localStorage.getItem(WEB_LAST_TOMORROW) !== plan.tomorrow.date) {
